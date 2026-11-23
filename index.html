@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スポーツカー・高級車レンタカー 貸出条件くらべ</title>
+<meta name="description" content="スポーツカー・高級車・MT車のレンタカーの「年齢」「免許取得後の年数」の条件を各社横断で比較。年齢と免許の年数を入れると、借りられる店がすぐ分かります。">
+<meta property="og:title" content="スポーツカー・高級車レンタカー 貸出条件くらべ">
+<meta property="og:description" content="年齢と免許の年数を入れるだけで、借りられるスポーツカー・高級車レンタカーが分かる比較ページ。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1114;--panel:#181b20;--line:#2a2f37;--text:#e9ecef;--muted:#9aa3ad;--accent:#ff4d2e;--ok:#2fbf71;--ng:#e5484d;--warn:#f5a524;--unk:#6b7785}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans JP",system-ui,sans-serif;line-height:1.6}
+a{color:#8ab4ff}
+header{padding:28px 20px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#1a1d22,#0f1114)}
+.wrap{max-width:1080px;margin:0 auto}
+h1{margin:0;font-weight:900;font-size:clamp(22px,4vw,32px)}
+h1 .tag{font-family:Oswald,sans-serif;color:var(--accent);font-size:.6em;letter-spacing:.12em;display:block}
+.lead{color:var(--muted);margin:6px 0 0;font-size:14px}
+.notice{margin-top:12px;font-size:13px;background:rgba(245,165,36,.08);border:1px solid rgba(245,165,36,.35);color:#f3d9a8;border-radius:8px;padding:8px 12px}
+main{padding:20px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;align-items:end}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+input[type=number],input[type=search],select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#0f1114;color:var(--text);font-size:16px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;padding:10px 0}
+.chk input{width:18px;height:18px;accent-color:var(--accent)}
+.chk label{margin:0;color:var(--text);font-size:14px}
+.hint{font-size:12px;color:var(--muted);margin:10px 0 0}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 10px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;background:transparent;color:var(--text);font-family:inherit}
+.pill.on{border-color:var(--accent);background:rgba(255,77,46,.12)}
+.pill b{font-family:Oswald,sans-serif;font-size:15px;margin-left:4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;border-top:4px solid var(--unk)}
+.card.ok{border-top-color:var(--ok)}.card.ng{border-top-color:var(--ng)}.card.cond{border-top-color:var(--warn)}
+.top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.shop{font-weight:700;font-size:16px;line-height:1.35}
+.plan{font-size:13px;color:var(--muted);font-weight:500}
+.cars{font-size:13px;color:#c9d0d7}
+.badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.ok{background:rgba(47,191,113,.15);color:var(--ok)}.badge.ng{background:rgba(229,72,77,.15);color:var(--ng)}
+.badge.cond{background:rgba(245,165,36,.15);color:var(--warn)}.badge.unk{background:rgba(107,119,133,.2);color:#c2c9d1}
+.req{display:flex;gap:6px;flex-wrap:wrap}
+.req span{font-size:13px;background:#0f1114;border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.req em{font-style:normal;font-family:Oswald,sans-serif;font-size:16px;color:#fff;margin-right:2px}
+.where{font-size:12.5px;color:var(--muted)}
+.why{font-size:13px;color:#ffc9bd}
+.card.ok .why{color:#a6e9c4}
+.note{font-size:12.5px;color:var(--muted)}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:8px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
+.conf{font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid var(--line);margin-right:6px}
+.conf.official{color:var(--ok);border-color:rgba(47,191,113,.4)}
+.conf.article,.conf.old{color:var(--warn);border-color:rgba(245,165,36,.4)}
+.empty{color:var(--muted);padding:30px;text-align:center}
+section.about{margin-top:28px}
+section.about h2{font-size:17px;margin:0 0 8px}
+section.about ul{margin:0;padding-left:20px;color:#c9d0d7;font-size:13.5px}
+footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(--line);margin-top:24px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1><span class="tag">SPORTS &amp; LUXURY RENTAL</span>スポーツカー・高級車レンタカー 貸出条件くらべ</h1>
+  <p class="lead">年齢と免許の年数を入れると、どこで借りられるかが分かります。MT車は「MT免許になってからの年数」でも判定します。</p>
+  <p class="notice">各社と関係のない個人の非公式ページです。条件は変わることがあるので、予約の前に必ず各社の公式ページで確認してください。</p>
+</div></header>
+
+<main><div class="wrap">
+  <section class="panel" aria-label="条件の入力">
+    <div class="form">
+      <div><label for="age">年齢</label><input id="age" type="number" inputmode="numeric" min="16" max="99" value="21"></div>
+      <div><label for="lic">免許を取ってから（年）</label><input id="lic" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2"></div>
+      <div id="mtBox"><label for="mt">MT免許になってから（年）</label><input id="mt" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2"></div>
+      <div><div class="chk"><input id="atonly" type="checkbox"><label for="atonly">AT限定免許</label></div></div>
+      <div><label for="area">エリア</label><select id="area"><option value="">全国</option></select></div>
+      <div><label for="q">車名・店名で探す</label><input id="q" type="search" placeholder="例：GT-R、ポルシェ"></div>
+    </div>
+    <p class="hint">AT限定を解除した人は「MT免許になってから」に解除した日からの年数を入れてください。最初からMT免許の人は「免許を取ってから」と同じ数字です。</p>
+  </section>
+
+  <div class="summary" id="summary" role="group" aria-label="結果の絞り込み"></div>
+  <div class="cards" id="cards"><div class="empty">読み込み中…</div></div>
+
+  <section class="about panel">
+    <h2>このページについて</h2>
+    <ul>
+      <li>各社の公式ページ・公式資料を中心に、年齢と免許の年数の条件を集めています。カードごとに出典と確認日を載せています。</li>
+      <li>「公式」は公式ページで確認した条件、「記事」「古い情報」は報道・ブログ・古い資料が元の条件です。変わっている可能性が高いので特に注意してください。</li>
+      <li>判定は年齢と免許の年数だけで行っています。ゴールド免許・任意保険・会員登録・クレジットカードなどの追加条件や、店舗の判断で断られる場合もあります。</li>
+      <li>このページの判定によって生じた損害について、運営者は責任を負いません。</li>
+    </ul>
+    <h2 style="margin-top:16px">情報の訂正・掲載の依頼</h2>
+    <p style="font-size:13.5px;color:#c9d0d7;margin:0">条件の誤りや変更、掲載してほしい店があれば、出典のURLを添えて次のアドレスまでお知らせください。<br>
+    <a href="mailto:tu.apps.jp@gmail.com?subject=%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%E6%9D%A1%E4%BB%B6%E3%81%8F%E3%82%89%E3%81%B9%EF%BC%9A%E8%A8%82%E6%AD%A3%E3%83%BB%E8%BF%BD%E5%8A%A0">tu.apps.jp@gmail.com</a></p>
+  </section>
+</div></main>
+
+<footer><div class="wrap">最終更新：<span id="updated">—</span>　／　掲載：<span id="total">—</span>件</div></footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const CONF = {official:"公式", article:"記事", old:"古い情報"};
+const LABEL = {ok:"借りられる", cond:"条件つきで可", ng:"借りられない", unk:"要確認"};
+const ORDER = {ok:0, cond:1, unk:2, ng:3};
+let DATA = [], filter = "all";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const yrs = n => (Math.round(n*10)/10).toString();
+
+function judge(d, me){
+  if(!d.active) return {s:"unk", why:"今も提供されているか未確認"};
+  if(d.age == null && d.years == null) return {s:"unk", why:"年齢・年数の条件が確認できていない"};
+  const ng = [];
+  if(d.age != null && me.age < d.age) ng.push(`年齢があと${d.age - me.age}歳足りない`);
+  const okLic = d.years == null || me.lic >= d.years;
+  const okMt  = !me.atOnly && (d.years == null || (d.mtFromMt ? me.mt : me.lic) >= d.years);
+  let atOnlyOk = false;
+  if(d.trans === "MT"){
+    if(me.atOnly) ng.push("AT限定では運転できない");
+    else if(!okMt) ng.push(`${d.mtFromMt ? "MT免許の" : "免許の"}年数があと${yrs(d.years - (d.mtFromMt ? me.mt : me.lic))}年足りない`);
+  } else if(d.trans === "MT/AT"){
+    if(!okMt){
+      if(okLic) atOnlyOk = true;
+      else ng.push(`免許の年数があと${yrs(d.years - me.lic)}年足りない`);
+    }
+  } else if(!okLic){
+    ng.push(`免許の年数があと${yrs(d.years - me.lic)}年足りない`);
+  }
+  if(ng.length) return {s:"ng", why:ng.join("・")};
+  const c = [];
+  if(atOnlyOk) c.push(me.atOnly ? "AT車のみ可" : "AT車のみ可（MT車はMT免許の年数が足りない）");
+  if(d.age == null) c.push("年齢の条件は未記載");
+  if(d.years == null) c.push("年数の条件は未記載");
+  if(d.extra) c.push("追加条件：" + d.extra);
+  if(c.length) return {s:"cond", why:c.join("／")};
+  return {s:"ok", why:""};
+}
+
+function render(){
+  const me = {age:+$("age").value || 0, lic:+$("lic").value || 0, mt:+$("mt").value || 0, atOnly:$("atonly").checked};
+  if(me.atOnly) me.mt = 0;
+  $("mtBox").style.opacity = me.atOnly ? .4 : 1;
+  $("mt").disabled = me.atOnly;
+  const area = $("area").value, q = $("q").value.trim().toLowerCase();
+  const rows = DATA
+    .filter(d => !area || d.areas.includes(area))
+    .filter(d => !q || (d.shop + d.plan + d.cars + d.areaText).toLowerCase().includes(q))
+    .map(d => ({d, j:judge(d, me)}))
+    .sort((a,b) => ORDER[a.j.s] - ORDER[b.j.s] || (a.d.age ?? 0) - (b.d.age ?? 0) || (a.d.years ?? 0) - (b.d.years ?? 0));
+  const count = {all:rows.length, ok:0, cond:0, ng:0, unk:0};
+  rows.forEach(r => count[r.j.s]++);
+  $("summary").innerHTML = [["all","すべて"],["ok","借りられる"],["cond","条件つき"],["unk","要確認"],["ng","借りられない"]]
+    .map(([k,l]) => `<button class="pill ${filter===k?"on":""}" data-f="${k}" aria-pressed="${filter===k}">${l}<b>${count[k]}</b></button>`).join("");
+  document.querySelectorAll(".pill").forEach(b => b.onclick = () => { filter = b.dataset.f; render(); });
+  const shown = rows.filter(r => filter === "all" || r.j.s === filter);
+  $("cards").innerHTML = shown.length ? shown.map(({d,j}) => `
+    <article class="card ${j.s}">
+      <div class="top"><div class="shop">${esc(d.shop)}<div class="plan">${esc(d.plan)}</div></div><span class="badge ${j.s}">${LABEL[j.s]}</span></div>
+      <div class="cars">${esc(d.cars)}</div>
+      <div class="req">
+        <span><em>${d.age ?? "?"}</em>歳以上</span>
+        <span>免許 <em>${d.years ?? "?"}</em>年以上${d.mtFromMt && d.trans.includes("MT") && d.years != null ? "（MTはMT免許から）" : ""}</span>
+        <span>${esc(d.trans)}</span>
+      </div>
+      <div class="where">📍 ${esc(d.areaText)}</div>
+      ${j.why ? `<div class="why">${esc(j.why)}</div>` : ""}
+      ${d.note ? `<div class="note">${esc(d.note)}</div>` : ""}
+      <div class="meta"><span><span class="conf ${d.conf}">${CONF[d.conf]}</span>確認日 ${esc(d.checked)}</span><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">出典 ↗</a></div>
+    </article>`).join("") : `<div class="empty">条件に合う掲載がありません</div>`;
+}
+
+fetch("data.json").then(r => r.json()).then(data => {
+  DATA = data;
+  ["関西","関東","中部","中国","九州・沖縄"].filter(a => DATA.some(d => d.areas.includes(a))).forEach(a => {
+    const o = document.createElement("option"); o.value = a; o.textContent = a; $("area").appendChild(o);
+  });
+  $("updated").textContent = DATA.map(d => d.checked).sort().pop();
+  $("total").textContent = DATA.length;
+  ["age","lic","mt","atonly","area","q"].forEach(id => $(id).addEventListener("input", render));
+  render();
+}).catch(() => { $("cards").innerHTML = `<div class="empty">データを読み込めませんでした。再読み込みしてください。</div>`; });
+</script>
+</body>
+</html>

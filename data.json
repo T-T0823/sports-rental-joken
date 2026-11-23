@@ -1,0 +1,474 @@
+[
+ {
+  "id": "glion-premium",
+  "shop": "GLION Premium Rent-A-Car（Gライオンレンタカー）",
+  "plan": "高級スポーツカー・オープンカー",
+  "cars": "日産 GT-R Premium edition（AT）・GR スープラ RZ・コペン セロ S など",
+  "areas": [
+   "関西",
+   "関東"
+  ],
+  "areaText": "大阪府豊中市（服部寿町）・横浜",
+  "trans": "車種による",
+  "age": null,
+  "years": 1,
+  "mtFromMt": false,
+  "extra": "免許1年未満・ペーパードライバーは高級スポーツカー・オープンカーの貸出不可（原則）",
+  "note": "年齢の下限は書かれておらず、上限は75歳未満。通常の車は免許半年以上で借りられ、1年未満は車両補償が修理実費（上限10万円）になる。",
+  "src": "https://www.glion-rent.com/1695/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "mrhiro-mt",
+  "shop": "MR.HIROレンタカー",
+  "plan": "MT車（JDM名車）",
+  "cars": "AE86・RX-7（FC/FD）・180SX・S2000・R32 GT-R・インプレッサ GC8 など",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪市大正区",
+  "trans": "MT",
+  "age": null,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "MT車は免許取得3年以上（店のブログ）。年齢の条件は確認できていない（同店のドライビングツアーは21歳以上）。",
+  "src": "https://mrhiro-jdm.com/archives/1350",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "mrhiro-at",
+  "shop": "MR.HIROレンタカー",
+  "plan": "AT車",
+  "cars": "AE86（AT）・ホンダ NSX（AT）",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪市大正区",
+  "trans": "AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "店のブログで、免許3年未満の人でもAT車（AE86 AT・NSX AT）なら利用できると案内している。",
+  "src": "https://mrhiro-jdm.com/archives/1350",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "omoren",
+  "shop": "おもしろレンタカー",
+  "plan": "標準条件（ほとんどの車種）",
+  "cars": "GR86・シビック タイプR・RX-7・R32 GT-R・ロードスターなど（店舗ごとに異なる）",
+  "areas": [
+   "関東",
+   "中部",
+   "関西",
+   "九州・沖縄"
+  ],
+  "areaText": "関東11店・愛知・大阪中央店（大阪市東成区）・和歌山店・福岡香椎店",
+  "trans": "MT/AT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "MT車はMT免許取得から3年、AT限定解除の人は解除日から3年。追加運転者も同じ条件。MTの練習目的では借りられない。",
+  "src": "https://www.omoren.com/guide/faq",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "omoren-r35",
+  "shop": "おもしろレンタカー",
+  "plan": "日産 GT-R（R35）",
+  "cars": "日産 GT-R（R35）",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "取扱店舗のみ",
+  "trans": "2ペダル",
+  "age": 28,
+  "years": 5,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "同じ会社でも車種によって標準より厳しい条件がある例。",
+  "src": "https://www.omoren.com/en/products/detail/470",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "omoren-maybach",
+  "shop": "おもしろレンタカー",
+  "plan": "メルセデス・マイバッハ S560",
+  "cars": "メルセデス・マイバッハ S560",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "有明店",
+  "trans": "AT",
+  "age": 26,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "導入時（2020年）の記事による条件。",
+  "src": "https://kuruma-news.jp/post/311445/2",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "skyrent-gr86",
+  "shop": "スカイレンタカー",
+  "plan": "GR86（RZ）",
+  "cars": "トヨタ GR86 RZ",
+  "areas": [
+   "関西",
+   "関東",
+   "九州・沖縄"
+  ],
+  "areaText": "新大阪駅東口店（AT・MT）・大阪駅前店（AT）・羽田空港店（AT・MT）・西武立川店（MT）・博多駅店（MT）など",
+  "trans": "MT/AT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "AT車は免許3年以上、MT車はMT免許3年以上。どちらも21歳以上。ハイオク指定。",
+  "src": "https://www.skyrent.jp/campaigns/toyota_gr86/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "heisei-civic",
+  "shop": "平成レンタカー",
+  "plan": "シビック タイプR",
+  "cars": "ホンダ シビック タイプR（6MT）",
+  "areas": [
+   "中国"
+  ],
+  "areaText": "岡山県倉敷市（児島駅前）",
+  "trans": "MT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "クレジットカードでの事前決済",
+  "note": "",
+  "src": "https://www.heisei-car.jp/sports-car/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "heisei-other",
+  "shop": "平成レンタカー",
+  "plan": "その他のスポーツカー",
+  "cars": "ロードスター（6MT）・GR86 RZ（6MT）・コペン（MT）",
+  "areas": [
+   "中国"
+  ],
+  "areaText": "岡山県倉敷市（児島駅前）",
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "公式ページにはこれらの車の年齢・年数の条件が書かれていない。",
+  "src": "https://www.heisei-car.jp/sports-car/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "porsche-drive",
+  "shop": "Porsche Drive Rental",
+  "plan": "ポルシェ公式レンタカー",
+  "cars": "911・718・タイカン・パナメーラなど",
+  "areas": [
+   "関西",
+   "関東",
+   "中部",
+   "九州・沖縄"
+  ],
+  "areaText": "ポルシェセンター西宮・神戸（関西）、東京・埼玉、福井、九州、沖縄など",
+  "trans": "2ペダル",
+  "age": 26,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "有効期限3ヶ月以上のクレジットカード",
+  "note": "",
+  "src": "https://www.porsche.com/japan/jp/porschedrive/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "fun2drive",
+  "shop": "Fun2Drive",
+  "plan": "会員制レンタカー",
+  "cars": "ロータス スーパーセブン・歴代GT-R・NSX・ポルシェ911（964）など",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "神奈川県箱根町",
+  "trans": "MT/AT",
+  "age": 26,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "会員登録が必要。本登録には正規就労の証明が必要で、学生などは条件付きの仮登録",
+  "note": "ツアー企画では条件が緩和されることがある。条件は車種ページの記載（掲載時期が古い可能性あり）。",
+  "src": "https://fun2drive.co.jp/cars/lotus_7/",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "koumafarm",
+  "shop": "コウマファーム",
+  "plan": "ラグジュアリーカーレンタル",
+  "cars": "フェラーリなど",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "千葉県成田市",
+  "trans": "不明",
+  "age": 22,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "本人か保護者名義の任意保険（他車運転特約付き）が必要",
+  "note": "「原則」の条件。普段からスポーツカーに乗っている人や保護者同伴なら21歳以下でも可とされている。",
+  "src": "https://koumafarm.com/news/car_rental.html",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "honda-kyoritsu",
+  "shop": "ホンダレンタカー共立",
+  "plan": "ホンダ車（MT車あり）",
+  "cars": "シビック・N-ONE RSなどのMT車",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "神奈川県横浜市港北区",
+  "trans": "MT/AT",
+  "age": null,
+  "years": 0.5,
+  "mtFromMt": false,
+  "extra": "21歳未満・免許1年未満は免責補償に入れない",
+  "note": "免許取得後6ヶ月未満は断られる場合がある。年齢の下限は書かれていない。",
+  "src": "http://xn--lckwbc1iudubc8e1762buowe.com/guide.html",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "hondacars-tokyochuo",
+  "shop": "Honda Cars 東京中央",
+  "plan": "シビック タイプR",
+  "cars": "ホンダ シビック タイプR",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京",
+  "trans": "MT",
+  "age": null,
+  "years": 2,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "利用者のブログによる情報。年齢条件は不明。",
+  "src": "https://libair.net/2022/04/03/rental_manual_transmission_vehicle/",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "carrental-tokyo",
+  "shop": "カーレンタル東京",
+  "plan": "国産スポーツカー",
+  "cars": "R35・R32・R34 GT-R、AE86、S2000、FL5 シビック タイプR、GRヤリスなど",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "千葉県松戸市",
+  "trans": "MT/AT",
+  "age": null,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "会員登録（無料）が必要・デポジット5万円",
+  "note": "公式FAQ（ブログに引用）ではMT免許取得後3年以上。年齢は車種ごとに21歳以上・25歳以上などの条件がある。",
+  "src": "https://libair.net/2022/04/03/rental_manual_transmission_vehicle/",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "porschegate",
+  "shop": "ポルシェゲート",
+  "plan": "ポルシェ専門レンタカー",
+  "cars": "930ターボ・964・993など空冷ポルシェ（MT中心）、911ターボSなど",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪府箕面市",
+  "trans": "MT/AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "src": "https://www.kobe-np.co.jp/rentoku/omoshiro/202201/0015020886.shtml",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "orush",
+  "shop": "O-RUSHレンタカー",
+  "plan": "輸入車レンタカー",
+  "cars": "ポルシェ・メルセデス・BMW・オープンカーなど",
+  "areas": [
+   "関西",
+   "関東",
+   "中部"
+  ],
+  "areaText": "大阪・神戸・宝塚・京都・奈良、東京・千葉・名古屋",
+  "trans": "不明",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件は公式の利用ガイドにある可能性があるが、まだ確認できていない。",
+  "src": "https://www.o-rush-rent-a-car.com/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "carbon-bonnet",
+  "shop": "Carbon-bonnet",
+  "plan": "プレミアムカー",
+  "cars": "ポルシェ 911 カレラ（991・左ハンドル）・カイエン・マカン ターボ・パナメーラなど",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "京都",
+  "trans": "不明",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "免責額20万円（免責補償は対象外）",
+  "note": "年齢・年数の条件はまだ確認できていない。",
+  "src": "https://www.carbon-bonnet.jp/%E3%81%8A%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84%E8%BB%8A%E7%A8%AE/%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%82%AB%E3%83%BC/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "trl-osaka-gr86",
+  "shop": "トヨタレンタリース大阪",
+  "plan": "GR86（SP1クラス）",
+  "cars": "トヨタ GR86（ATのみ）",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪府内の店舗",
+  "trans": "AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "クレジットカード決済のみ",
+  "note": "スポーツカー向けの特別な年齢・年数の条件は確認できていない。",
+  "src": "https://rent-a-car.trlosaka.co.jp/bf_sp1_gr86",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "times-servicex",
+  "shop": "タイムズカーレンタル",
+  "plan": "Service X",
+  "cars": "ポルシェ・ロータス・ケータハム スーパー7など",
+  "areas": [
+   "関東",
+   "中部"
+  ],
+  "areaText": "東京・神奈川・愛知など（2019年時点）",
+  "trans": "MT/AT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "タイムズクラブ会員（無料）・クレジットカード",
+  "note": "条件は2019年の公式資料による。サービスが終了したとする記事があり、現在も提供されているか未確認。",
+  "src": "https://www.park24.co.jp/news/20190822-2-2.pdf",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": false
+ },
+ {
+  "id": "kari",
+  "shop": "Kari Rental Car",
+  "plan": "高級車・オープンカー",
+  "cars": "ベンツ SLC・Eクラス カブリオレ・MINI コンバーチブルなど",
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "沖縄",
+  "trans": "AT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "車種によっては24歳以上。公式ページの情報が古い可能性がある。",
+  "src": "https://kari-rentalcar.com/",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "okinawa-premium",
+  "shop": "沖縄プレミアムレンタカー",
+  "plan": "2人乗りスポーツカー",
+  "cars": "2人乗りスポーツカー",
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "沖縄",
+  "trans": "不明",
+  "age": 24,
+  "years": 0.5,
+  "mtFromMt": false,
+  "extra": "免許1年未満は1日1,600円の追加料金",
+  "note": "免許取得後半年未満は不可。",
+  "src": "https://ra-corp.net/2026/08/26/%E6%B2%96%E7%B8%84%E3%81%A72%E4%BA%BA%E4%B9%97%E3%82%8A%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%82%AB%E3%83%BC%E3%82%92%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%EF%BC%81%E6%84%9F%E5%8B%95%E3%83%89/",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true
+ },
+ {
+  "id": "yanase",
+  "shop": "ヤナセ プレミアムレンタカー",
+  "plan": "高級輸入車",
+  "cars": "ポルシェ・メルセデス・BMWなど",
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京",
+  "trans": "AT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "「11車種中9車種がこの条件」とする古い記事による。",
+  "src": "https://navikuru-car.com/luxury-car-rental-23018",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": true
+ }
+]
