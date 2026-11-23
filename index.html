@@ -36,7 +36,7 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .pill b{font-family:Oswald,sans-serif;font-size:15px;margin-left:4px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;border-top:4px solid var(--unk)}
-.card.ok{border-top-color:var(--ok)}.card.ng{border-top-color:var(--ng)}.card.cond{border-top-color:var(--warn)}
+.card.ok{border-top-color:var(--ok)}.card.mt{border-top-color:#c084fc}.badge.mt{background:rgba(192,132,252,.15);color:#d8b4fe}.card.ng{border-top-color:var(--ng)}.card.cond{border-top-color:var(--warn)}
 .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .shop{font-weight:700;font-size:16px;line-height:1.35}
 .plan{font-size:13px;color:var(--muted);font-weight:500}
@@ -79,7 +79,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <div><label for="area">エリア</label><select id="area"><option value="">全国</option></select></div>
       <div><label for="q">車名・店名で探す</label><input id="q" type="search" placeholder="例：GT-R、ポルシェ"></div>
     </div>
-    <p class="hint">AT限定を解除した人は「MT免許になってから」に解除した日からの年数を入れてください。最初からMT免許の人は「免許を取ってから」と同じ数字です。</p>
+    <p class="hint">AT限定を解除した人は「MT免許になってから」に解除した日からの年数を入れてください。最初からMT免許の人は「免許を取ってから」と同じ数字です。MT免許の年数だけが足りない店は「MT年数だけ不足」として表示します。</p>
   </section>
 
   <div class="summary" id="summary" role="group" aria-label="結果の絞り込み"></div>
@@ -104,8 +104,8 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
 <script>
 const $ = id => document.getElementById(id);
 const CONF = {official:"公式", article:"記事", old:"古い情報"};
-const LABEL = {ok:"借りられる", cond:"条件つきで可", ng:"借りられない", unk:"要確認"};
-const ORDER = {ok:0, cond:1, unk:2, ng:3};
+const LABEL = {ok:"借りられる", cond:"条件つきで可", mt:"MT年数だけ不足", ng:"借りられない", unk:"要確認"};
+const ORDER = {ok:0, cond:1, mt:2, unk:3, ng:4};
 let DATA = [], filter = "all";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const yrs = n => (Math.round(n*10)/10).toString();
@@ -117,10 +117,13 @@ function judge(d, me){
   if(d.age != null && me.age < d.age) ng.push(`年齢があと${d.age - me.age}歳足りない`);
   const okLic = d.years == null || me.lic >= d.years;
   const okMt  = !me.atOnly && (d.years == null || (d.mtFromMt ? me.mt : me.lic) >= d.years);
-  let atOnlyOk = false;
+  let atOnlyOk = false, mtShort = "";
   if(d.trans === "MT"){
     if(me.atOnly) ng.push("AT限定では運転できない");
-    else if(!okMt) ng.push(`${d.mtFromMt ? "MT免許の" : "免許の"}年数があと${yrs(d.years - (d.mtFromMt ? me.mt : me.lic))}年足りない`);
+    else if(!okMt){
+      if(d.mtFromMt && okLic) mtShort = `MT免許になってからの年数があと${yrs(d.years - me.mt)}年足りない（年齢・免許の年数は満たしている）`;
+      else ng.push(`免許の年数があと${yrs(d.years - me.lic)}年足りない`);
+    }
   } else if(d.trans === "MT/AT"){
     if(!okMt){
       if(okLic) atOnlyOk = true;
@@ -130,6 +133,7 @@ function judge(d, me){
     ng.push(`免許の年数があと${yrs(d.years - me.lic)}年足りない`);
   }
   if(ng.length) return {s:"ng", why:ng.join("・")};
+  if(mtShort) return {s:"mt", why:mtShort + (d.extra ? "／追加条件：" + d.extra : "")};
   const c = [];
   if(atOnlyOk) c.push(me.atOnly ? "AT車のみ可" : "AT車のみ可（MT車はMT免許の年数が足りない）");
   if(d.age == null) c.push("年齢の条件は未記載");
@@ -150,9 +154,9 @@ function render(){
     .filter(d => !q || (d.shop + d.plan + d.cars + d.areaText).toLowerCase().includes(q))
     .map(d => ({d, j:judge(d, me)}))
     .sort((a,b) => ORDER[a.j.s] - ORDER[b.j.s] || (a.d.age ?? 0) - (b.d.age ?? 0) || (a.d.years ?? 0) - (b.d.years ?? 0));
-  const count = {all:rows.length, ok:0, cond:0, ng:0, unk:0};
+  const count = {all:rows.length, ok:0, cond:0, mt:0, ng:0, unk:0};
   rows.forEach(r => count[r.j.s]++);
-  $("summary").innerHTML = [["all","すべて"],["ok","借りられる"],["cond","条件つき"],["unk","要確認"],["ng","借りられない"]]
+  $("summary").innerHTML = [["all","すべて"],["ok","借りられる"],["cond","条件つき"],["mt","MT年数だけ不足"],["unk","要確認"],["ng","借りられない"]]
     .map(([k,l]) => `<button class="pill ${filter===k?"on":""}" data-f="${k}" aria-pressed="${filter===k}">${l}<b>${count[k]}</b></button>`).join("");
   document.querySelectorAll(".pill").forEach(b => b.onclick = () => { filter = b.dataset.f; render(); });
   const shown = rows.filter(r => filter === "all" || r.j.s === filter);
