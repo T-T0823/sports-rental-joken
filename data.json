@@ -18,7 +18,12 @@
   "src": "https://www.glion-rent.com/1695/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府",
+   "神奈川県"
+  ],
+  "price": "日帰り 約1.1万〜7万円（ロードスターMTは日帰り約1.8万円）"
  },
  {
   "id": "mrhiro-mt",
@@ -38,7 +43,10 @@
   "src": "https://mrhiro-jdm.com/archives/1350",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府"
+  ]
  },
  {
   "id": "mrhiro-at",
@@ -58,7 +66,10 @@
   "src": "https://mrhiro-jdm.com/archives/1350",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府"
+  ]
  },
  {
   "id": "omoren",
@@ -83,7 +94,20 @@
   "src": "https://www.omoren.com/guide/faq",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "北海道",
+   "千葉県",
+   "東京都",
+   "神奈川県",
+   "埼玉県",
+   "愛知県",
+   "大阪府",
+   "和歌山県",
+   "広島県",
+   "福岡県"
+  ],
+  "price": "6時間 約0.8万円〜（車種による）"
  },
  {
   "id": "omoren-r35",
@@ -103,7 +127,8 @@
   "src": "https://www.omoren.com/en/products/detail/470",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": []
  },
  {
   "id": "omoren-maybach",
@@ -123,7 +148,11 @@
   "src": "https://kuruma-news.jp/post/311445/2",
   "conf": "article",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "東京都"
+  ],
+  "price": "24時間 約9万円（2020年時点）"
  },
  {
   "id": "skyrent-gr86",
@@ -145,7 +174,12 @@
   "src": "https://www.skyrent.jp/campaigns/toyota_gr86/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府",
+   "東京都",
+   "福岡県"
+  ]
  },
  {
   "id": "heisei-civic",
@@ -165,7 +199,11 @@
   "src": "https://www.heisei-car.jp/sports-car/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "岡山県"
+  ],
+  "price": "24時間 約2.5万円"
  },
  {
   "id": "heisei-other",
@@ -185,7 +223,11 @@
   "src": "https://www.heisei-car.jp/sports-car/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "岡山県"
+  ],
+  "price": "24時間 約2.5万円前後"
  },
  {
   "id": "porsche-drive",
@@ -208,7 +250,17 @@
   "src": "https://www.porsche.com/japan/jp/porschedrive/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "兵庫県",
+   "愛知県",
+   "福井県",
+   "東京都",
+   "埼玉県",
+   "熊本県",
+   "鹿児島県",
+   "沖縄県"
+  ]
  },
  {
   "id": "fun2drive",
@@ -228,7 +280,11 @@
   "src": "https://fun2drive.co.jp/cars/z_400z_rz34/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "神奈川県"
+  ],
+  "price": "1.5時間 約1.7万円〜／6時間 約3.5万円"
  },
  {
   "id": "koumafarm",
@@ -244,11 +300,14 @@
   "years": 3,
   "mtFromMt": false,
   "extra": "本人か保護者名義の任意保険（他車運転特約付き）が必要",
-  "note": "「原則」の条件。普段からスポーツカーに乗っている人や保護者同伴なら21歳以下でも可とされている。",
-  "src": "https://koumafarm.com/news/car_rental.html",
+  "note": "レンタカーの案内ページが削除されていて、今も提供しているか確認できない。",
+  "src": "https://koumafarm.com/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": false,
+  "prefs": [
+   "千葉県"
+  ]
  },
  {
   "id": "honda-kyoritsu",
@@ -268,7 +327,10 @@
   "src": "http://xn--lckwbc1iudubc8e1762buowe.com/guide.html",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "神奈川県"
+  ]
  },
  {
   "id": "hondacars-tokyochuo",
@@ -288,7 +350,10 @@
   "src": "https://www.hondamobility-minamikanto.co.jp/corporate/rentacar_mt.html",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "id": "carrental-tokyo",
@@ -304,11 +369,15 @@
   "years": 3,
   "mtFromMt": true,
   "extra": "会員登録（無料）が必要・デポジット5万円",
-  "note": "R32 GT-Rは21歳以上・MT免許3年以上。車種ごとに年齢条件があり、R35 GT-R（2025年モデル）は25歳以上。",
-  "src": "https://activityjapan.com/publish/plan/18514",
+  "note": "R32 GT-Rは21歳以上・MT免許3年以上。車種ごとに年齢条件があり、R35 GT-R（2025年モデル）は25歳以上。（以前の掲載元だった予約サイトのプランは受付終了。条件は公式で再確認を）",
+  "src": "https://carrental-tokyo.jp/shop",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "千葉県"
+  ],
+  "price": "10時間 約1.7万円〜"
  },
  {
   "id": "porschegate",
@@ -328,7 +397,10 @@
   "src": "https://www.kobe-np.co.jp/rentoku/omoshiro/202201/0015020886.shtml",
   "conf": "article",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府"
+  ]
  },
  {
   "id": "orush",
@@ -350,7 +422,16 @@
   "src": "https://www.o-rush-rent-a-car.com/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府",
+   "兵庫県",
+   "京都府",
+   "奈良県",
+   "東京都",
+   "千葉県",
+   "愛知県"
+  ]
  },
  {
   "id": "carbon-bonnet",
@@ -370,7 +451,11 @@
   "src": "https://www.carbon-bonnet.jp/%E3%81%8A%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84%E8%BB%8A%E7%A8%AE/%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%82%AB%E3%83%BC/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "京都府"
+  ],
+  "price": "1日 約4.4万円"
  },
  {
   "id": "trl-osaka-gr86",
@@ -390,7 +475,11 @@
   "src": "https://rent-a-car.trlosaka.co.jp/bf_sp1_gr86",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "大阪府"
+  ],
+  "price": "6時間 約1万円／24時間 約1.7万円"
  },
  {
   "id": "times-servicex",
@@ -411,7 +500,12 @@
   "src": "https://www.park24.co.jp/news/20190822-2-2.pdf",
   "conf": "old",
   "checked": "2026-11-23",
-  "active": false
+  "active": false,
+  "prefs": [
+   "東京都",
+   "神奈川県",
+   "愛知県"
+  ]
  },
  {
   "id": "kari",
@@ -431,7 +525,11 @@
   "src": "https://kari-rentalcar.com/",
   "conf": "old",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "沖縄県"
+  ],
+  "price": "1日 約1.9万〜4.8万円"
  },
  {
   "id": "okinawa-premium",
@@ -451,7 +549,10 @@
   "src": "https://ra-corp.net/2026/08/26/%E6%B2%96%E7%B8%84%E3%81%A72%E4%BA%BA%E4%B9%97%E3%82%8A%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%82%AB%E3%83%BC%E3%82%92%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%EF%BC%81%E6%84%9F%E5%8B%95%E3%83%89/",
   "conf": "official",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "沖縄県"
+  ]
  },
  {
   "id": "yanase",
@@ -467,11 +568,14 @@
   "years": 3,
   "mtFromMt": false,
   "extra": "",
-  "note": "「11車種中9車種がこの条件」とする古い記事による。",
-  "src": "https://navikuru-car.com/luxury-car-rental-23018",
+  "note": "ニッポンレンタカーの営業所で貸し出すサービス。条件は「11車種中9車種がこの条件」とする古い記事による（その記事は現在開けない）。",
+  "src": "https://www.yanase.co.jp/company/information/press/2019/pdf/press_174.pdf",
   "conf": "old",
   "checked": "2026-11-23",
-  "active": true
+  "active": true,
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -491,7 +595,11 @@
   "shop": "バジェット・レンタカー",
   "plan": "名古屋東店 スポーツカー体感（電話予約限定）",
   "cars": "GR86（MT）・ロードスター（MT）・S660（MT）・スイフトスポーツ（MT）・アルトワークス（MT）",
-  "src": "https://www.budgetrentacar.co.jp/campaign/sportscar/"
+  "src": "https://www.budgetrentacar.co.jp/campaign/sportscar/",
+  "prefs": [
+   "愛知県"
+  ],
+  "price": "24時間 約1.7万円〜（S660）"
  },
  {
   "areas": [
@@ -514,7 +622,14 @@
   "shop": "スカイレンタカー",
   "plan": "ロードスター 車種指定",
   "cars": "マツダ ロードスター（MT）・ロードスターRF（AT）",
-  "src": "https://www.skyrent.jp/campaigns/mazda_roadstar/"
+  "src": "https://www.skyrent.jp/campaigns/mazda_roadstar/",
+  "prefs": [
+   "神奈川県",
+   "東京都",
+   "石川県",
+   "福井県"
+  ],
+  "price": "当日返却・24時間とも 約1万円〜"
  },
  {
   "areas": [
@@ -537,7 +652,12 @@
   "shop": "スカイレンタカー",
   "plan": "シビックRS（MT）車種指定",
   "cars": "ホンダ シビックRS（6MT）",
-  "src": "https://www.skyrent.jp/campaigns/civic_rs/"
+  "src": "https://www.skyrent.jp/campaigns/civic_rs/",
+  "prefs": [
+   "北海道",
+   "青森県",
+   "宮城県"
+  ]
  },
  {
   "areas": [
@@ -557,7 +677,8 @@
   "shop": "スカイレンタカー",
   "plan": "GRスープラ（MT）車種指定",
   "cars": "トヨタ GRスープラ RZ（MT・2人乗り）",
-  "src": "https://www.skyrent.jp/campaigns/supra/"
+  "src": "https://www.skyrent.jp/campaigns/supra/",
+  "prefs": []
  },
  {
   "areas": [
@@ -577,7 +698,11 @@
   "shop": "スカイレンタカー",
   "plan": "シビック TYPE R（MT）",
   "cars": "ホンダ シビック TYPE R（MT）",
-  "src": "https://www.skyrent.jp/campaigns/manual_car/"
+  "src": "https://www.skyrent.jp/campaigns/manual_car/",
+  "prefs": [
+   "東京都",
+   "神奈川県"
+  ]
  },
  {
   "areas": [
@@ -599,7 +724,13 @@
   "shop": "スカイレンタカー",
   "plan": "フェアレディZ",
   "cars": "日産 フェアレディZ（6MT／9速AT）",
-  "src": "https://prosnew.com/nissan-fairladyz-rentcar/"
+  "src": "https://prosnew.com/nissan-fairladyz-rentcar/",
+  "prefs": [
+   "東京都",
+   "大阪府",
+   "徳島県"
+  ],
+  "price": "24時間 約2.1万円（AT・期間限定料金）"
  },
  {
   "areas": [
@@ -619,7 +750,10 @@
   "shop": "スカイレンタカー",
   "plan": "S660（西武立川店）",
   "cars": "ホンダ S660（MT／AT）",
-  "src": "https://www.skyrent.jp/campaigns/sportscar/"
+  "src": "https://www.skyrent.jp/campaigns/sportscar/",
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -639,7 +773,10 @@
   "shop": "トヨタレンタリース埼玉",
   "plan": "GR86・GRヤリス（MT）",
   "cars": "トヨタ GR86・GRヤリス（MT）",
-  "src": "https://toyota-rlss.co.jp/faq-cat/rental-car"
+  "src": "https://toyota-rlss.co.jp/faq-cat/rental-car",
+  "prefs": [
+   "埼玉県"
+  ]
  },
  {
   "areas": [
@@ -664,7 +801,21 @@
   "shop": "トヨタレンタカー",
   "plan": "GR86（全国の取扱店）",
   "cars": "トヨタ GR86（MT／AT）",
-  "src": "https://cp.toyota.jp/rentacar/syouryou/gr86/"
+  "src": "https://cp.toyota.jp/rentacar/syouryou/gr86/",
+  "prefs": [
+   "愛知県",
+   "埼玉県",
+   "山形県",
+   "栃木県",
+   "京都府",
+   "滋賀県",
+   "愛媛県",
+   "沖縄県",
+   "高知県",
+   "大阪府",
+   "兵庫県"
+  ],
+  "price": "6時間 約1万円〜（店舗により異なる）"
  },
  {
   "areas": [
@@ -684,7 +835,10 @@
   "shop": "トヨタレンタリース京都",
   "plan": "GR86（RZ・MT／SZ・AT）",
   "cars": "トヨタ GR86 RZ（6MT）・SZ（6AT）",
-  "src": "https://www.r-kyoto.co.jp/kyotoservice/kyotoservice-3074/"
+  "src": "https://www.r-kyoto.co.jp/kyotoservice/kyotoservice-3074/",
+  "prefs": [
+   "京都府"
+  ]
  },
  {
   "areas": [
@@ -704,7 +858,11 @@
   "shop": "トヨタレンタリース神戸",
   "plan": "GRヤリス（MT）",
   "cars": "トヨタ GRヤリス（MT）",
-  "src": "https://www.r-kobe.jp/topics/3990/"
+  "src": "https://www.r-kobe.jp/topics/3990/",
+  "prefs": [
+   "兵庫県"
+  ],
+  "price": "6時間 約1万円"
  },
  {
   "areas": [
@@ -724,7 +882,8 @@
   "shop": "オリックスレンタカー",
   "plan": "スポーツカー体感プラン",
   "cars": "GR86・BRZ・ロードスター・アバルト595",
-  "src": "https://car.orix.co.jp/campaign/2025071803_sportscar.html"
+  "src": "https://car.orix.co.jp/campaign/2025071803_sportscar.html",
+  "prefs": []
  },
  {
   "areas": [
@@ -746,7 +905,13 @@
   "shop": "日産レンタカー",
   "plan": "GT-R・フェアレディZ",
   "cars": "日産 GT-R・フェアレディZ",
-  "src": "https://intensive911.com/japanese-car-brand/nissan-infiniti/117763"
+  "src": "https://intensive911.com/japanese-car-brand/nissan-infiniti/117763",
+  "prefs": [
+   "東京都",
+   "愛知県",
+   "大阪府"
+  ],
+  "price": "日帰り（9〜19時）約3.5万円（GT-R）"
  },
  {
   "areas": [
@@ -766,7 +931,10 @@
   "shop": "OnlyJDM",
   "plan": "JDMレンタカー",
   "cars": "フェアレディZ Z32・GT-R R35/R32・RX-7・LC500・S2000など",
-  "src": "https://only-jdm.com/ja/cardetail/30"
+  "src": "https://only-jdm.com/ja/cardetail/30",
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -787,7 +955,12 @@
   "shop": "SAMURAI RENT-A-CAR",
   "plan": "超高級車レンタル",
   "cars": "フェラーリ・ランボルギーニ・マクラーレン・ロールス・ロイスなど",
-  "src": "https://prtimes.jp/main/html/rd/p/000000001.000169826.html"
+  "src": "https://prtimes.jp/main/html/rd/p/000000001.000169826.html",
+  "prefs": [
+   "東京都",
+   "神奈川県",
+   "熊本県"
+  ]
  },
  {
   "areas": [
@@ -807,7 +980,10 @@
   "shop": "TOKYO SUPERCARS",
   "plan": "スーパーカー運転体験（先導・同乗付き）",
   "cars": "フェラーリ・ランボルギーニ・マクラーレンなど（主にセミAT）",
-  "src": "https://activityjapan.com/publish/plan/28246"
+  "src": "https://activityjapan.com/publish/plan/28246",
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -827,7 +1003,11 @@
   "shop": "GLAMP",
   "plan": "スポーツカー",
   "cars": "GR86 40周年記念車（MT）・GRヤリス・S2000（MT）・ロードスター（MT）",
-  "src": "https://www.rentacarglamp.com/jdmlineup/toyota-gr-yaris"
+  "src": "https://www.rentacarglamp.com/jdmlineup/toyota-gr-yaris",
+  "prefs": [
+   "愛知県"
+  ],
+  "price": "6時間 約1.3万円〜（GRヤリス）"
  },
  {
   "areas": [
@@ -847,7 +1027,11 @@
   "shop": "JDMカーレンタル",
   "plan": "スポーツカー",
   "cars": "フェアレディZ バージョンST（6MT）など",
-  "src": "https://prtimes.jp/main/html/rd/p/000000014.000028122.html"
+  "src": "https://prtimes.jp/main/html/rd/p/000000014.000028122.html",
+  "prefs": [
+   "愛知県"
+  ],
+  "price": "3時間 約2万円／24時間 約4.8万円"
  },
  {
   "areas": [
@@ -867,7 +1051,10 @@
   "shop": "アツミレンタカー",
   "plan": "フェアレディZ（田原店）",
   "cars": "日産 フェアレディZ バージョンST（MT）",
-  "src": "https://www.atm-rent.co.jp/detail/?id=1738288050"
+  "src": "https://www.atm-rent.co.jp/detail/?id=1738288050",
+  "prefs": [
+   "愛知県"
+  ]
  },
  {
   "areas": [
@@ -887,7 +1074,10 @@
   "shop": "ファインドライブ安曇野",
   "plan": "スポーツカー・オープンカー",
   "cars": "S660・ロードスターなど",
-  "src": "https://finedrive.azumino-nishiyama.com/"
+  "src": "https://finedrive.azumino-nishiyama.com/",
+  "prefs": [
+   "長野県"
+  ]
  },
  {
   "areas": [
@@ -907,7 +1097,10 @@
   "shop": "レンタカーズSEiWA",
   "plan": "ロードスター",
   "cars": "マツダ ロードスター（NDERF）",
-  "src": "https://seiwa-rc.jp/carlist/?id=34"
+  "src": "https://seiwa-rc.jp/",
+  "prefs": [
+   "茨城県"
+  ]
  },
  {
   "areas": [
@@ -927,7 +1120,10 @@
   "shop": "グッドラック",
   "plan": "GRスポーツレンタカー",
   "cars": "トヨタ GR系スポーツカー（MT）",
-  "src": "https://goodrac-rentacar.com/gr-sportscar/"
+  "src": "https://goodrac-rentacar.com/gr-sportscar/",
+  "prefs": [
+   "北海道"
+  ]
  },
  {
   "areas": [
@@ -947,7 +1143,11 @@
   "shop": "Honda Cars 博多 レンタカー",
   "plan": "スポーツカー",
   "cars": "GR86・GRヤリス・シビック TYPE R（6MT）・S660",
-  "src": "https://hondacars-hakata-rentacar.com/sports/"
+  "src": "https://hondacars-hakata-rentacar.com/sports/",
+  "prefs": [
+   "福岡県"
+  ],
+  "price": "24時間 約0.9万円〜"
  },
  {
   "areas": [
@@ -967,7 +1167,11 @@
   "shop": "ネッツトヨタ福岡",
   "plan": "希少車レンタルサービス",
   "cars": "GRヤリス（6MT）・Vitz GRMN Turbo・iQ GRMN・MR-S",
-  "src": "https://netzfukuoka.jp/special_rent_a_car"
+  "src": "https://netzfukuoka.jp/special_rent_a_car",
+  "prefs": [
+   "福岡県"
+  ],
+  "price": "1日 約2万〜3万円（スポーツカー）"
  },
  {
   "areas": [
@@ -987,7 +1191,11 @@
   "shop": "スポカレンタカー",
   "plan": "スポーツカー・オープンカー",
   "cars": "ロードスター（MT）・WRX STI（MT）・シビック タイプR（MT）など19台",
-  "src": "https://spocarentacar.com/"
+  "src": "https://spocarentacar.com/",
+  "prefs": [
+   "福岡県"
+  ],
+  "price": "約1.1万円〜"
  },
  {
   "areas": [
@@ -1007,7 +1215,11 @@
   "shop": "廣島★ブギウギレンタカー",
   "plan": "ビンテージスポーツ",
   "cars": "フェアレディZ（S30・左ハンドル）・スカイライン2600 GT-Rなど（MT）",
-  "src": "https://www.nipponmotorboogie.com/"
+  "src": "https://www.nipponmotorboogie.com/",
+  "prefs": [
+   "広島県"
+  ],
+  "price": "3時間 約1.7万〜3.1万円（保険込み）"
  },
  {
   "areas": [
@@ -1027,7 +1239,11 @@
   "shop": "GRACE OKINAWA",
   "plan": "GT-R Premium edition",
   "cars": "日産 GT-R（2017）",
-  "src": "https://www.graceokinawa.com/nissan/gtr/"
+  "src": "https://www.graceokinawa.com/nissan/gtr/",
+  "prefs": [
+   "沖縄県"
+  ],
+  "price": "約6.5万円（GT-R）"
  },
  {
   "areas": [
@@ -1047,7 +1263,11 @@
   "shop": "RYUKYU PREMIUM DRIVE（琉球プレミアムドライブ）",
   "plan": "プレミアムカー",
   "cars": "GT-R Black Edition・ポルシェ・ベンツ CLE カブリオレ・MINI コンバーチブルなど",
-  "src": "https://gpryukyu.co.jp/"
+  "src": "https://gpryukyu.co.jp/",
+  "prefs": [
+   "沖縄県"
+  ],
+  "price": "1泊2日 約2.3万〜11.9万円"
  },
  {
   "areas": [
@@ -1067,7 +1287,9 @@
   "shop": "三井のカーシェアーズ",
   "plan": "GR86（プレミアム・カーシェア）",
   "cars": "トヨタ GR86 SZ",
-  "src": "https://www.carshares.jp/car/sports/"
+  "src": "https://www.carshares.jp/car/sports/",
+  "prefs": [],
+  "price": "15分 290円〜／夜間パック 約0.9万円〜"
  },
  {
   "areas": [
@@ -1087,7 +1309,11 @@
   "shop": "100円レンタカー",
   "plan": "GR86（泉中央駅前店）",
   "cars": "トヨタ GR86 RZ（6MT）",
-  "src": "https://100yen-rentacar.jp/topic/detail/16971"
+  "src": "https://100yen-rentacar.jp/topic/detail/16971",
+  "prefs": [
+   "宮城県"
+  ],
+  "price": "24時間 約1.8万円"
  },
  {
   "areas": [
@@ -1107,7 +1333,11 @@
   "shop": "アスクこだわりレンタカー",
   "plan": "スポーツカー・オープンカー",
   "cars": "NDロードスター（MT）・ポルシェ ボクスター・アルファロメオ スパイダーなど",
-  "src": "https://www.asksport.co.jp/rent/rent_car/car/car021/"
+  "src": "https://www.asksport.co.jp/rent/rent_car/car/car021/",
+  "prefs": [
+   "北海道"
+  ],
+  "price": "6時間 約1.7万円／24時間 約2.2万円"
  },
  {
   "areas": [
@@ -1127,7 +1357,10 @@
   "shop": "WASHIDAレンタカー",
   "plan": "輸入車・オープンカー",
   "cars": "SL400・ボクスター（981）・アバルト124スパイダー（MT）・ロードスター NR-A（MT）・BMW 220i カブリオレなど",
-  "src": "https://nomad-r.jp/magazine/rental-convertible-hokkaido/"
+  "src": "https://nomad-r.jp/magazine/rental-convertible-hokkaido/",
+  "prefs": [
+   "北海道"
+  ]
  },
  {
   "areas": [
@@ -1147,7 +1380,11 @@
   "shop": "FOXプレミアムレンタカー",
   "plan": "高級車・オープンカー",
   "cars": "BMW・メルセデス・国産スポーツカーなど",
-  "src": "https://fox-r.jp/"
+  "src": "https://fox-r.jp/",
+  "prefs": [
+   "北海道"
+  ],
+  "price": "1日 約1.5万〜6.9万円"
  },
  {
   "areas": [
@@ -1167,7 +1404,11 @@
   "shop": "Japan Drive Legends",
   "plan": "JDMスポーツカー（AT）",
   "cars": "GT86・WRX STI・フェアレディZ など（AT）",
-  "src": "https://www.getyourguide.com/osaka-l1204/osaka-sports-cars-rental-drive-yourself-a-jdm-car-t1110481/"
+  "src": "https://www.getyourguide.com/osaka-l1204/osaka-sports-cars-rental-drive-yourself-a-jdm-car-t1110481/",
+  "prefs": [
+   "大阪府"
+  ],
+  "price": "約2.2万円〜（予約サイト掲載）"
  },
  {
   "areas": [
@@ -1187,7 +1428,11 @@
   "shop": "JDM Rental Japan",
   "plan": "JDMレンタカー",
   "cars": "RX-7・GT-Rなど",
-  "src": "https://www.jdmrentaljapan.com/"
+  "src": "https://www.jdmrentaljapan.com/",
+  "prefs": [
+   "東京都"
+  ],
+  "price": "1日 約1.5万〜3.3万円"
  },
  {
   "areas": [
@@ -1207,7 +1452,10 @@
   "shop": "DIREX",
   "plan": "輸入車・GT-R",
   "cars": "日産 GT-R（AT）・輸入車",
-  "src": "https://cartune.co.jp/magazine/articles/3449"
+  "src": "https://cartune.co.jp/magazine/articles/3449",
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -1229,7 +1477,15 @@
   "shop": "スカイレンタカー",
   "plan": "スイフトスポーツ（MT）車種指定",
   "cars": "スズキ スイフトスポーツ（6MT）",
-  "src": "https://www.skyrent.jp/campaigns/swiftsport/"
+  "src": "https://www.skyrent.jp/campaigns/swiftsport/",
+  "prefs": [
+   "大阪府",
+   "東京都",
+   "神奈川県",
+   "徳島県",
+   "愛媛県"
+  ],
+  "price": "当日 約1.1万円／24時間 約1.3万円"
  },
  {
   "areas": [
@@ -1249,7 +1505,10 @@
   "shop": "スカイレンタカー",
   "plan": "BRZ（西武立川店）",
   "cars": "スバル BRZ",
-  "src": "https://www.skyrent.jp/campaigns/manual_car/"
+  "src": "https://www.skyrent.jp/campaigns/manual_car/",
+  "prefs": [
+   "東京都"
+  ]
  },
  {
   "areas": [
@@ -1269,27 +1528,11 @@
   "shop": "JIMSレンタカー",
   "plan": "スーパーカー",
   "cars": "ランボルギーニ ウラカン LP610-4 アヴィオなど",
-  "src": "https://monokariru.com/lamborghini/"
- },
- {
-  "areas": [
-   "関西"
+  "src": "https://monokariru.com/lamborghini/",
+  "prefs": [
+   "東京都"
   ],
-  "areaText": "関西（店舗の場所は未確認）",
-  "trans": "車種による",
-  "age": null,
-  "years": null,
-  "mtFromMt": false,
-  "extra": "",
-  "note": "条件はまだ確認できていない。",
-  "conf": "official",
-  "checked": "2026-11-23",
-  "active": true,
-  "id": "global-auto",
-  "shop": "グローバルオートレンタカー",
-  "plan": "高級輸入車",
-  "cars": "フェラーリ 488 スパイダー・ランボルギーニ ウラカン・マクラーレン・ポルシェなど",
-  "src": "https://www.global-auto06.com/"
+  "price": "12時間 約8.8万円〜（ランボルギーニ）"
  },
  {
   "areas": [
@@ -1309,7 +1552,11 @@
   "shop": "SSレンタカー",
   "plan": "輸入車・高級車",
   "cars": "ランボルギーニ ウラカン（AT・左ハンドル）・ロールス・ロイス・ポルシェ・レクサスなど",
-  "src": "https://ss-rentacar.com/importcar/%E3%83%A9%E3%83%B3%E3%83%9C%E3%83%AB%E3%82%AE%E3%83%BC%E3%83%8B%E3%80%80%E3%82%A6%E3%83%A9%E3%82%AB%E3%83%B3%E3%80%903%EF%BD%88%E5%AF%BE%E5%BF%9C%E8%BB%8A%E7%A8%AE%E3%80%91/"
+  "src": "https://ss-rentacar.com/importcar/%E3%83%A9%E3%83%B3%E3%83%9C%E3%83%AB%E3%82%AE%E3%83%BC%E3%83%8B%E3%80%80%E3%82%A6%E3%83%A9%E3%82%AB%E3%83%B3%E3%80%903%EF%BD%88%E5%AF%BE%E5%BF%9C%E8%BB%8A%E7%A8%AE%E3%80%91/",
+  "prefs": [
+   "大阪府"
+  ],
+  "price": "3時間 約6万円〜／24時間 約15.8万円（ウラカン）"
  },
  {
   "areas": [
@@ -1329,6 +1576,9 @@
   "shop": "エグゼクティブレンタカー",
   "plan": "高級輸入車",
   "cars": "ポルシェ ボクスター・ベンツ・BMW・アウディ・レクサスなど",
-  "src": "https://www.ekiten.jp/shop_6757633"
+  "src": "https://www.ekiten.jp/shop_6757633",
+  "prefs": [
+   "福岡県"
+  ]
  }
 ]

@@ -64,6 +64,13 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .conf.article,.conf.old{color:var(--warn);border-color:rgba(245,165,36,.4)}
 .carname{font-weight:900;font-size:18px;line-height:1.3}
 .maker{font-size:12px;color:var(--muted);font-family:Oswald,sans-serif;letter-spacing:.06em}
+.price{font-size:13px;color:#e7d9a8;margin-top:4px}
+.maybe{color:#aab3bd;font-size:11.5px}
+.gear{display:inline-block;font-size:11px;font-weight:700;padding:1px 6px;border-radius:5px;vertical-align:middle;margin-left:4px}
+.gear.MT{background:#3b2a55;color:#e9d5ff}.gear.AT{background:#1f3a4d;color:#bfe3ff}
+.gears{display:flex;gap:8px;margin:0 0 10px}
+.gears button{flex:1;max-width:220px;background:#13161a;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:9px;font:inherit;font-weight:700;cursor:pointer}
+.gears button.on{background:var(--text);color:#111;border-color:var(--text)}
 .shops{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column}
 .shops li{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:7px 2px;border-bottom:1px solid var(--line)}
 .shops li:last-child{border-bottom:0}
@@ -102,6 +109,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <div id="mtBox"><label for="mt">MT免許になってから（年）</label><input id="mt" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2"></div>
       <div><div class="chk"><input id="atonly" type="checkbox"><label for="atonly">AT限定免許</label></div></div>
       <div><label for="area">エリア</label><select id="area"><option value="">全国</option></select></div>
+      <div id="prefBox" hidden><label for="pref">都道府県</label><select id="pref"><option value="">選択しない</option></select></div>
       <div><label for="q">車名・店名で探す</label><input id="q" type="search" placeholder="例：GT-R、ポルシェ"></div>
     </div>
   </section>
@@ -110,6 +118,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
     <button id="vShop" class="on" role="tab">店ごと</button>
     <button id="vCar" role="tab">車種ごと</button>
   </div>
+  <div class="gears" id="gearBox" hidden role="group" aria-label="MT・ATの切り替え"><button data-g="MT">MT車（マニュアル）</button><button data-g="AT">AT車（オートマ）</button></div>
   <div class="summary" id="summary" role="group" aria-label="結果の絞り込み"></div>
   <div class="cards" id="cards"><div class="empty">読み込み中…</div></div>
 
@@ -119,7 +128,8 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <li>各社の公式ページ・公式資料を中心に、年齢と免許の年数の条件を集めています。カードごとに出典と確認日を載せています。</li>
       <li>「公式」は公式ページで確認した条件、「記事」「古い情報」は報道・ブログ・古い資料が元の条件です。変わっている可能性が高いので特に注意してください。</li>
       <li>判定は年齢と免許の年数だけで行っています。ゴールド免許・任意保険・会員登録・クレジットカードなどの追加条件や、店舗の判断で断られる場合もあります。</li>
-      <li>「車種ごと」は店の取扱車種をまとめたものです。店名を押すと出典のページが開きます。同じ店でも車種によって条件が違うことがあります。</li>
+      <li>「車種ごと」は店の取扱車種をまとめたものです。MT車とAT車は上のボタンで切り替えます。店名を押すと出典のページが開きます。同じ店でも車種によって条件が違うことがあります。</li>
+      <li>料金は基本料金のおおよその目安（税込）で、時期・店舗・保険・オプションで変わります。必ず予約前に公式ページで確認してください。</li>
       <li>車の写真はWikipedia（Wikimedia Commons）の画像で、車種のイメージです。実際に貸し出される車両とは色・年式・仕様が異なります。</li>
       <li>このページの判定によって生じた損害について、運営者は責任を負いません。</li>
     </ul>
@@ -137,51 +147,74 @@ const CONF = {official:"公式", article:"記事", old:"古い情報"};
 const LABEL = {ok:"借りられる", cond:"条件つきで可", mt:"MT年数だけ不足", ng:"借りられない", unk:"要確認"};
 const ORDER = {ok:0, cond:1, mt:2, unk:3, ng:4};
 const AREAS = ["北海道","東北","関東","中部","関西","中国・四国","九州・沖縄"];
-let DATA = [], filter = "all", view = "shop";
+const PREFS = {"北海道":["北海道"],"東北":["青森県","岩手県","宮城県","秋田県","山形県","福島県"],
+  "関東":["茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県"],
+  "中部":["新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県"],
+  "関西":["三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県"],
+  "中国・四国":["鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県"],
+  "九州・沖縄":["福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"]};
+// 県まで分かっている店はその県で、地方までしか分からない店は「店舗の県は未確認」として出す
+function inPref(d, area, pref){
+  const ps = d.prefs || [];
+  if(ps.includes(pref)) return "yes";
+  if(d.areas.includes(area) && !ps.some(p => PREFS[area].includes(p))) return "maybe";
+  return "";
+}
+let DATA = [], filter = "all", view = "shop", gear = "MT", gearTouched = false;
+// その店でその車種がMT・ATのどちらで借りられるか（店の表記と車種の設定から判断）
+function gearsOf(d, m){
+  const t = d.trans;
+  if(t === "MT") return {MT:"店の表記"};
+  if(t === "AT" || t === "2ペダル") return {AT:"店の表記"};
+  const g = {};
+  if(m.tr !== "AT") g.MT = m.tr === "MT" ? "車種" : "要確認";
+  if(m.tr !== "MT") g.AT = m.tr === "AT" ? "車種" : "要確認";
+  return g;
+}
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const yrs = n => (Math.round(n*10)/10).toString();
 
 // 車種の一覧（name: 表示名, re: 取扱車種の文から探す正規表現, wiki: 写真に使うWikipedia英語版の記事名, ex: 写真が一例のとき true）
 const MODELS = [
- {name:"GR86 / 86", maker:"TOYOTA", re:/GR ?86|GT86|86 GT|(^|[・（ ])86(?![0-9])/, wiki:"Toyota_GR86"},
- {name:"スプリンタートレノ / レビン（AE86）", maker:"TOYOTA", re:/AE86|トレノ|レビン/, wiki:"Toyota_AE86"},
- {name:"GRヤリス", maker:"TOYOTA", re:/GR ?ヤリス/, wiki:"Toyota_GR_Yaris"},
- {name:"GRカローラ", maker:"TOYOTA", re:/GR ?カローラ/, wiki:"Toyota_GR_Corolla"},
- {name:"GRスープラ", maker:"TOYOTA", re:/GR ?スープラ|スープラ RZ/, wiki:"Toyota_Supra_(J29/DB)"},
- {name:"MR-S", maker:"TOYOTA", re:/MR-S/, wiki:"Toyota_MR2"},
- {name:"レクサス LC / RC F", maker:"LEXUS", re:/LC500|RC F/, wiki:"Lexus_LC"},
- {name:"ロードスター", maker:"MAZDA", re:/ロードスター(?!、)|NDロードスター/, wiki:"Mazda_MX-5_(ND)"},
- {name:"RX-7", maker:"MAZDA", re:/RX-?7/, wiki:"Mazda_RX-7"},
- {name:"RX-8", maker:"MAZDA", re:/RX-?8/, wiki:"Mazda_RX-8"},
- {name:"シビック TYPE R", maker:"HONDA", re:/シビック ?(TYPE|タイプ|type) ?R/i, wiki:"Honda_Civic_Type_R"},
- {name:"シビック RS", maker:"HONDA", re:/シビック ?RS/, wiki:"Honda_Civic_(eleventh_generation)"},
- {name:"S660", maker:"HONDA", re:/S660/, wiki:"Honda_S660"},
- {name:"S2000", maker:"HONDA", re:/S2000/, wiki:"Honda_S2000"},
- {name:"NSX", maker:"HONDA", re:/NSX/, wiki:"Honda_NSX"},
- {name:"N-ONE RS", maker:"HONDA", re:/N-ONE/, wiki:"Honda_N-One"},
- {name:"GT-R（R35）", maker:"NISSAN", re:/(?<!(スカイライン ?|R3[234] ?|2600 ))GT-R(?! ?R3[234])(?!（?BNR)|R35/, wiki:"Nissan_GT-R"},
- {name:"スカイラインGT-R（R32/R33/R34）", maker:"NISSAN", re:/R3[234]|BNR3|スカイライン ?GT-R|スカイライン2600/, wiki:"Nissan_Skyline_GT-R"},
- {name:"フェアレディZ", maker:"NISSAN", re:/フェアレディ ?Z|Z32|Z33|Z34|RZ34|S30/, wiki:"Nissan_Z_(RZ34)"},
- {name:"180SX / シルビア", maker:"NISSAN", re:/180SX|シルビア/, wiki:"Nissan_180SX"},
- {name:"BRZ", maker:"SUBARU", re:/BRZ/, wiki:"Subaru_BRZ"},
- {name:"WRX STI / インプレッサ", maker:"SUBARU", re:/WRX|インプレッサ|GC8/, wiki:"Subaru_WRX"},
- {name:"コペン", maker:"DAIHATSU", re:/コペン/, wiki:"Daihatsu_Copen"},
- {name:"スイフトスポーツ", maker:"SUZUKI", re:/スイフト ?スポーツ/, wiki:"Suzuki_Swift_Sport"},
- {name:"アルトワークス", maker:"SUZUKI", re:/アルト ?ワークス/, wiki:"Suzuki_Alto_Works"},
- {name:"ポルシェ 911", maker:"PORSCHE", re:/911/, wiki:"Porsche_911"},
- {name:"ポルシェ ボクスター / 718", maker:"PORSCHE", re:/ボクスター|718/, wiki:"Porsche_Boxster_and_Cayman"},
- {name:"ポルシェ タイカン", maker:"PORSCHE", re:/タイカン/, wiki:"Porsche_Taycan"},
- {name:"ポルシェ（その他・カイエン/マカン/パナメーラなど）", maker:"PORSCHE", re:/ポルシェ(?! ?(911|ボクスター|718))|カイエン|マカン|パナメーラ/, wiki:"Porsche_Panamera", ex:true},
- {name:"フェラーリ", maker:"FERRARI", re:/フェラーリ/, wiki:"Ferrari_488", ex:true},
- {name:"ランボルギーニ", maker:"LAMBORGHINI", re:/ランボルギーニ|ウラカン|ガヤルド|ムルシエラゴ/, wiki:"Lamborghini_Huracán", ex:true},
- {name:"マクラーレン", maker:"McLAREN", re:/マクラーレン/, wiki:"McLaren_720S", ex:true},
- {name:"ロールス・ロイス", maker:"ROLLS-ROYCE", re:/ロールス/, wiki:"Rolls-Royce_Phantom_(eighth_generation)", ex:true},
- {name:"メルセデス・マイバッハ", maker:"MERCEDES", re:/マイバッハ/, wiki:"Mercedes-Benz_S-Class_(W222)"},
- {name:"メルセデス・ベンツ（各種）", maker:"MERCEDES-BENZ", re:/ベンツ|メルセデス(?!・マイバッハ)|AMG|SLC|SL400|CLE/, wiki:"Mercedes-Benz_SL-Class", ex:true},
- {name:"BMW（各種）", maker:"BMW", re:/BMW/, wiki:"BMW_Z4_(G29)", ex:true},
- {name:"MINI コンバーチブル", maker:"MINI", re:/MINI|ミニ/, wiki:"Mini_Convertible"},
- {name:"ロータス / スーパーセブン", maker:"LOTUS / CATERHAM", re:/ロータス|スーパーセブン|スーパー7|エリーゼ/, wiki:"Caterham_Seven", ex:true},
- {name:"アバルト 124スパイダー / 595", maker:"ABARTH", re:/アバルト/, wiki:"Fiat_124_Spider_(2016)"},
+ {name:"GR86 / 86", tr:"both", maker:"TOYOTA", re:/GR ?86|GT86|86 GT|(^|[・（ ])86(?![0-9])/, wiki:"Toyota_GR86"},
+ {name:"スプリンタートレノ / レビン（AE86）", tr:"MT", maker:"TOYOTA", re:/AE86|トレノ|レビン/, wiki:"Toyota_AE86"},
+ {name:"GRヤリス", tr:"both", maker:"TOYOTA", re:/GR ?ヤリス/, wiki:"Toyota_GR_Yaris"},
+ {name:"GRカローラ", tr:"both", maker:"TOYOTA", re:/GR ?カローラ/, wiki:"Toyota_GR_Corolla"},
+ {name:"GRスープラ", tr:"both", maker:"TOYOTA", re:/GR ?スープラ|スープラ RZ/, wiki:"Toyota_Supra_(J29/DB)"},
+ {name:"MR-S", tr:"both", maker:"TOYOTA", re:/MR-S/, wiki:"Toyota_MR2"},
+ {name:"レクサス LC / RC F", tr:"AT", maker:"LEXUS", re:/LC500|RC F/, wiki:"Lexus_LC"},
+ {name:"ロードスター", tr:"both", maker:"MAZDA", re:/ロードスター(?!、)|NDロードスター/, wiki:"Mazda_MX-5_(ND)"},
+ {name:"RX-7", tr:"both", maker:"MAZDA", re:/RX-?7/, wiki:"Mazda_RX-7"},
+ {name:"RX-8", tr:"both", maker:"MAZDA", re:/RX-?8/, wiki:"Mazda_RX-8"},
+ {name:"シビック TYPE R", tr:"MT", maker:"HONDA", re:/シビック ?(TYPE|タイプ|type) ?R/i, wiki:"Honda_Civic_Type_R"},
+ {name:"シビック RS", tr:"MT", maker:"HONDA", re:/シビック ?RS/, wiki:"Honda_Civic_(eleventh_generation)"},
+ {name:"S660", tr:"both", maker:"HONDA", re:/S660/, wiki:"Honda_S660"},
+ {name:"S2000", tr:"MT", maker:"HONDA", re:/S2000/, wiki:"Honda_S2000"},
+ {name:"NSX", tr:"both", maker:"HONDA", re:/NSX/, wiki:"Honda_NSX"},
+ {name:"N-ONE RS", tr:"MT", maker:"HONDA", re:/N-ONE/, wiki:"Honda_N-One"},
+ {name:"GT-R（R35）", tr:"AT", maker:"NISSAN", re:/(?<!(スカイライン ?|R3[234] ?|2600 ))GT-R(?! ?R3[234])(?!（?BNR)|R35/, wiki:"Nissan_GT-R"},
+ {name:"スカイラインGT-R（R32/R33/R34）", tr:"MT", maker:"NISSAN", re:/R3[234]|BNR3|スカイライン ?GT-R|スカイライン2600/, wiki:"Nissan_Skyline_GT-R"},
+ {name:"フェアレディZ", tr:"both", maker:"NISSAN", re:/フェアレディ ?Z|Z32|Z33|Z34|RZ34|S30/, wiki:"Nissan_Z_(RZ34)"},
+ {name:"180SX / シルビア", tr:"MT", maker:"NISSAN", re:/180SX|シルビア/, wiki:"Nissan_180SX"},
+ {name:"BRZ", tr:"both", maker:"SUBARU", re:/BRZ/, wiki:"Subaru_BRZ"},
+ {name:"WRX STI / インプレッサ", tr:"MT", maker:"SUBARU", re:/WRX|インプレッサ|GC8/, wiki:"Subaru_WRX"},
+ {name:"コペン", tr:"both", maker:"DAIHATSU", re:/コペン/, wiki:"Daihatsu_Copen"},
+ {name:"スイフトスポーツ", tr:"both", maker:"SUZUKI", re:/スイフト ?スポーツ/, wiki:"Suzuki_Swift_Sport"},
+ {name:"アルトワークス", tr:"MT", maker:"SUZUKI", re:/アルト ?ワークス/, wiki:"Suzuki_Alto_Works"},
+ {name:"ポルシェ 911", tr:"both", maker:"PORSCHE", re:/911/, wiki:"Porsche_911"},
+ {name:"ポルシェ ボクスター / 718", tr:"both", maker:"PORSCHE", re:/ボクスター|718/, wiki:"Porsche_Boxster_and_Cayman"},
+ {name:"ポルシェ タイカン", tr:"AT", maker:"PORSCHE", re:/タイカン/, wiki:"Porsche_Taycan"},
+ {name:"ポルシェ（その他・カイエン/マカン/パナメーラなど）", tr:"AT", maker:"PORSCHE", re:/ポルシェ(?! ?(911|ボクスター|718))|カイエン|マカン|パナメーラ/, wiki:"Porsche_Panamera", ex:true},
+ {name:"フェラーリ", tr:"AT", maker:"FERRARI", re:/フェラーリ/, wiki:"Ferrari_488", ex:true},
+ {name:"ランボルギーニ", tr:"AT", maker:"LAMBORGHINI", re:/ランボルギーニ|ウラカン|ガヤルド|ムルシエラゴ/, wiki:"Lamborghini_Huracán", ex:true},
+ {name:"マクラーレン", tr:"AT", maker:"McLAREN", re:/マクラーレン/, wiki:"McLaren_720S", ex:true},
+ {name:"ロールス・ロイス", tr:"AT", maker:"ROLLS-ROYCE", re:/ロールス/, wiki:"Rolls-Royce_Phantom_(eighth_generation)", ex:true},
+ {name:"メルセデス・マイバッハ", tr:"AT", maker:"MERCEDES", re:/マイバッハ/, wiki:"Mercedes-Benz_S-Class_(W222)"},
+ {name:"メルセデス・ベンツ（各種）", tr:"AT", maker:"MERCEDES-BENZ", re:/ベンツ|メルセデス(?!・マイバッハ)|AMG|SLC|SL400|CLE/, wiki:"Mercedes-Benz_SL-Class", ex:true},
+ {name:"BMW（各種）", tr:"AT", maker:"BMW", re:/BMW/, wiki:"BMW_Z4_(G29)", ex:true},
+ {name:"MINI コンバーチブル", tr:"both", maker:"MINI", re:/MINI|ミニ/, wiki:"Mini_Convertible"},
+ {name:"ロータス / スーパーセブン", tr:"MT", maker:"LOTUS / CATERHAM", re:/ロータス|スーパーセブン|スーパー7|エリーゼ/, wiki:"Caterham_Seven", ex:true},
+ {name:"アバルト 124スパイダー / 595", tr:"both", maker:"ABARTH", re:/アバルト/, wiki:"Fiat_124_Spider_(2016)"},
 ];
 
 function judge(d, me){
@@ -241,9 +274,10 @@ function current(){
   if(me.atOnly) me.mt = 0;
   $("mtBox").style.opacity = me.atOnly ? .4 : 1;
   $("mt").disabled = me.atOnly;
-  const area = $("area").value, q = $("q").value.trim().toLowerCase();
+  const area = $("area").value, pref = $("pref").value, q = $("q").value.trim().toLowerCase();
   const rows = DATA
     .filter(d => !area || d.areas.includes(area))
+    .filter(d => !pref || inPref(d, area, pref))
     .filter(d => !q || (d.shop + d.plan + d.cars + d.areaText).toLowerCase().includes(q))
     .map(d => ({d, j:judge(d, me)}))
     .sort((a,b) => ORDER[a.j.s] - ORDER[b.j.s] || (a.d.age ?? 0) - (b.d.age ?? 0) || (a.d.years ?? 0) - (b.d.years ?? 0));
@@ -268,7 +302,8 @@ function shopCard({d,j}){
         <span>免許 <em>${d.years ?? "?"}</em>年以上${d.mtFromMt && d.trans.includes("MT") && d.years != null ? "（MTはMT免許から）" : ""}</span>
         <span>${esc(d.trans)}</span>
       </div>
-      <div class="where">📍 ${esc(d.areaText)}</div>
+      <div class="where">📍 ${esc(d.areaText)}${prefNote(d)}</div>
+      <div class="price">💴 ${d.price ? esc(d.price) : "料金は出典・公式ページで確認"}</div>
       ${j.why ? `<div class="why">${esc(j.why)}</div>` : ""}
       ${d.note ? `<div class="note">${esc(d.note)}</div>` : ""}
       <div class="meta"><span><span class="conf ${d.conf}">${CONF[d.conf]}</span>確認日 ${esc(d.checked)}</span><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">出典 ↗</a></div>
@@ -276,6 +311,10 @@ function shopCard({d,j}){
   </article>`;
 }
 
+function prefNote(d){
+  const area = $("area").value, pref = $("pref").value;
+  return pref && inPref(d, area, pref) === "maybe" ? `<span class="maybe">（${esc(pref)}に店があるかは未確認）</span>` : "";
+}
 const SHORT = {ok:"借りられる", cond:"条件つき", mt:"MT年数不足", ng:"借りられない", unk:"要確認"};
 const place = t => { const s = String(t).split(/[・、（(]/)[0]; return s.length > 16 ? s.slice(0,16) + "…" : s; };
 const opened = new Set();
@@ -286,12 +325,13 @@ function carCard(m, list){
   return `<article class="card ${best}">
     ${photo(m)}
     <div class="body">
-      <div class="top"><div><div class="maker">${esc(m.maker)}</div><div class="carname">${esc(m.name)}</div></div><span class="badge ${best}">${LABEL[best]}</span></div>
+      <div class="top"><div><div class="maker">${esc(m.maker)}</div><div class="carname">${esc(m.name)} <span class="gear ${gear}">${gear === "MT" ? "MT（マニュアル）" : "AT（オートマ）"}</span></div></div><span class="badge ${best}">${LABEL[best]}</span></div>
       <div class="cnt">${list.length}件の店で取扱い／あなたが借りられそうな店 <b>${okN}</b>件</div>
-      <ul class="shops">${rows.map(({d,j}) => `
+      <ul class="shops">${rows.map(({d,j,g}) => `
         <li title="${esc(j.why || "")}"><span class="dot ${j.s}"></span>
           <div><div class="sname"><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">${esc(d.shop)}</a></div>
-          <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(d.trans)}・${esc(place(d.areaText))}</div></div>
+          <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(place(d.areaText))}${prefNote(d)}</div>
+          <div class="sub">💴 ${d.price ? esc(d.price) : "料金は店のページで確認"}${g === "要確認" ? `<span class="maybe">・${gear}車があるかは店に確認</span>` : ""}</div></div>
           <span class="st ${j.s}">${SHORT[j.s]}</span>
           ${j.s === "mt" ? `<div class="tip">MT免許の年数は足りないが借りれる場合があるので試す価値あり</div>` : ""}
         </li>`).join("")}
@@ -304,20 +344,28 @@ function carCard(m, list){
 function render(){
   const rows = current();
   if(view === "shop"){
+    $("gearBox").hidden = true;
     const count = {all:rows.length, ok:0, cond:0, mt:0, ng:0, unk:0};
     rows.forEach(r => count[r.j.s]++);
     pills(count);
     const shown = rows.filter(r => filter === "all" || r.j.s === filter);
     $("cards").innerHTML = shown.length ? shown.map(shopCard).join("") : `<div class="empty">条件に合う掲載がありません</div>`;
   } else {
-    const groups = MODELS.map(m => ({m, list: rows.filter(r => modelsOf(r.d).includes(m))})).filter(g => g.list.length);
+    const me = {age:+$("age").value || 0, lic:+$("lic").value || 0, mt:+$("mt").value || 0, atOnly:$("atonly").checked};
+    if(me.atOnly) me.mt = 0;
+    $("gearBox").hidden = false;
+    document.querySelectorAll("#gearBox button").forEach(b => b.classList.toggle("on", b.dataset.g === gear));
+    const groups = MODELS.map(m => ({m, list: rows.filter(r => modelsOf(r.d).includes(m) && gearsOf(r.d, m)[gear])
+        .map(r => { const g = gearsOf(r.d, m)[gear]; return {d:r.d, g, j: judge({...r.d, trans: gear}, me)}; })
+        .sort((a,b) => ORDER[a.j.s] - ORDER[b.j.s] || (a.d.age ?? 0) - (b.d.age ?? 0))}))
+      .filter(g => g.list.length);
     const count = {all:groups.length, ok:0, cond:0, mt:0, ng:0, unk:0};
     groups.forEach(g => Object.keys(ORDER).forEach(k => { if(g.list.some(r => r.j.s === k)) count[k]++; }));
     pills(count);
     const shown = groups.map(g => ({m:g.m, list: filter === "all" ? g.list : g.list.filter(r => r.j.s === filter)}))
       .filter(g => g.list.length)
       .sort((a,b) => ORDER[a.list[0].j.s] - ORDER[b.list[0].j.s] || b.list.length - a.list.length);
-    $("cards").innerHTML = shown.length ? shown.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">条件に合う車種がありません</div>`;
+    $("cards").innerHTML = shown.length ? shown.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">条件に合う${gear}車がありません</div>`;
     document.querySelectorAll(".toggle").forEach(b => b.onclick = () => { const n = b.dataset.m; opened.has(n) ? opened.delete(n) : opened.add(n); render(); });
   }
   loadPhotos();
@@ -338,7 +386,16 @@ fetch("data.json").then(r => r.json()).then(data => {
   $("updated").textContent = DATA.map(d => d.checked).sort().pop();
   $("total").textContent = DATA.length;
   $("ncar").textContent = MODELS.filter(m => DATA.some(d => modelsOf(d).includes(m))).length;
-  ["age","lic","mt","atonly","area","q"].forEach(id => $(id).addEventListener("input", render));
+  ["age","lic","mt","atonly","area","pref","q"].forEach(id => $(id).addEventListener("input", render));
+  document.querySelectorAll("#gearBox button").forEach(b => b.onclick = () => { gear = b.dataset.g; gearTouched = true; filter = "all"; render(); });
+  $("atonly").addEventListener("input", () => { if(!gearTouched) gear = $("atonly").checked ? "AT" : "MT"; });
+  $("area").addEventListener("input", () => {
+    const a = $("area").value, sel = $("pref");
+    sel.innerHTML = '<option value="">選択しない</option>' + (PREFS[a] || []).map(p => {
+      const n = DATA.filter(d => inPref(d, a, p) === "yes").length;
+      return `<option value="${p}">${p}${n ? `（${n}）` : ""}</option>`; }).join("");
+    $("prefBox").hidden = !a;
+  });
   $("vShop").onclick = () => setView("shop");
   $("vCar").onclick = () => setView("car");
   render();
