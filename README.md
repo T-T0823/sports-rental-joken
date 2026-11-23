@@ -5,3 +5,7 @@
 - 公開ページ: https://t-t0823.github.io/sports-rental-joken/
 - 掲載データ: `data.json`（1件＝1プラン。`checked` は確認日、`src` は出典）
 - 訂正・追加の連絡: tu.apps.jp@gmail.com
+
+## 広告リンク
+
+data.json の各店に `"aff": "紹介リンクURL"`（任意で `"affLabel"`）を足すと、カードに「PR」付きの予約ボタンが出て、上部に広告表示の告知が自動で出ます。

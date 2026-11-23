@@ -58,6 +58,13 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .why{font-size:13px;color:#ffc9bd}
 .card.ok .why{color:#a6e9c4}.card.mt .why{color:#e9d5ff}
 .note{font-size:12.5px;color:var(--muted)}
+.book{display:block;text-align:center;margin-top:8px;padding:9px;border-radius:9px;background:#f0b429;color:#111;font-weight:700;text-decoration:none;font-size:14px}
+.book:hover{filter:brightness(1.08)}
+.pr{display:inline-block;font-size:10px;font-weight:700;border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:6px;opacity:.75;vertical-align:1px}
+.mini{font-size:11.5px;color:#f0b429}
+.adnote{font-size:12px;color:var(--muted);margin:0 0 10px}
+.adnote[hidden]{display:none}
+footer a{color:inherit}
 .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:8px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
 .conf{font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid var(--line);margin-right:6px}
 .conf.official{color:var(--ok);border-color:rgba(47,191,113,.4)}
@@ -115,6 +122,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
     </div>
   </section>
 
+  <p class="adnote" id="adnote" hidden>当サイトはアフィリエイト広告（「PR」と表示したリンク）を利用しています。リンク先で予約されると運営者に紹介料が入ることがありますが、掲載順や判定には影響しません。</p>
   <div class="views" role="tablist" aria-label="表示の切り替え">
     <button id="vShop" class="on" role="tab">店ごと</button>
     <button id="vCar" role="tab">車種ごと</button>
@@ -140,7 +148,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
   </section>
 </div></main>
 
-<footer><div class="wrap">最終更新：<span id="updated">—</span>　／　掲載：<span id="total">—</span>件（<span id="ncar">—</span>車種）</div></footer>
+<footer><div class="wrap">最終更新：<span id="updated">—</span>　／　掲載：<span id="total">—</span>件（<span id="ncar">—</span>車種）　／　<a href="privacy.html">運営者情報・プライバシーポリシー・広告について</a></div></footer>
 
 <script>
 const $ = id => document.getElementById(id);
@@ -307,6 +315,7 @@ function shopCard({d,j}){
       <div class="price">💴 ${d.price ? esc(d.price) : "料金は出典・公式ページで確認"}</div>
       ${j.why ? `<div class="why">${esc(j.why)}</div>` : ""}
       ${d.note ? `<div class="note">${esc(d.note)}</div>` : ""}
+      ${d.aff ? `<a class="book" href="${esc(d.aff)}" target="_blank" rel="sponsored noopener">${esc(d.affLabel || "予約・料金を見る")}<span class="pr">PR</span></a>` : ""}
       <div class="meta"><span><span class="conf ${d.conf}">${CONF[d.conf]}</span>確認日 ${esc(d.checked)}</span><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">出典 ↗</a></div>
     </div>
   </article>`;
@@ -333,7 +342,7 @@ function carCard(m, list){
           <div><div class="sname"><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">${esc(d.shop)}</a></div>
           <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(place(d.areaText))}${prefNote(d)}</div>
           <div class="sub">💴 ${d.price ? esc(d.price) : "料金は店のページで確認"}${g === "要確認" ? `<span class="maybe">・${gear}車があるかは店に確認</span>` : ""}</div></div>
-          <span class="st ${j.s}">${SHORT[j.s]}</span>
+          <span class="st ${j.s}">${SHORT[j.s]}${d.aff ? `<br><a class="mini" href="${esc(d.aff)}" target="_blank" rel="sponsored noopener">予約<span class="pr">PR</span></a>` : ""}</span>
           ${j.s === "mt" ? `<div class="tip">MT免許の年数は足りないが借りれる場合があるので試す価値あり</div>` : ""}
         </li>`).join("")}
       </ul>
@@ -384,6 +393,7 @@ fetch("data.json").then(r => r.json()).then(data => {
   AREAS.filter(a => DATA.some(d => d.areas.includes(a))).forEach(a => {
     const o = document.createElement("option"); o.value = a; o.textContent = a; $("area").appendChild(o);
   });
+  $("adnote").hidden = !DATA.some(d => d.aff);
   $("updated").textContent = DATA.map(d => d.checked).sort().pop();
   $("total").textContent = DATA.length;
   $("ncar").textContent = MODELS.filter(m => DATA.some(d => modelsOf(d).includes(m))).length;
