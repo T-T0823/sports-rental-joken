@@ -174,7 +174,7 @@ function render(){
 
 fetch("data.json").then(r => r.json()).then(data => {
   DATA = data;
-  ["関西","関東","中部","中国","九州・沖縄"].filter(a => DATA.some(d => d.areas.includes(a))).forEach(a => {
+  ["北海道","東北","関東","中部","関西","中国・四国","九州・沖縄"].filter(a => DATA.some(d => d.areas.includes(a))).forEach(a => {
     const o = document.createElement("option"); o.value = a; o.textContent = a; $("area").appendChild(o);
   });
   $("updated").textContent = DATA.map(d => d.checked).sort().pop();

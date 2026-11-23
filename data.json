@@ -69,9 +69,10 @@
    "関東",
    "中部",
    "関西",
+   "中国・四国",
    "九州・沖縄"
   ],
-  "areaText": "関東11店・愛知・大阪中央店（大阪市東成区）・和歌山店・福岡香椎店",
+  "areaText": "関東11店・名古屋東店・大阪中央店（大阪市東成区）・和歌山店・広島（FC）・福岡香椎店",
   "trans": "MT/AT",
   "age": 23,
   "years": 3,
@@ -151,7 +152,7 @@
   "plan": "シビック タイプR",
   "cars": "ホンダ シビック タイプR（6MT）",
   "areas": [
-   "中国"
+   "中国・四国"
   ],
   "areaText": "岡山県倉敷市（児島駅前）",
   "trans": "MT",
@@ -171,7 +172,7 @@
   "plan": "その他のスポーツカー",
   "cars": "ロードスター（6MT）・GR86 RZ（6MT）・コペン（MT）",
   "areas": [
-   "中国"
+   "中国・四国"
   ],
   "areaText": "岡山県倉敷市（児島駅前）",
   "trans": "MT",
@@ -212,7 +213,7 @@
   "id": "fun2drive",
   "shop": "Fun2Drive",
   "plan": "会員制レンタカー",
-  "cars": "ロータス スーパーセブン・歴代GT-R・NSX・ポルシェ911（964）など",
+  "cars": "フェアレディZ RZ34・GT-R R35・GRスープラ・歴代GT-R・NSX・ポルシェ911（964）など",
   "areas": [
    "関東"
   ],
@@ -223,8 +224,8 @@
   "mtFromMt": false,
   "extra": "会員登録が必要。本登録には正規就労の証明が必要で、学生などは条件付きの仮登録",
   "note": "ツアー企画では条件が緩和されることがある。条件は車種ページの記載（掲載時期が古い可能性あり）。",
-  "src": "https://fun2drive.co.jp/cars/lotus_7/",
-  "conf": "old",
+  "src": "https://fun2drive.co.jp/cars/z_400z_rz34/",
+  "conf": "official",
   "checked": "2026-11-23",
   "active": true
  },
@@ -298,13 +299,13 @@
   ],
   "areaText": "千葉県松戸市",
   "trans": "MT/AT",
-  "age": null,
+  "age": 21,
   "years": 3,
   "mtFromMt": true,
   "extra": "会員登録（無料）が必要・デポジット5万円",
-  "note": "公式FAQ（ブログに引用）ではMT免許取得後3年以上。年齢は車種ごとに21歳以上・25歳以上などの条件がある。",
-  "src": "https://libair.net/2022/04/03/rental_manual_transmission_vehicle/",
-  "conf": "article",
+  "note": "R32 GT-Rは21歳以上・MT免許3年以上。車種ごとに年齢条件があり、R35 GT-R（2025年モデル）は25歳以上。",
+  "src": "https://activityjapan.com/publish/plan/18514",
+  "conf": "official",
   "checked": "2026-11-23",
   "active": true
  },
@@ -470,5 +471,620 @@
   "conf": "old",
   "checked": "2026-11-23",
   "active": true
+ },
+ {
+  "areas": [
+   "中部"
+  ],
+  "areaText": "名古屋東店のみ",
+  "trans": "MT",
+  "age": 21,
+  "years": 1,
+  "mtFromMt": true,
+  "extra": "本人名義クレジットカード払いのみ・免責補償に加入できない",
+  "note": "21歳以上かつMT免許取得後1年以上。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "budget-nagoya",
+  "shop": "バジェット・レンタカー",
+  "plan": "名古屋東店 スポーツカー体感（電話予約限定）",
+  "cars": "GR86（MT）・ロードスター（MT）・S660（MT）・スイフトスポーツ（MT）・アルトワークス（MT）",
+  "src": "https://www.budgetrentacar.co.jp/campaign/sportscar/"
+ },
+ {
+  "areas": [
+   "関東",
+   "中国・四国",
+   "九州・沖縄"
+  ],
+  "areaText": "相模原・平塚田村・東戸塚・羽田空港・西武立川、中国・四国、九州・沖縄の対象店",
+  "trans": "MT/AT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "MT車はMT免許取得後3年以上、AT車は免許取得後3年以上。どちらも21歳以上。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-roadster",
+  "shop": "スカイレンタカー",
+  "plan": "ロードスター 車種指定",
+  "cars": "マツダ ロードスター（MT）・ロードスターRF（AT）",
+  "src": "https://www.skyrent.jp/campaigns/mazda_roadstar/"
+ },
+ {
+  "areas": [
+   "北海道",
+   "東北",
+   "関東",
+   "九州・沖縄"
+  ],
+  "areaText": "新千歳空港・新青森・仙台宮城野など多数の対象店",
+  "trans": "MT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-civicrs",
+  "shop": "スカイレンタカー",
+  "plan": "シビックRS（MT）車種指定",
+  "cars": "ホンダ シビックRS（6MT）",
+  "src": "https://www.skyrent.jp/campaigns/civic_rs/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "対象店",
+  "trans": "MT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-supra",
+  "shop": "スカイレンタカー",
+  "plan": "GRスープラ（MT）車種指定",
+  "cars": "トヨタ GRスープラ RZ（MT・2人乗り）",
+  "src": "https://www.skyrent.jp/campaigns/supra/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京・神奈川の対象店",
+  "trans": "MT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-typer",
+  "shop": "スカイレンタカー",
+  "plan": "シビック TYPE R（MT）",
+  "cars": "ホンダ シビック TYPE R（MT）",
+  "src": "https://www.skyrent.jp/campaigns/manual_car/"
+ },
+ {
+  "areas": [
+   "関東",
+   "関西",
+   "中国・四国"
+  ],
+  "areaText": "羽田空港・西武立川（MT）、新大阪駅東口（MT）、大阪駅前（AT）、徳島空港",
+  "trans": "MT/AT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "羽田・西武立川はMT免許3年以上・25歳以上。徳島空港店は21歳以上・3年以上とする記事もある。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-z",
+  "shop": "スカイレンタカー",
+  "plan": "フェアレディZ",
+  "cars": "日産 フェアレディZ（6MT／9速AT）",
+  "src": "https://prosnew.com/nissan-fairladyz-rentcar/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "西武立川店",
+  "trans": "MT/AT",
+  "age": null,
+  "years": 1,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "MT車は免許取得1年未満は不可。AT車は制約なし。年齢の条件は書かれていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-s660",
+  "shop": "スカイレンタカー",
+  "plan": "S660（西武立川店）",
+  "cars": "ホンダ S660（MT／AT）",
+  "src": "https://www.skyrent.jp/campaigns/sportscar/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "埼玉県内の店舗（武蔵浦和駅前店・春日部店を除く）",
+  "trans": "MT",
+  "age": null,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "契約者本人の運転に限る・サーキット不可",
+  "note": "MT免許取得3年以上。年齢の条件は書かれていない（未成年は保護者の同意が必要）。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "toyota-saitama",
+  "shop": "トヨタレンタリース埼玉",
+  "plan": "GR86・GRヤリス（MT）",
+  "cars": "トヨタ GR86・GRヤリス（MT）",
+  "src": "https://toyota-rlss.co.jp/faq-cat/rental-car"
+ },
+ {
+  "areas": [
+   "東北",
+   "関東",
+   "中部",
+   "関西",
+   "中国・四国",
+   "九州・沖縄"
+  ],
+  "areaText": "MT取扱：愛知47・埼玉31・山形16・栃木14・京都13・滋賀9・愛媛9・沖縄9・高知3店（大阪・兵庫はATのみ）",
+  "trans": "MT/AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "クレジットカード払いのみ",
+  "note": "条件は地域の運営会社ごとに違う（例：埼玉はMT免許3年以上）。予約前に出発店舗へ確認が必要。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "toyota-national",
+  "shop": "トヨタレンタカー",
+  "plan": "GR86（全国の取扱店）",
+  "cars": "トヨタ GR86（MT／AT）",
+  "src": "https://cp.toyota.jp/rentacar/syouryou/gr86/"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "MTは西三条店・京田辺店のみ、ATは京都の全店",
+  "trans": "MT/AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "クレジットカード払いのみ",
+  "note": "年齢・年数の条件は書かれていない。GRカローラ（MT）はMT免許3年以上。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "toyota-kyoto",
+  "shop": "トヨタレンタリース京都",
+  "plan": "GR86（RZ・MT／SZ・AT）",
+  "cars": "トヨタ GR86 RZ（6MT）・SZ（6AT）",
+  "src": "https://www.r-kyoto.co.jp/kyotoservice/kyotoservice-3074/"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "三宮・貿易センター駅前店のみ",
+  "trans": "MT",
+  "age": null,
+  "years": 5,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "MT車は普通免許取得後5年以上（2021年の案内）。",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "toyota-kobe",
+  "shop": "トヨタレンタリース神戸",
+  "plan": "GRヤリス（MT）",
+  "cars": "トヨタ GRヤリス（MT）",
+  "src": "https://www.r-kobe.jp/topics/3990/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "対象店舗",
+  "trans": "車種による",
+  "age": 26,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "レンタカー・プライムメンバーズクラブ会員・提携クレジットカード払い",
+  "note": "2026年3月までのキャンペーン。海老名店のフェアレディZ（AT）・GRヤリス（MT）は25歳以上・免許3年以上だった。",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": false,
+  "id": "orix-sports",
+  "shop": "オリックスレンタカー",
+  "plan": "スポーツカー体感プラン",
+  "cars": "GR86・BRZ・ロードスター・アバルト595",
+  "src": "https://car.orix.co.jp/campaign/2025071803_sportscar.html"
+ },
+ {
+  "areas": [
+   "関東",
+   "中部",
+   "関西"
+  ],
+  "areaText": "六本木・名古屋・なんばOCAT・淀屋橋・梅田など限られた店舗",
+  "trans": "2ペダル",
+  "age": 35,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "会員登録・電話予約・クレジットカード払い",
+  "note": "35歳以上（2024年の記事）。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "nissan-rentacar",
+  "shop": "日産レンタカー",
+  "plan": "GT-R・フェアレディZ",
+  "cars": "日産 GT-R・フェアレディZ",
+  "src": "https://intensive911.com/japanese-car-brand/nissan-infiniti/117763"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京",
+  "trans": "MT/AT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "GT-R R35・RX-7・LC500・GT-R R32・S2000は26歳以上。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "onlyjdm",
+  "shop": "OnlyJDM",
+  "plan": "JDMレンタカー",
+  "cars": "フェアレディZ Z32・GT-R R35/R32・RX-7・LC500・S2000など",
+  "src": "https://only-jdm.com/ja/cars/z-300zx-z32-72"
+ },
+ {
+  "areas": [
+   "関東",
+   "九州・沖縄"
+  ],
+  "areaText": "東京・横浜、熊本",
+  "trans": "車種による",
+  "age": 26,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "72時間前までのオンライン予約・決済",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "samurai",
+  "shop": "SAMURAI RENT-A-CAR",
+  "plan": "超高級車レンタル",
+  "cars": "フェラーリ・ランボルギーニ・マクラーレン・ロールス・ロイスなど",
+  "src": "https://prtimes.jp/main/html/rd/p/000000001.000169826.html"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京（渋谷発）",
+  "trans": "2ペダル",
+  "age": 26,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "レンタカーではなくスタッフ付きの運転体験。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "tokyo-supercars",
+  "shop": "TOKYO SUPERCARS",
+  "plan": "スーパーカー運転体験（先導・同乗付き）",
+  "cars": "フェラーリ・ランボルギーニ・マクラーレンなど（主にセミAT）",
+  "src": "https://activityjapan.com/publish/plan/28246"
+ },
+ {
+  "areas": [
+   "中部"
+  ],
+  "areaText": "愛知県名古屋市",
+  "trans": "MT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "AT限定解除の人は解除日から3年以上。追加運転者も同じ条件。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "glamp",
+  "shop": "GLAMP",
+  "plan": "スポーツカー",
+  "cars": "GR86 40周年記念車（MT）・GRヤリス・S2000（MT）・ロードスター（MT）",
+  "src": "https://www.rentacarglamp.com/jdmlineup/toyota-gr-yaris"
+ },
+ {
+  "areas": [
+   "中部"
+  ],
+  "areaText": "愛知県名古屋市名東区",
+  "trans": "MT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "jdm-nagoya",
+  "shop": "JDMカーレンタル",
+  "plan": "スポーツカー",
+  "cars": "フェアレディZ バージョンST（6MT）など",
+  "src": "https://prtimes.jp/main/html/rd/p/000000014.000028122.html"
+ },
+ {
+  "areas": [
+   "中部"
+  ],
+  "areaText": "愛知県田原市（田原店のみ）",
+  "trans": "MT",
+  "age": 30,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "atsumi",
+  "shop": "アツミレンタカー",
+  "plan": "フェアレディZ（田原店）",
+  "cars": "日産 フェアレディZ バージョンST（MT）",
+  "src": "https://www.atm-rent.co.jp/detail/?id=1738288050"
+ },
+ {
+  "areas": [
+   "中部"
+  ],
+  "areaText": "長野県安曇野市",
+  "trans": "MT/AT",
+  "age": 23,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "MT車はAT限定解除から3年以上。ペーパードライバーは不可。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "finedrive",
+  "shop": "ファインドライブ安曇野",
+  "plan": "スポーツカー・オープンカー",
+  "cars": "S660・ロードスターなど",
+  "src": "https://finedrive.azumino-nishiyama.com/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "茨城県高萩市",
+  "trans": "MT/AT",
+  "age": 21,
+  "years": 1,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "21歳以上（MT車はMT免許取得後1年以上）。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "seiwa",
+  "shop": "レンタカーズSEiWA",
+  "plan": "ロードスター",
+  "cars": "マツダ ロードスター（NDERF）",
+  "src": "https://seiwa-rc.jp/carlist/?id=34"
+ },
+ {
+  "areas": [
+   "北海道"
+  ],
+  "areaText": "北海道旭川市（富良野・美瑛方面）",
+  "trans": "MT",
+  "age": 21,
+  "years": 1,
+  "mtFromMt": false,
+  "extra": "日本国内在住の人のみ",
+  "note": "MT操作に慣れていない人は不可。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "goodluck",
+  "shop": "グッドラック",
+  "plan": "GRスポーツレンタカー",
+  "cars": "トヨタ GR系スポーツカー（MT）",
+  "src": "https://goodrac-rentacar.com/gr-sportscar/"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "福岡空港店ほか",
+  "trans": "MT",
+  "age": 25,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "電話予約・クレジットカード払い",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "hondacars-hakata",
+  "shop": "Honda Cars 博多 レンタカー",
+  "plan": "スポーツカー",
+  "cars": "GR86・GRヤリス・シビック TYPE R（6MT）・S660",
+  "src": "https://hondacars-hakata-rentacar.com/sports/"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "福岡（同社店舗）",
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "年齢制限なしとする記事あり（2021年）。公式ページには条件の記載が見当たらない。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "netz-fukuoka",
+  "shop": "ネッツトヨタ福岡",
+  "plan": "希少車レンタルサービス",
+  "cars": "GRヤリス（6MT）・Vitz GRMN Turbo・iQ GRMN・MR-S",
+  "src": "https://netzfukuoka.jp/special_rent_a_car"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "福岡市西区（姪浜）",
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "spoca",
+  "shop": "スポカレンタカー",
+  "plan": "スポーツカー・オープンカー",
+  "cars": "ロードスター（MT）・WRX STI（MT）・シビック タイプR（MT）など19台",
+  "src": "https://spocarentacar.com/"
+ },
+ {
+  "areas": [
+   "中国・四国"
+  ],
+  "areaText": "広島市南区",
+  "trans": "MT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "boogie",
+  "shop": "廣島★ブギウギレンタカー",
+  "plan": "ビンテージスポーツ",
+  "cars": "フェアレディZ（S30・左ハンドル）・スカイライン2600 GT-Rなど（MT）",
+  "src": "https://www.nipponmotorboogie.com/"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "沖縄",
+  "trans": "2ペダル",
+  "age": 35,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "ゴールド免許・当日利用のみ（最大12時間）・GPS搭載に同意",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "grace-okinawa",
+  "shop": "GRACE OKINAWA",
+  "plan": "GT-R Premium edition",
+  "cars": "日産 GT-R（2017）",
+  "src": "https://www.graceokinawa.com/nissan/gtr/"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "那覇市（Southwest Grand Hotel内）",
+  "trans": "車種による",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "GLIONグループ。条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "ryukyu-premium",
+  "shop": "RYUKYU PREMIUM DRIVE（琉球プレミアムドライブ）",
+  "plan": "プレミアムカー",
+  "cars": "GT-R Black Edition・ポルシェ・ベンツ CLE カブリオレ・MINI コンバーチブルなど",
+  "src": "https://gpryukyu.co.jp/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "ステーション設置エリア",
+  "trans": "AT",
+  "age": null,
+  "years": 1,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "カーシェア。サービス全体で免許取得1年未満は利用不可（記事）。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "mitsui-carshares",
+  "shop": "三井のカーシェアーズ",
+  "plan": "GR86（プレミアム・カーシェア）",
+  "cars": "トヨタ GR86 SZ",
+  "src": "https://www.carshares.jp/car/sports/"
+ },
+ {
+  "areas": [
+   "東北"
+  ],
+  "areaText": "宮城県仙台市泉区",
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "100yen-izumi",
+  "shop": "100円レンタカー",
+  "plan": "GR86（泉中央駅前店）",
+  "cars": "トヨタ GR86 RZ（6MT）",
+  "src": "https://100yen-rentacar.jp/topic/detail/16971"
  }
 ]
