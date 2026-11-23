@@ -193,12 +193,12 @@
   "plan": "ポルシェ公式レンタカー",
   "cars": "911・718・タイカン・パナメーラなど",
   "areas": [
-   "関西",
    "関東",
    "中部",
+   "関西",
    "九州・沖縄"
   ],
-  "areaText": "ポルシェセンター西宮・神戸（関西）、東京・埼玉、福井、九州、沖縄など",
+  "areaText": "ポルシェセンター西宮・神戸（関西）、名古屋、東京・埼玉、福井、九州、沖縄など",
   "trans": "2ペダル",
   "age": 26,
   "years": 3,
@@ -272,21 +272,21 @@
  },
  {
   "id": "hondacars-tokyochuo",
-  "shop": "Honda Cars 東京中央",
-  "plan": "シビック タイプR",
-  "cars": "ホンダ シビック タイプR",
+  "shop": "Honda Cars（ホンダモビリティ南関東）",
+  "plan": "マニュアル車レンタル",
+  "cars": "ホンダ シビック TYPE R（FL5・MT）・N-ONE RS（MT）",
   "areas": [
    "関東"
   ],
-  "areaText": "東京",
+  "areaText": "東京（シビック TYPE Rは港店、N-ONE RSは蒲田店・池上南店）",
   "trans": "MT",
   "age": null,
   "years": 2,
-  "mtFromMt": false,
+  "mtFromMt": true,
   "extra": "",
-  "note": "利用者のブログによる情報。年齢条件は不明。",
-  "src": "https://libair.net/2022/04/03/rental_manual_transmission_vehicle/",
-  "conf": "article",
+  "note": "シビック TYPE RはMT免許取得から2年以上（AT限定解除は解除日から）。N-ONE RSは年数の条件なし。年齢の条件は書かれていない。",
+  "src": "https://www.hondamobility-minamikanto.co.jp/corporate/rentacar_mt.html",
+  "conf": "official",
   "checked": "2026-11-23",
   "active": true
  },
@@ -1208,5 +1208,127 @@
   "plan": "輸入車・GT-R",
   "cars": "日産 GT-R（AT）・輸入車",
   "src": "https://cartune.co.jp/magazine/articles/3449"
+ },
+ {
+  "areas": [
+   "関西",
+   "関東",
+   "中国・四国"
+  ],
+  "areaText": "新大阪駅東口・羽田空港・西武立川・東戸塚駅前・平塚田村・徳島空港・松山空港",
+  "trans": "MT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": true,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-swift",
+  "shop": "スカイレンタカー",
+  "plan": "スイフトスポーツ（MT）車種指定",
+  "cars": "スズキ スイフトスポーツ（6MT）",
+  "src": "https://www.skyrent.jp/campaigns/swiftsport/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "西武立川店",
+  "trans": "MT/AT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "sky-brz",
+  "shop": "スカイレンタカー",
+  "plan": "BRZ（西武立川店）",
+  "cars": "スバル BRZ",
+  "src": "https://www.skyrent.jp/campaigns/manual_car/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京23区とその周辺（配車）",
+  "trans": "2ペダル",
+  "age": 26,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "プレミアム会員への入会・デポジット100万円・65歳まで",
+  "note": "記事による条件。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "jims",
+  "shop": "JIMSレンタカー",
+  "plan": "スーパーカー",
+  "cars": "ランボルギーニ ウラカン LP610-4 アヴィオなど",
+  "src": "https://monokariru.com/lamborghini/"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "関西（店舗の場所は未確認）",
+  "trans": "車種による",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "global-auto",
+  "shop": "グローバルオートレンタカー",
+  "plan": "高級輸入車",
+  "cars": "フェラーリ 488 スパイダー・ランボルギーニ ウラカン・マクラーレン・ポルシェなど",
+  "src": "https://www.global-auto06.com/"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪",
+  "trans": "車種による",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "ss-rentacar",
+  "shop": "SSレンタカー",
+  "plan": "輸入車・高級車",
+  "cars": "ランボルギーニ ウラカン（AT・左ハンドル）・ロールス・ロイス・ポルシェ・レクサスなど",
+  "src": "https://ss-rentacar.com/importcar/%E3%83%A9%E3%83%B3%E3%83%9C%E3%83%AB%E3%82%AE%E3%83%BC%E3%83%8B%E3%80%80%E3%82%A6%E3%83%A9%E3%82%AB%E3%83%B3%E3%80%903%EF%BD%88%E5%AF%BE%E5%BF%9C%E8%BB%8A%E7%A8%AE%E3%80%91/"
+ },
+ {
+  "areas": [
+   "九州・沖縄"
+  ],
+  "areaText": "福岡市東区（福岡空港店あり）",
+  "trans": "AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "executive-fukuoka",
+  "shop": "エグゼクティブレンタカー",
+  "plan": "高級輸入車",
+  "cars": "ポルシェ ボクスター・ベンツ・BMW・アウディ・レクサスなど",
+  "src": "https://www.ekiten.jp/shop_6757633"
  }
 ]
