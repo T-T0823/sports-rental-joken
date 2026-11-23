@@ -28,7 +28,7 @@
   "areas": [
    "関西"
   ],
-  "areaText": "大阪市大正区",
+  "areaText": "大阪市大正区泉尾（大正駅から送迎あり）",
   "trans": "MT",
   "age": null,
   "years": 3,
@@ -48,7 +48,7 @@
   "areas": [
    "関西"
   ],
-  "areaText": "大阪市大正区",
+  "areaText": "大阪市大正区泉尾（大正駅から送迎あり）",
   "trans": "AT",
   "age": null,
   "years": null,
@@ -66,13 +66,14 @@
   "plan": "標準条件（ほとんどの車種）",
   "cars": "GR86・シビック タイプR・RX-7・R32 GT-R・ロードスターなど（店舗ごとに異なる）",
   "areas": [
+   "北海道",
    "関東",
    "中部",
    "関西",
    "中国・四国",
    "九州・沖縄"
   ],
-  "areaText": "関東11店・名古屋東店・大阪中央店（大阪市東成区）・和歌山店・広島（FC）・福岡香椎店",
+  "areaText": "札幌北広島店・関東11店・名古屋東店・大阪中央店（大阪市東成区）・和歌山店・広島（FC）・福岡香椎店",
   "trans": "MT/AT",
   "age": 23,
   "years": 3,
@@ -495,10 +496,11 @@
  {
   "areas": [
    "関東",
+   "中部",
    "中国・四国",
    "九州・沖縄"
   ],
-  "areaText": "相模原・平塚田村・東戸塚・羽田空港・西武立川、中国・四国、九州・沖縄の対象店",
+  "areaText": "相模原・平塚田村・東戸塚・羽田空港・西武立川、中国・四国、九州・沖縄の対象店・北陸（金沢駅前・金沢南・小松空港・福井高柳・鯖江）",
   "trans": "MT/AT",
   "age": 21,
   "years": 3,
@@ -752,11 +754,11 @@
   ],
   "areaText": "東京",
   "trans": "MT/AT",
-  "age": 23,
+  "age": 24,
   "years": 3,
   "mtFromMt": false,
   "extra": "",
-  "note": "GT-R R35・RX-7・LC500・GT-R R32・S2000は26歳以上。",
+  "note": "GT-R・RX-7・LC500（車によりBNR32・S2000も）は27歳以上。古いFAQでは23歳以上（一部26歳以上）とされており、車種ページの新しい条件を採用。",
   "conf": "official",
   "checked": "2026-11-23",
   "active": true,
@@ -764,7 +766,7 @@
   "shop": "OnlyJDM",
   "plan": "JDMレンタカー",
   "cars": "フェアレディZ Z32・GT-R R35/R32・RX-7・LC500・S2000など",
-  "src": "https://only-jdm.com/ja/cars/z-300zx-z32-72"
+  "src": "https://only-jdm.com/ja/cardetail/30"
  },
  {
   "areas": [
@@ -1086,5 +1088,125 @@
   "plan": "GR86（泉中央駅前店）",
   "cars": "トヨタ GR86 RZ（6MT）",
   "src": "https://100yen-rentacar.jp/topic/detail/16971"
+ },
+ {
+  "areas": [
+   "北海道"
+  ],
+  "areaText": "札幌市豊平区（新千歳空港への配車・乗り捨てあり）",
+  "trans": "MT/AT",
+  "age": 21,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "NDロードスターは21歳以上。免許の年数の条件は書かれていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "ask-sapporo",
+  "shop": "アスクこだわりレンタカー",
+  "plan": "スポーツカー・オープンカー",
+  "cars": "NDロードスター（MT）・ポルシェ ボクスター・アルファロメオ スパイダーなど",
+  "src": "https://www.asksport.co.jp/rent/rent_car/car/car021/"
+ },
+ {
+  "areas": [
+   "北海道"
+  ],
+  "areaText": "札幌市豊平区",
+  "trans": "車種による",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "washida",
+  "shop": "WASHIDAレンタカー",
+  "plan": "輸入車・オープンカー",
+  "cars": "SL400・ボクスター（981）・アバルト124スパイダー（MT）・ロードスター NR-A（MT）・BMW 220i カブリオレなど",
+  "src": "https://nomad-r.jp/magazine/rental-convertible-hokkaido/"
+ },
+ {
+  "areas": [
+   "北海道"
+  ],
+  "areaText": "札幌",
+  "trans": "車種による",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "条件はまだ確認できていない。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "fox-premium",
+  "shop": "FOXプレミアムレンタカー",
+  "plan": "高級車・オープンカー",
+  "cars": "BMW・メルセデス・国産スポーツカーなど",
+  "src": "https://fox-r.jp/"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "大阪市中央区南船場（心斎橋）",
+  "trans": "AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "主に訪日客向け。予約サイトでは18歳未満は不可とされているが、日本の免許での条件は確認できていない。",
+  "conf": "article",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "jdl-osaka",
+  "shop": "Japan Drive Legends",
+  "plan": "JDMスポーツカー（AT）",
+  "cars": "GT86・WRX STI・フェアレディZ など（AT）",
+  "src": "https://www.getyourguide.com/osaka-l1204/osaka-sports-cars-rental-drive-yourself-a-jdm-car-t1110481/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京",
+  "trans": "車種による",
+  "age": 18,
+  "years": 0,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "公式サイトのFAQで「18歳以上・免許の経験年数の条件なし」としている。主に訪日客向け。",
+  "conf": "official",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "jdm-rental-japan",
+  "shop": "JDM Rental Japan",
+  "plan": "JDMレンタカー",
+  "cars": "RX-7・GT-Rなど",
+  "src": "https://www.jdmrentaljapan.com/"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "東京",
+  "trans": "2ペダル",
+  "age": 28,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "24時間あたり400kmまでの距離制限",
+  "note": "古い記事による条件。",
+  "conf": "old",
+  "checked": "2026-11-23",
+  "active": true,
+  "id": "direx",
+  "shop": "DIREX",
+  "plan": "輸入車・GT-R",
+  "cars": "日産 GT-R（AT）・輸入車",
+  "src": "https://cartune.co.jp/magazine/articles/3449"
  }
 ]
