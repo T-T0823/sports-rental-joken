@@ -121,7 +121,7 @@ function judge(d, me){
   if(d.trans === "MT"){
     if(me.atOnly) ng.push("AT限定では運転できない");
     else if(!okMt){
-      if(d.mtFromMt && okLic) mtShort = `MT免許になってからの年数があと${yrs(d.years - me.mt)}年足りない（年齢・免許の年数は満たしている）`;
+      if(d.mtFromMt && okLic) mtShort = `MT免許になってからの年数は足りていないが借りれる場合があるので試す価値あり（あと${yrs(d.years - me.mt)}年）`;
       else ng.push(`免許の年数があと${yrs(d.years - me.lic)}年足りない`);
     }
   } else if(d.trans === "MT/AT"){
