@@ -64,12 +64,21 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .conf.article,.conf.old{color:var(--warn);border-color:rgba(245,165,36,.4)}
 .carname{font-weight:900;font-size:18px;line-height:1.3}
 .maker{font-size:12px;color:var(--muted);font-family:Oswald,sans-serif;letter-spacing:.06em}
-.shops{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
-.shops li{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#13161a}
-.shops .row{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.shops .sname{font-weight:700;font-size:14px}
-.shops .sub{font-size:12px;color:var(--muted)}
-.shops .why{font-size:12px}
+.shops{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column}
+.shops li{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:7px 2px;border-bottom:1px solid var(--line)}
+.shops li:last-child{border-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--unk)}
+.dot.ok{background:var(--ok)}.dot.cond{background:var(--warn)}.dot.mt{background:var(--mt)}.dot.ng{background:var(--ng)}
+.sname{font-weight:700;font-size:14px;line-height:1.3}
+.sname a{color:inherit;text-decoration:none}
+.sname a:hover{text-decoration:underline}
+.sub{font-size:12px;color:var(--muted);line-height:1.4}
+.st{font-size:12px;font-weight:700;white-space:nowrap}
+.st.ok{color:var(--ok)}.st.cond{color:var(--warn)}.st.mt{color:#d8b4fe}.st.ng{color:var(--ng)}.st.unk{color:#aab3bd}
+.tip{font-size:11.5px;color:#e9d5ff;grid-column:2/4}
+.cnt{font-size:12.5px;color:var(--muted)}
+.cnt b{color:var(--text)}
+.toggle{background:transparent;border:1px dashed var(--line);color:var(--muted);border-radius:8px;padding:6px;font-size:12.5px;font-family:inherit;cursor:pointer;margin-top:4px}
 .more{font-size:12px;color:var(--muted)}
 .empty{color:var(--muted);padding:30px;text-align:center}
 section.about{margin-top:28px}
@@ -110,7 +119,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <li>各社の公式ページ・公式資料を中心に、年齢と免許の年数の条件を集めています。カードごとに出典と確認日を載せています。</li>
       <li>「公式」は公式ページで確認した条件、「記事」「古い情報」は報道・ブログ・古い資料が元の条件です。変わっている可能性が高いので特に注意してください。</li>
       <li>判定は年齢と免許の年数だけで行っています。ゴールド免許・任意保険・会員登録・クレジットカードなどの追加条件や、店舗の判断で断られる場合もあります。</li>
-      <li>「車種ごと」は店の取扱車種をまとめたものです。同じ店でも車種によって条件が違うことがあります。</li>
+      <li>「車種ごと」は店の取扱車種をまとめたものです。店名を押すと出典のページが開きます。同じ店でも車種によって条件が違うことがあります。</li>
       <li>車の写真はWikipedia（Wikimedia Commons）の画像で、車種のイメージです。実際に貸し出される車両とは色・年式・仕様が異なります。</li>
       <li>このページの判定によって生じた損害について、運営者は責任を負いません。</li>
     </ul>
@@ -267,18 +276,27 @@ function shopCard({d,j}){
   </article>`;
 }
 
+const SHORT = {ok:"借りられる", cond:"条件つき", mt:"MT年数不足", ng:"借りられない", unk:"要確認"};
+const place = t => { const s = String(t).split(/[・、（(]/)[0]; return s.length > 16 ? s.slice(0,16) + "…" : s; };
+const opened = new Set();
 function carCard(m, list){
   const best = list[0].j.s;
+  const okN = list.filter(r => r.j.s === "ok" || r.j.s === "cond").length;
+  const LIMIT = 4, all = opened.has(m.name), rows = all ? list : list.slice(0, LIMIT);
   return `<article class="card ${best}">
     ${photo(m)}
     <div class="body">
       <div class="top"><div><div class="maker">${esc(m.maker)}</div><div class="carname">${esc(m.name)}</div></div><span class="badge ${best}">${LABEL[best]}</span></div>
-      <ul class="shops">${list.map(({d,j}) => `
-        <li><div class="row"><div><div class="sname">${esc(d.shop)}</div><div class="sub">${esc(d.plan)}・${d.age ?? "?"}歳以上・免許${d.years ?? "?"}年以上・${esc(d.trans)}</div></div><span class="badge ${j.s}">${LABEL[j.s]}</span></div>
-        <div class="sub">📍 ${esc(d.areaText)}</div>
-        ${j.why ? `<div class="why">${esc(j.why)}</div>` : ""}
-        <div class="sub"><span class="conf ${d.conf}">${CONF[d.conf]}</span><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">出典 ↗</a></div></li>`).join("")}
+      <div class="cnt">${list.length}件の店で取扱い／あなたが借りられそうな店 <b>${okN}</b>件</div>
+      <ul class="shops">${rows.map(({d,j}) => `
+        <li title="${esc(j.why || "")}"><span class="dot ${j.s}"></span>
+          <div><div class="sname"><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">${esc(d.shop)}</a></div>
+          <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(d.trans)}・${esc(place(d.areaText))}</div></div>
+          <span class="st ${j.s}">${SHORT[j.s]}</span>
+          ${j.s === "mt" ? `<div class="tip">MT免許の年数は足りないが借りれる場合があるので試す価値あり</div>` : ""}
+        </li>`).join("")}
       </ul>
+      ${list.length > LIMIT ? `<button class="toggle" data-m="${esc(m.name)}">${all ? "閉じる" : `他${list.length - LIMIT}件を表示`}</button>` : ""}
     </div>
   </article>`;
 }
@@ -293,13 +311,14 @@ function render(){
     $("cards").innerHTML = shown.length ? shown.map(shopCard).join("") : `<div class="empty">条件に合う掲載がありません</div>`;
   } else {
     const groups = MODELS.map(m => ({m, list: rows.filter(r => modelsOf(r.d).includes(m))})).filter(g => g.list.length);
-    groups.forEach(g => g.best = g.list[0].j.s);
-    groups.sort((a,b) => ORDER[a.best] - ORDER[b.best]);
     const count = {all:groups.length, ok:0, cond:0, mt:0, ng:0, unk:0};
-    groups.forEach(g => count[g.best]++);
+    groups.forEach(g => Object.keys(ORDER).forEach(k => { if(g.list.some(r => r.j.s === k)) count[k]++; }));
     pills(count);
-    const shown = groups.filter(g => filter === "all" || g.best === filter);
+    const shown = groups.map(g => ({m:g.m, list: filter === "all" ? g.list : g.list.filter(r => r.j.s === filter)}))
+      .filter(g => g.list.length)
+      .sort((a,b) => ORDER[a.list[0].j.s] - ORDER[b.list[0].j.s] || b.list.length - a.list.length);
     $("cards").innerHTML = shown.length ? shown.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">条件に合う車種がありません</div>`;
+    document.querySelectorAll(".toggle").forEach(b => b.onclick = () => { const n = b.dataset.m; opened.has(n) ? opened.delete(n) : opened.add(n); render(); });
   }
   loadPhotos();
 }
