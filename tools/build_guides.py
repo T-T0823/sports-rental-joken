@@ -20,8 +20,8 @@ def table(rows, note_col=False):
         rel = "sponsored noopener" if d.get("aff") else "noopener nofollow"
         pr = '<span class="pr">PR</span>' if d.get("aff") else ""
         out.append(f'<tr><td class="sh"><a href="{e(link)}" target="_blank" rel="{rel}">{e(d["shop"])}</a>{pr}<br><small>{e(d["plan"])}</small></td>'
-                   f'<td data-l="主な車種">{e(d["cars"])}</td><td data-l="年齢">{num(d["age"])}歳〜</td><td data-l="免許の年数">{yrs}</td><td data-l="MT/AT">{e(d["trans"])}</td>'
-                   f'<td data-l="場所">{e(d["areaText"])}</td><td data-l="料金の目安">{e(d.get("price") or "店のページで確認")}</td></tr>')
+                   f'<td data-l="主な車種"><span>{e(d["cars"])}</span></td><td data-l="年齢"><span>{num(d["age"])}歳〜</span></td><td data-l="免許の年数"><span>{yrs}</span></td><td data-l="MT/AT"><span>{e(d["trans"])}</span></td>'
+                   f'<td data-l="場所"><span>{e(d["areaText"])}</span></td><td data-l="料金の目安"><span>{e(d.get("price") or "店のページで確認")}</span></td></tr>')
     out.append("</tbody></table></div>")
     return "".join(out)
 
