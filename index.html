@@ -76,6 +76,7 @@ footer a{color:inherit}
 .price{font-size:13px;color:#e7d9a8;margin-top:4px}
 .price.none{color:var(--muted)}
 .scope{color:var(--muted);font-size:11px}
+.carsum{grid-column:1/-1;margin:0;font-size:13px;color:var(--muted)}
 .ngfold{grid-column:1/-1;background:transparent;border:1px dashed var(--line);color:var(--muted);border-radius:12px;padding:14px;font:inherit;font-size:14px;cursor:pointer}
 .ngfold:hover{color:var(--text);border-color:var(--muted)}
 .maybe{color:#aab3bd;font-size:11.5px}
@@ -256,6 +257,10 @@ const MODELS = [
  {name:"BMW（各種）", tr:"AT", maker:"BMW", re:/BMW/, wiki:"BMW_Z4_(G29)", ex:true},
  {name:"MINI コンバーチブル", tr:"both", maker:"MINI", re:/MINI|ミニ/, wiki:"Mini_Convertible"},
  {name:"ロータス / スーパーセブン", tr:"MT", maker:"LOTUS / CATERHAM", re:/ロータス|スーパーセブン|スーパー7|エリーゼ/, wiki:"Caterham_Seven", ex:true},
+ {name:"レクサス（その他）", tr:"AT", maker:"LEXUS", re:/レクサス(?! ?(LC|RC))/, wiki:"Lexus_LC", ex:true},
+ {name:"アウディ", tr:"AT", maker:"AUDI", re:/アウディ/, wiki:"Audi_R8_(Type_4S)", ex:true},
+ {name:"アルファロメオ スパイダー", tr:"MT", maker:"ALFA ROMEO", re:/アルファ ?ロメオ/, wiki:"Alfa_Romeo_Spider", ex:true},
+ {name:"ヴィッツ GRMN / iQ GRMN", tr:"MT", maker:"TOYOTA", re:/GRMN/, wiki:"Toyota_Yaris_(XP130)", ex:true},
  {name:"アバルト 124スパイダー / 595", tr:"both", maker:"ABARTH", re:/アバルト/, wiki:"Fiat_124_Spider_(2016)"},
 ];
 
@@ -440,7 +445,9 @@ function render(){
       .filter(g => g.list.length)
       .sort((a,b) => ORDER[a.list[0].j.s] - ORDER[b.list[0].j.s] || b.list.length - a.list.length);
     const main = filter === "all" ? shown.filter(g => g.list[0].j.s !== "ng") : shown, ngs = filter === "all" ? shown.filter(g => g.list[0].j.s === "ng") : [];
-    $("cards").innerHTML = (main.length ? main.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">借りられそうな${gear}車は見つかりませんでした</div>`)
+    const total = shown.length;
+    $("cards").innerHTML = `<p class="carsum">${gear}車 全${total}車種${ngs.length ? `（借りられそうな車種 ${main.length}・借りられない車種 ${ngs.length}は一番下にまとめています）` : ""}${gear === "MT" ? "　AT車は上のボタンで切り替え" : "　MT車は上のボタンで切り替え"}</p>`
+      + (main.length ? main.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">借りられそうな${gear}車は見つかりませんでした</div>`)
       + (ngs.length ? (showNg ? ngs.map(g => carCard(g.m, g.list)).join("") + `<button class="ngfold" id="ngBtn">借りられない車種を閉じる</button>` : `<button class="ngfold" id="ngBtn">借りられない車種 ${ngs.length}件を表示</button>`) : "");
     document.querySelectorAll(".toggle").forEach(b => b.onclick = () => { const n = b.dataset.m; opened.has(n) ? opened.delete(n) : opened.add(n); render(); });
   }
