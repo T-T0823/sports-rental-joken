@@ -1473,19 +1473,18 @@
  },
  {
   "areas": [
-   "関西",
    "関東",
    "中国・四国"
   ],
-  "areaText": "新大阪駅東口・羽田空港・西武立川・東戸塚駅前・平塚田村・徳島空港・松山空港",
+  "areaText": "羽田空港・西武立川・東戸塚駅前・平塚田村・徳島空港・松山空港",
   "trans": "MT",
   "age": 21,
   "years": 3,
   "mtFromMt": true,
   "extra": "",
-  "note": "",
+  "note": "公式ページの利用条件（MT免許取得後3年以上かつ21歳以上）は、この6店舗を対象として書かれている。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "sky-swift",
   "shop": "スカイレンタカー",
@@ -1493,13 +1492,36 @@
   "cars": "スズキ スイフトスポーツ（6MT）",
   "src": "https://www.skyrent.jp/campaigns/swiftsport/",
   "prefs": [
-   "大阪府",
    "東京都",
    "神奈川県",
    "徳島県",
    "愛媛県"
   ],
-  "price": "当日 約1.1万円／24時間 約1.3万円",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fswiftsport%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "新大阪駅東口店",
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "公式ページでは取扱店舗に入っているが、利用条件の対象店舗の一覧に新大阪駅東口店は書かれていない。条件がないとは限らないので、予約の前に店舗に確認を。",
+  "conf": "official",
+  "checked": "2026-11-24",
+  "active": true,
+  "id": "sky-swift-shinosaka",
+  "shop": "スカイレンタカー",
+  "plan": "スイフトスポーツ（新大阪駅東口店）",
+  "cars": "スズキ スイフトスポーツ（6MT）",
+  "src": "https://www.skyrent.jp/campaigns/swiftsport/",
+  "prefs": [
+   "大阪府"
+  ],
   "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fswiftsport%2F",
   "affLabel": "スカイレンタカーで予約・料金を見る"
  },
