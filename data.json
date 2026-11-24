@@ -179,7 +179,9 @@
    "大阪府",
    "東京都",
    "福岡県"
-  ]
+  ],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Ftoyota_gr86%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "id": "heisei-civic",
@@ -629,7 +631,9 @@
    "石川県",
    "福井県"
   ],
-  "price": "当日返却・24時間とも 約1万円〜"
+  "price": "当日返却・24時間とも 約1万円〜",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fmazda_roadstar%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -657,7 +661,9 @@
    "北海道",
    "青森県",
    "宮城県"
-  ]
+  ],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fcivic_rs%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -678,7 +684,9 @@
   "plan": "GRスープラ（MT）車種指定",
   "cars": "トヨタ GRスープラ RZ（MT・2人乗り）",
   "src": "https://www.skyrent.jp/campaigns/supra/",
-  "prefs": []
+  "prefs": [],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fsupra%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -702,7 +710,9 @@
   "prefs": [
    "東京都",
    "神奈川県"
-  ]
+  ],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fmanual_car%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -730,7 +740,9 @@
    "大阪府",
    "徳島県"
   ],
-  "price": "24時間 約2.1万円（AT・期間限定料金）"
+  "price": "24時間 約2.1万円（AT・期間限定料金）",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -753,7 +765,9 @@
   "src": "https://www.skyrent.jp/campaigns/sportscar/",
   "prefs": [
    "東京都"
-  ]
+  ],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fsportscar%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -1485,7 +1499,9 @@
    "徳島県",
    "愛媛県"
   ],
-  "price": "当日 約1.1万円／24時間 約1.3万円"
+  "price": "当日 約1.1万円／24時間 約1.3万円",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fswiftsport%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
@@ -1508,7 +1524,9 @@
   "src": "https://www.skyrent.jp/campaigns/manual_car/",
   "prefs": [
    "東京都"
-  ]
+  ],
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fmanual_car%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
   "areas": [
