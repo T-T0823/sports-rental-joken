@@ -56,7 +56,7 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .req em{font-style:normal;font-family:Oswald,sans-serif;font-size:16px;color:#fff;margin-right:2px}
 .where{font-size:12.5px;color:var(--muted)}
 .why{font-size:13px;color:#ffc9bd}
-.card.ok .why{color:#a6e9c4}.card.mt .why{color:#e9d5ff}
+.card.ok .why{color:#a6e9c4}.card.mt .why{color:#e9d5ff}.card.cond .why{color:#f5d08a}.card.unk .why{color:#c2c9d1}
 .note{font-size:12.5px;color:var(--muted)}
 .book{display:block;text-align:center;margin-top:8px;padding:9px;border-radius:9px;background:#f0b429;color:#111;font-weight:700;text-decoration:none;font-size:14px}
 .book:hover{filter:brightness(1.08)}
@@ -74,6 +74,10 @@ footer a{color:inherit}
 .carname{font-weight:900;font-size:18px;line-height:1.3}
 .maker{font-size:12px;color:var(--muted);font-family:Oswald,sans-serif;letter-spacing:.06em}
 .price{font-size:13px;color:#e7d9a8;margin-top:4px}
+.price.none{color:var(--muted)}
+.scope{color:var(--muted);font-size:11px}
+.ngfold{grid-column:1/-1;background:transparent;border:1px dashed var(--line);color:var(--muted);border-radius:12px;padding:14px;font:inherit;font-size:14px;cursor:pointer}
+.ngfold:hover{color:var(--text);border-color:var(--muted)}
 .maybe{color:#aab3bd;font-size:11.5px}
 .gear{display:inline-block;font-size:11px;font-weight:700;padding:1px 6px;border-radius:5px;vertical-align:middle;margin-left:4px}
 .gear.MT{background:#3b2a55;color:#e9d5ff}.gear.AT{background:#1f3a4d;color:#bfe3ff}
@@ -102,6 +106,24 @@ section.about{margin-top:28px}
 section.about h2{font-size:17px;margin:0 0 8px}
 section.about ul{margin:0;padding-left:20px;color:#c9d0d7;font-size:13.5px}
 footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(--line);margin-top:24px}
+@media (max-width:640px){
+  header{padding:18px 14px 12px}
+  .lead{font-size:13px}.notice{font-size:12px;padding:6px 10px;margin-top:8px}
+  main{padding:12px}
+  .panel{padding:12px}
+  .form{grid-template-columns:1fr 1fr;gap:10px}
+  .form .full{grid-column:1/-1}
+  input[type=number],input[type=search],select{padding:8px 10px}
+  .chk{padding:8px 0}
+  .summary{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin:10px -12px 8px;padding-left:12px;padding-right:12px;scrollbar-width:none}
+  .summary::-webkit-scrollbar{display:none}
+  .pill{white-space:nowrap;flex:none}
+  .views{margin-top:12px}
+  .cards{grid-template-columns:1fr;gap:12px}
+  .photo{aspect-ratio:5/2}
+  .card .body{padding:12px 14px;gap:6px}
+  .gears button{padding:8px;font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -118,9 +140,9 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <div><label for="lic">免許を取ってから（年）</label><input id="lic" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2"></div>
       <div id="mtBox"><label for="mt">MT免許になってから（年）</label><input id="mt" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="2"></div>
       <div><div class="chk"><input id="atonly" type="checkbox"><label for="atonly">AT限定免許</label></div></div>
-      <div><label for="area">エリア</label><select id="area"><option value="">全国</option></select></div>
+      <div class="area-box"><label for="area">エリア</label><select id="area"><option value="">全国</option></select></div>
       <div id="prefBox" hidden><label for="pref">都道府県</label><select id="pref"><option value="">選択しない</option></select></div>
-      <div><label for="q">車名・店名で探す</label><input id="q" type="search" placeholder="例：GT-R、ポルシェ"></div>
+      <div class="full"><label for="q">車名・店名で探す</label><input id="q" type="search" placeholder="例：GT-R、ポルシェ"></div>
     </div>
   </section>
 
@@ -179,6 +201,7 @@ function inPref(d, area, pref){
   if(d.areas.includes(area) && !ps.some(p => PREFS[area].includes(p))) return "maybe";
   return "";
 }
+let showNg = false;
 let DATA = [], filter = "all", view = "shop", gear = "MT", gearTouched = false;
 // その店でその車種がMT・ATのどちらで借りられるか（店の表記と車種の設定から判断）
 function gearsOf(d, m){
@@ -326,7 +349,7 @@ function current(){
 function pills(count){
   $("summary").innerHTML = [["all","すべて"],["ok","借りられる"],["cond","条件つき"],["mt","MT年数だけ不足"],["unk","要確認"],["ng","借りられない"]]
     .map(([k,l]) => `<button class="pill ${filter===k?"on":""}" data-f="${k}" aria-pressed="${filter===k}">${l}<b>${count[k] ?? 0}</b></button>`).join("");
-  document.querySelectorAll(".pill").forEach(b => b.onclick = () => { filter = b.dataset.f; render(); });
+  document.querySelectorAll(".pill").forEach(b => b.onclick = () => { filter = b.dataset.f; showNg = false; render(); });
 }
 
 function shopCard({d,j}){
@@ -342,7 +365,7 @@ function shopCard({d,j}){
         <span>${esc(d.trans)}</span>
       </div>
       <div class="where">📍 ${esc(d.areaText)}${prefNote(d)}</div>
-      <div class="price">💴 ${d.price ? esc(d.price) : "料金は出典・公式ページで確認"}</div>
+      ${d.price ? `<div class="price">💴 ${esc(d.price)}</div>` : `<div class="price none">料金は出典・公式ページで確認</div>`}
       ${j.why ? `<div class="why">${esc(j.why)}</div>` : ""}
       ${d.note ? `<div class="note">${esc(d.note)}</div>` : ""}
       ${d.aff ? `<a class="book" href="${esc(d.aff)}" target="_blank" rel="sponsored noopener">${esc(d.affLabel || "予約・料金を見る")}<span class="pr">PR</span></a>` : ""}
@@ -354,6 +377,13 @@ function shopCard({d,j}){
 function prefNote(d){
   const area = $("area").value, pref = $("pref").value;
   return pref && inPref(d, area, pref) === "maybe" ? `<span class="maybe">（${esc(pref)}に店があるかは未確認）</span>` : "";
+}
+function priceFor(d, m){
+  if(!d.price) return null;
+  if(m.re.test(d.price)) return {text:d.price};
+  const others = MODELS.filter(x => x !== m && x.re.test(d.price));
+  if(others.length) return null;
+  return modelsOf(d).length > 1 ? {text:d.price, scope:"店全体の目安"} : {text:d.price};
 }
 const SHORT = {ok:"借りられる", cond:"条件つき", mt:"MT年数不足", ng:"借りられない", unk:"要確認"};
 const place = t => { const s = String(t).split(/[・、（(]/)[0]; return s.length > 16 ? s.slice(0,16) + "…" : s; };
@@ -371,7 +401,7 @@ function carCard(m, list){
         <li title="${esc(j.why || "")}"><span class="dot ${j.s}"></span>
           <div><div class="sname"><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">${esc(d.shop)}</a></div>
           <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(place(d.areaText))}${prefNote(d)}</div>
-          <div class="sub">💴 ${d.price ? esc(d.price) : "料金は店のページで確認"}${g === "要確認" ? `<span class="maybe">・${gear}車があるかは店に確認</span>` : ""}</div></div>
+          <div class="sub">${(p => p ? `💴 ${esc(p.text)}${p.scope ? `<span class="scope">（${p.scope}）</span>` : ""}` : `<span class="price none">料金は店のページで確認</span>`)(priceFor(d, m))}</div></div>
           <span class="st ${j.s}">${SHORT[j.s]}${d.aff ? `<br><a class="mini" href="${esc(d.aff)}" target="_blank" rel="sponsored noopener">予約<span class="pr">PR</span></a>` : ""}</span>
           ${j.s === "mt" ? `<div class="tip">MT免許の年数は足りないが借りれる場合があるので試す価値あり</div>` : ""}
         </li>`).join("")}
@@ -389,14 +419,18 @@ function render(){
     rows.forEach(r => count[r.j.s]++);
     pills(count);
     const shown = rows.filter(r => filter === "all" || r.j.s === filter);
-    $("cards").innerHTML = shown.length ? shown.map(shopCard).join("") : `<div class="empty">条件に合う掲載がありません</div>`;
+    const main = filter === "all" ? shown.filter(r => r.j.s !== "ng") : shown, ngs = filter === "all" ? shown.filter(r => r.j.s === "ng") : [];
+    $("cards").innerHTML = (main.length ? main.map(shopCard).join("") : `<div class="empty">借りられそうな掲載は見つかりませんでした</div>`)
+      + (ngs.length ? (showNg ? ngs.map(shopCard).join("") + `<button class="ngfold" id="ngBtn">借りられない店を閉じる</button>` : `<button class="ngfold" id="ngBtn">借りられない店 ${ngs.length}件を表示</button>`) : "");
   } else {
     const me = {age:+$("age").value || 0, lic:+$("lic").value || 0, mt:+$("mt").value || 0, atOnly:$("atonly").checked};
     if(me.atOnly) me.mt = 0;
     $("gearBox").hidden = false;
     document.querySelectorAll("#gearBox button").forEach(b => b.classList.toggle("on", b.dataset.g === gear));
     const groups = MODELS.map(m => ({m, list: rows.filter(r => modelsOf(r.d).includes(m) && gearsOf(r.d, m)[gear])
-        .map(r => { const g = gearsOf(r.d, m)[gear]; return {d:r.d, g, j: judge({...r.d, trans: gear}, me)}; })
+        .map(r => { const g = gearsOf(r.d, m)[gear]; let j = judge({...r.d, trans: gear}, me);
+          if(g === "要確認" && (j.s === "ok" || j.s === "cond" || j.s === "mt")) j = {s:"unk", why:`条件は満たしているが、この店に${gear}車があるかは未確認`};
+          return {d:r.d, g, j}; })
         .sort((a,b) => ORDER[a.j.s] - ORDER[b.j.s] || (a.d.age ?? 0) - (b.d.age ?? 0))}))
       .filter(g => g.list.length);
     const count = {all:groups.length, ok:0, cond:0, mt:0, ng:0, unk:0};
@@ -405,12 +439,48 @@ function render(){
     const shown = groups.map(g => ({m:g.m, list: filter === "all" ? g.list : g.list.filter(r => r.j.s === filter)}))
       .filter(g => g.list.length)
       .sort((a,b) => ORDER[a.list[0].j.s] - ORDER[b.list[0].j.s] || b.list.length - a.list.length);
-    $("cards").innerHTML = shown.length ? shown.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">条件に合う${gear}車がありません</div>`;
+    const main = filter === "all" ? shown.filter(g => g.list[0].j.s !== "ng") : shown, ngs = filter === "all" ? shown.filter(g => g.list[0].j.s === "ng") : [];
+    $("cards").innerHTML = (main.length ? main.map(g => carCard(g.m, g.list)).join("") : `<div class="empty">借りられそうな${gear}車は見つかりませんでした</div>`)
+      + (ngs.length ? (showNg ? ngs.map(g => carCard(g.m, g.list)).join("") + `<button class="ngfold" id="ngBtn">借りられない車種を閉じる</button>` : `<button class="ngfold" id="ngBtn">借りられない車種 ${ngs.length}件を表示</button>`) : "");
     document.querySelectorAll(".toggle").forEach(b => b.onclick = () => { const n = b.dataset.m; opened.has(n) ? opened.delete(n) : opened.add(n); render(); });
   }
+  if($("ngBtn")) $("ngBtn").onclick = () => { showNg = !showNg; render(); };
+  saveState();
   loadPhotos();
 }
 
+let mtTouched = false;
+const STATE = ["age","lic","mt","atonly","area","pref","q"];
+function saveState(){
+  const p = new URLSearchParams();
+  if($("age").value !== "21") p.set("age", $("age").value);
+  if($("lic").value !== "2") p.set("lic", $("lic").value);
+  if(mtTouched && $("mt").value !== $("lic").value) p.set("mt", $("mt").value);
+  if($("atonly").checked) p.set("at", "1");
+  if($("area").value) p.set("area", $("area").value);
+  if($("pref").value) p.set("pref", $("pref").value);
+  if($("q").value.trim()) p.set("q", $("q").value.trim());
+  if(view === "car") p.set("view", "car");
+  if(view === "car" && gearTouched) p.set("gear", gear);
+  if(filter !== "all") p.set("f", filter);
+  const s = p.toString();
+  history.replaceState(null, "", location.pathname + (s ? "?" + s : "") + location.hash);
+}
+function loadState(){
+  const p = new URLSearchParams(location.search);
+  if(p.has("age")) $("age").value = p.get("age");
+  if(p.has("lic")) { $("lic").value = p.get("lic"); $("mt").value = p.get("lic"); }
+  if(p.has("mt")) { $("mt").value = p.get("mt"); mtTouched = true; }
+  if(p.get("at") === "1") { $("atonly").checked = true; gear = "AT"; }
+  if(p.has("area")) { $("area").value = p.get("area"); $("area").dispatchEvent(new Event("input")); }
+  if(p.has("pref")) $("pref").value = p.get("pref");
+  if(p.has("q")) $("q").value = p.get("q");
+  if(p.get("gear") === "MT" || p.get("gear") === "AT") { gear = p.get("gear"); gearTouched = true; }
+  if(p.get("view") === "car") view = "car";
+  if(p.has("f") && p.get("f") in ORDER) filter = p.get("f");
+  $("vShop").classList.toggle("on", view === "shop");
+  $("vCar").classList.toggle("on", view === "car");
+}
 function setView(v){
   view = v; filter = "all";
   $("vShop").classList.toggle("on", v === "shop");
@@ -439,6 +509,9 @@ fetch("data.json").then(r => r.json()).then(data => {
   });
   $("vShop").onclick = () => setView("shop");
   $("vCar").onclick = () => setView("car");
+  $("lic").addEventListener("input", () => { if(!mtTouched) $("mt").value = $("lic").value; render(); });
+  $("mt").addEventListener("input", () => { mtTouched = $("mt").value !== $("lic").value; saveState(); });
+  loadState();
   render();
 }).catch(() => { $("cards").innerHTML = `<div class="empty">データを読み込めませんでした。再読み込みしてください。</div>`; });
 </script>
