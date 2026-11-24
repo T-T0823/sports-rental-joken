@@ -142,7 +142,7 @@ def page(path, title, desc, body, canonical):
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}｜スポーツカー・高級車レンタカー 貸出条件くらべ</title>
 <meta name="description" content="{e(desc)}"><link rel="canonical" href="{canonical}">
-<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="article">
+<link rel="icon" href="../favicon.ico" sizes="any"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><meta name="theme-color" content="#0f1114"><meta property="og:image" content="https://t-t0823.github.io/sports-rental-joken/og-image.png"><meta name="twitter:card" content="summary_large_image"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="article">
 <style>{STYLE}</style></head><body><div class="wrap">
 <nav><a href="../">トップ（条件くらべ）</a> ／ <a href="./">読みもの一覧</a></nav>
 <h1>{e(title)}</h1><p class="meta">更新日 {TODAY}　／　掲載の条件は各店の公式ページなどで確認したものです。予約の前に必ず公式ページで確認してください。</p>{note}

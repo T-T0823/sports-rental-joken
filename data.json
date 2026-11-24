@@ -3,7 +3,7 @@
   "id": "glion-premium",
   "shop": "GLION Premium Rent-A-Car（Gライオンレンタカー）",
   "plan": "高級スポーツカー・オープンカー",
-  "cars": "日産 GT-R Premium edition（AT）・GR スープラ RZ・コペン セロ S など",
+  "cars": "日産 GT-R Premium edition（AT）・GR スープラ RZ（AT）・フェアレディZ バージョンST（AT）・コペン セロ S（AT）・ロードスター（MT／AT）など",
   "areas": [
    "関西",
    "関東"
@@ -17,7 +17,7 @@
   "note": "年齢の下限は書かれておらず、上限は75歳未満。通常の車は免許半年以上で借りられ、1年未満は車両補償が修理実費（上限10万円）になる。",
   "src": "https://www.glion-rent.com/1695/",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府",
@@ -158,7 +158,7 @@
   "id": "skyrent-gr86",
   "shop": "スカイレンタカー",
   "plan": "GR86（RZ）",
-  "cars": "トヨタ GR86 RZ",
+  "cars": "トヨタ GR86 RZ（MT／AT、店舗による）",
   "areas": [
    "関西",
    "関東",
@@ -361,7 +361,7 @@
   "id": "carrental-tokyo",
   "shop": "カーレンタル東京",
   "plan": "国産スポーツカー",
-  "cars": "R35・R32・R34 GT-R、AE86、S2000、FL5 シビック タイプR、GRヤリスなど",
+  "cars": "シビック TYPE R（FL5・MT）・S2000（MT）・AE86（MT）・ランサーエボリューションIX MR（MT）・スカイラインGT-R R32（MT）・R34（MT）・GT-R R35（AT）・スープラ 80（RZ-S）",
   "areas": [
    "関東"
   ],
@@ -371,21 +371,21 @@
   "years": 3,
   "mtFromMt": true,
   "extra": "会員登録（無料）が必要・デポジット5万円",
-  "note": "R32 GT-Rは21歳以上・MT免許3年以上。車種ごとに年齢条件があり、R35 GT-R（2025年モデル）は25歳以上。（以前の掲載元だった予約サイトのプランは受付終了。条件は公式で再確認を）",
-  "src": "https://carrental-tokyo.jp/shop",
+  "note": "車種ごとに条件が違う：シビック TYPE R・S2000は21歳以上、AE86・R32・ランエボは23歳以上（いずれもMT免許取得後3年以上）、R34・R35・スープラ80は25歳以上・免許取得後3年以上。",
+  "src": "https://carrental-tokyo.jp/cars",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "千葉県"
   ],
-  "price": "10時間 約1.7万円〜"
+  "price": "1日 約2.8万〜5.4万円"
  },
  {
   "id": "porschegate",
   "shop": "ポルシェゲート",
   "plan": "ポルシェ専門レンタカー",
-  "cars": "930ターボ・964・993など空冷ポルシェ（MT中心）、911ターボSなど",
+  "cars": "930ターボ・964・993など空冷ポルシェ 911（MT中心）、911ターボS（AT）など",
   "areas": [
    "関西"
   ],
@@ -848,7 +848,7 @@
   "id": "toyota-kyoto",
   "shop": "トヨタレンタリース京都",
   "plan": "GR86（RZ・MT／SZ・AT）",
-  "cars": "トヨタ GR86 RZ（6MT）・SZ（6AT）",
+  "cars": "トヨタ GR86 RZ（6MT）・GR86 SZ（6AT）",
   "src": "https://www.r-kyoto.co.jp/kyotoservice/kyotoservice-3074/",
   "prefs": [
    "京都府"
@@ -933,19 +933,19 @@
   ],
   "areaText": "東京",
   "trans": "MT/AT",
-  "age": 24,
+  "age": 23,
   "years": 3,
   "mtFromMt": false,
   "extra": "",
-  "note": "GT-R・RX-7・LC500（車によりBNR32・S2000も）は27歳以上。古いFAQでは23歳以上（一部26歳以上）とされており、車種ページの新しい条件を採用。",
+  "note": "GT-R R35・RX-7・LC500・GT-R R32・S2000は26歳以上。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "onlyjdm",
   "shop": "OnlyJDM",
   "plan": "JDMレンタカー",
   "cars": "フェアレディZ Z32・GT-R R35/R32・RX-7・LC500・S2000など",
-  "src": "https://only-jdm.com/ja/cardetail/30",
+  "src": "https://only-jdm.com/ja/cars/rf-nd-30",
   "prefs": [
    "東京都"
   ]
@@ -1099,22 +1099,47 @@
   ],
   "areaText": "茨城県高萩市",
   "trans": "MT/AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "料金表では「車種ごとに搭乗条件が異なります」とされ、条件は店舗に確認が必要。以前の車種ページではNDロードスターRFが21歳以上・MT免許1年以上だった。",
+  "conf": "official",
+  "checked": "2026-11-24",
+  "active": true,
+  "id": "seiwa",
+  "shop": "レンタカーズSEiWA",
+  "plan": "スポーツカー",
+  "cars": "マツダ ロードスター（NA・NB・NC）・トヨタ セリカ コンバーチブルなど",
+  "src": "https://seiwa-rc.jp/contents/price.html",
+  "prefs": [
+   "茨城県"
+  ],
+  "price": "6時間 約1.1万円〜／24時間 約1.4万円〜"
+ },
+ {
+  "areas": [
+   "関東"
+  ],
+  "areaText": "茨城県高萩市",
+  "trans": "MT/AT",
   "age": 21,
   "years": 1,
   "mtFromMt": true,
   "extra": "",
-  "note": "21歳以上（MT車はMT免許取得後1年以上）。",
+  "note": "料金表に「21歳以上限定（MT車の場合MT免許取得後1年以上）」とある。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
-  "id": "seiwa",
+  "id": "seiwa-kei",
   "shop": "レンタカーズSEiWA",
-  "plan": "ロードスター",
-  "cars": "マツダ ロードスター（NDERF）",
-  "src": "https://seiwa-rc.jp/",
+  "plan": "軽スポーツ",
+  "cars": "ホンダ ビート・ダイハツ コペン",
+  "src": "https://seiwa-rc.jp/contents/price.html",
   "prefs": [
    "茨城県"
-  ]
+  ],
+  "price": "6時間 約1万円／24時間 約1.3万円"
  },
  {
   "areas": [
@@ -1412,12 +1437,12 @@
   "extra": "",
   "note": "主に訪日客向け。予約サイトでは18歳未満は不可とされているが、日本の免許での条件は確認できていない。",
   "conf": "article",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "jdl-osaka",
   "shop": "Japan Drive Legends",
   "plan": "JDMスポーツカー（AT）",
-  "cars": "GT86・WRX STI・フェアレディZ など（AT）",
+  "cars": "トヨタ GT86（AT）・スバル WRX STI A-Line（AT）・日産 フェアレディZ 350Z（AT）",
   "src": "https://www.getyourguide.com/osaka-l1204/osaka-sports-cars-rental-drive-yourself-a-jdm-car-t1110481/",
   "prefs": [
    "大阪府"

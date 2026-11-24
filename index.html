@@ -8,6 +8,8 @@
 <meta property="og:title" content="スポーツカー・高級車レンタカー 貸出条件くらべ">
 <meta property="og:description" content="年齢と免許の年数を入れるだけで、借りられるスポーツカー・高級車レンタカーが分かる比較ページ。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://t-t0823.github.io/sports-rental-joken/"><link rel="canonical" href="https://t-t0823.github.io/sports-rental-joken/">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#0f1114"><meta property="og:image" content="https://t-t0823.github.io/sports-rental-joken/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -205,7 +207,26 @@ function inPref(d, area, pref){
 let showNg = false;
 let DATA = [], filter = "all", view = "shop", gear = "MT", gearTouched = false;
 // その店でその車種がMT・ATのどちらで借りられるか（店の表記と車種の設定から判断）
+// 取扱車種の文に「（MT）」「（AT）」などがあれば、その車種はそれに従う
+function itemGears(d, m){
+  const items = []; let cur = "", depth = 0;
+  for(const ch of String(d.cars)){
+    if(ch === "（" || ch === "(") depth++;
+    if(ch === "）" || ch === ")") depth = Math.max(0, depth - 1);
+    if(depth === 0 && /[・、,]/.test(ch)){ items.push(cur); cur = ""; } else cur += ch;
+  }
+  items.push(cur);
+  for(let i = items.length - 1; i >= 0; i--) if(!m.re.test(items[i])) items.splice(i, 1);
+  const g = {};
+  items.forEach(s => {
+    if(/MT/.test(s)) g.MT = "店の表記";
+    if(/AT|2ペダル|PDK/.test(s)) g.AT = "店の表記";
+  });
+  return Object.keys(g).length ? g : null;
+}
 function gearsOf(d, m){
+  const ig = itemGears(d, m);
+  if(ig) return ig;
   const t = d.trans;
   if(t === "MT") return {MT:"店の表記"};
   if(t === "AT" || t === "2ペダル") return {AT:"店の表記"};
@@ -244,7 +265,7 @@ const MODELS = [
  {name:"コペン", tr:"both", maker:"DAIHATSU", re:/コペン/, wiki:"Daihatsu_Copen"},
  {name:"スイフトスポーツ", tr:"both", maker:"SUZUKI", re:/スイフト ?スポーツ/, wiki:"Suzuki_Swift_Sport"},
  {name:"アルトワークス", tr:"MT", maker:"SUZUKI", re:/アルト ?ワークス/, wiki:"Suzuki_Alto_Works"},
- {name:"ポルシェ 911", tr:"both", maker:"PORSCHE", re:/911/, wiki:"Porsche_911"},
+ {name:"ポルシェ 911", tr:"both", maker:"PORSCHE", re:/911|930ターボ|964|993/, wiki:"Porsche_911"},
  {name:"ポルシェ ボクスター / 718", tr:"both", maker:"PORSCHE", re:/ボクスター|718/, wiki:"Porsche_Boxster_and_Cayman"},
  {name:"ポルシェ タイカン", tr:"AT", maker:"PORSCHE", re:/タイカン/, wiki:"Porsche_Taycan"},
  {name:"ポルシェ（その他・カイエン/マカン/パナメーラなど）", tr:"AT", maker:"PORSCHE", re:/ポルシェ(?! ?(911|ボクスター|718))|カイエン|マカン|パナメーラ/, wiki:"Porsche_Panamera", ex:true},
@@ -261,6 +282,10 @@ const MODELS = [
  {name:"アウディ", tr:"AT", maker:"AUDI", re:/アウディ/, wiki:"Audi_R8_(Type_4S)", ex:true},
  {name:"アルファロメオ スパイダー", tr:"MT", maker:"ALFA ROMEO", re:/アルファ ?ロメオ/, wiki:"Alfa_Romeo_Spider", ex:true},
  {name:"ヴィッツ GRMN / iQ GRMN", tr:"MT", maker:"TOYOTA", re:/GRMN/, wiki:"Toyota_Yaris_(XP130)", ex:true},
+ {name:"ランサーエボリューション", tr:"MT", maker:"MITSUBISHI", re:/ランサー ?エボ|ランエボ/, wiki:"Mitsubishi_Lancer_Evolution"},
+ {name:"スープラ（80系）", tr:"both", maker:"TOYOTA", re:/スープラ ?80|JZA80|80スープラ/, wiki:"Toyota_Supra_(A80)"},
+ {name:"ビート", tr:"MT", maker:"HONDA", re:/ビート/, wiki:"Honda_Beat"},
+ {name:"セリカ", tr:"both", maker:"TOYOTA", re:/セリカ/, wiki:"Toyota_Celica_(T200)", ex:true},
  {name:"アバルト 124スパイダー / 595", tr:"both", maker:"ABARTH", re:/アバルト/, wiki:"Fiat_124_Spider_(2016)"},
 ];
 
