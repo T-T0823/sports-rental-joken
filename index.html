@@ -281,7 +281,8 @@ function loadPhotos(){
       const src = j && (j.thumbnail && j.thumbnail.source);
       if(!src){ el.textContent = "写真なし"; return; }
       const orig = (j.originalimage && j.originalimage.source) || src;
-      const file = decodeURIComponent(orig.split("/").pop());
+      const parts = orig.split("/");
+      const file = decodeURIComponent(orig.includes("/thumb/") ? parts[parts.length - 2] : parts[parts.length - 1]);
       const fileUrl = "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file.replace(/ /g, "_"));
       el.innerHTML = `<img loading="lazy" alt="${esc(el.dataset.alt)}" src="${esc(src)}"><a class="credit" href="${esc(fileUrl)}" target="_blank" rel="noopener">写真：Wikimedia Commons${el.dataset.ex ? "（一例）" : ""}</a>`;
       creditOf(file).then(c => {
