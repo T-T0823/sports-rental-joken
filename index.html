@@ -42,7 +42,7 @@ input[type=number],input[type=search],select{width:100%;padding:10px 12px;border
 .card.ok{border-top-color:var(--ok)}.card.ng{border-top-color:var(--ng)}.card.cond{border-top-color:var(--warn)}.card.mt{border-top-color:var(--mt)}
 .photo{position:relative;aspect-ratio:16/9;background:#0b0d10;display:flex;align-items:center;justify-content:center;color:#4b535c;font-size:12px}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo .credit{position:absolute;right:6px;bottom:4px;font-size:10px;background:rgba(0,0,0,.55);color:#cfd6dd;padding:1px 6px;border-radius:4px;text-decoration:none}
+.photo .credit{position:absolute;right:6px;bottom:4px;font-size:10px;background:rgba(0,0,0,.55);color:#cfd6dd;padding:1px 6px;border-radius:4px;text-decoration:none;max-width:92%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .shop{font-weight:700;font-size:16px;line-height:1.35}
 .plan{font-size:13px;color:var(--muted);font-weight:500}
@@ -149,7 +149,7 @@ footer{color:var(--muted);font-size:12px;padding:20px;border-top:1px solid var(-
       <li>判定は年齢と免許の年数だけで行っています。ゴールド免許・任意保険・会員登録・クレジットカードなどの追加条件や、店舗の判断で断られる場合もあります。</li>
       <li>「車種ごと」は店の取扱車種をまとめたものです。MT車とAT車は上のボタンで切り替えます。店名を押すと出典のページが開きます。同じ店でも車種によって条件が違うことがあります。</li>
       <li>料金は基本料金のおおよその目安（税込）で、時期・店舗・保険・オプションで変わります。必ず予約前に公式ページで確認してください。</li>
-      <li>車の写真はWikipedia（Wikimedia Commons）の画像で、車種のイメージです。実際に貸し出される車両とは色・年式・仕様が異なります。</li>
+      <li>車の写真はWikimedia Commonsの画像で、写真の下に作者とライセンスを表示し、元のファイルのページへリンクしています。車種のイメージで、実際に貸し出される車両とは色・年式・仕様が異なります。</li>
       <li>このページの判定によって生じた損害について、運営者は責任を負いません。</li>
     </ul>
     <h2 style="margin-top:16px">情報の訂正・掲載の依頼</h2>
@@ -280,10 +280,29 @@ function loadPhotos(){
     p.then(j => {
       const src = j && (j.thumbnail && j.thumbnail.source);
       if(!src){ el.textContent = "写真なし"; return; }
-      const page = (j.content_urls && j.content_urls.desktop && j.content_urls.desktop.page) || "https://en.wikipedia.org/wiki/" + t;
-      el.innerHTML = `<img loading="lazy" alt="${esc(el.dataset.alt)}" src="${esc(src)}"><a class="credit" href="${esc(page)}" target="_blank" rel="noopener">写真：Wikipedia${el.dataset.ex ? "（一例）" : ""}</a>`;
+      const orig = (j.originalimage && j.originalimage.source) || src;
+      const file = decodeURIComponent(orig.split("/").pop());
+      const fileUrl = "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(file.replace(/ /g, "_"));
+      el.innerHTML = `<img loading="lazy" alt="${esc(el.dataset.alt)}" src="${esc(src)}"><a class="credit" href="${esc(fileUrl)}" target="_blank" rel="noopener">写真：Wikimedia Commons${el.dataset.ex ? "（一例）" : ""}</a>`;
+      creditOf(file).then(c => {
+        if(!c) return;
+        const a = el.querySelector(".credit");
+        if(a) a.textContent = `写真：${c.artist || "作者不明"}／${c.license || "ライセンスはリンク先"}${el.dataset.ex ? "（一例）" : ""}`;
+      });
     });
   });
+}
+// 写真の作者とライセンス（Wikimedia Commons の情報を取得）
+const creditCache = {};
+function creditOf(file){
+  return creditCache[file] || (creditCache[file] = fetch("https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&prop=imageinfo&iiprop=extmetadata&iiextmetadatafilter=Artist|LicenseShortName&titles=" + encodeURIComponent("File:" + file))
+    .then(r => r.ok ? r.json() : null).then(j => {
+      const p = j && Object.values(j.query.pages)[0];
+      const m = p && p.imageinfo && p.imageinfo[0].extmetadata;
+      if(!m) return null;
+      const tmp = document.createElement("div"); tmp.innerHTML = (m.Artist && m.Artist.value) || "";
+      return {artist: tmp.textContent.trim().slice(0, 40), license: (m.LicenseShortName && m.LicenseShortName.value) || ""};
+    }).catch(() => null));
 }
 const photo = m => m ? `<div class="photo" data-wiki="${esc(m.wiki)}" data-alt="${esc(m.name)}"${m.ex ? ' data-ex="1"' : ""}>写真を読み込み中…</div>` : `<div class="photo">写真なし</div>`;
 const modelsOf = d => MODELS.filter(m => m.re.test(d.cars) || m.re.test(d.plan));
