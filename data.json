@@ -27,6 +27,32 @@
   "ageRule": "unstated"
  },
  {
+  "id": "sanko-kobe",
+  "shop": "サンコーレンタカー（Gライオングループ）",
+  "plan": "ロードスター指定プラン（神戸空港営業所）",
+  "cars": "マツダ ロードスター（MT）",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "神戸空港営業所",
+  "prefs": [
+   "兵庫県"
+  ],
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "ageRule": "unstated",
+  "yearsRule": "none",
+  "extra": "新規の人は運転者75歳未満・免責補償は任意（1日2,200円）",
+  "price": "6時間 約1.8万円／24時間 約2.2万円",
+  "src": "https://glion-rentacar.com/vehicle/7/",
+  "note": "公式FAQで「免許取得後1年未満の初心者でも借りられる」とある。年齢の下限は書かれていない。豊中のGライオンの車両とは別。",
+  "mtFromMt": false,
+  "active": true,
+  "checked": "2026-11-24",
+  "conf": "official"
+ },
+ {
   "id": "mrhiro-mt",
   "shop": "MR.HIROレンタカー",
   "plan": "MT車（JDM名車）",
@@ -726,32 +752,80 @@
  },
  {
   "areas": [
-   "関東",
-   "関西",
-   "中国・四国"
+   "関東"
   ],
-  "areaText": "羽田空港・西武立川（MT）、新大阪駅東口（MT）、大阪駅前（AT）、徳島空港",
-  "trans": "MT/AT",
+  "areaText": "羽田空港店・西武立川店",
+  "trans": "MT",
   "age": 25,
   "years": 3,
   "mtFromMt": true,
   "extra": "",
-  "note": "羽田・西武立川はMT免許3年以上・25歳以上。徳島空港店は21歳以上・3年以上とする記事もある。",
-  "conf": "article",
-  "checked": "2026-11-23",
+  "note": "公式の備考に「日本国発行のMT免許取得後3年以上かつ25歳以上」とある。",
+  "conf": "official",
+  "checked": "2026-11-24",
   "active": true,
   "id": "sky-z",
   "shop": "スカイレンタカー",
-  "plan": "フェアレディZ",
-  "cars": "日産 フェアレディZ（6MT／9速AT）",
-  "src": "https://prosnew.com/nissan-fairladyz-rentcar/",
+  "plan": "フェアレディZ（羽田空港店・西武立川店）",
+  "cars": "日産 フェアレディZ Version ST（6MT）",
+  "src": "https://www.skyrent.jp/campaigns/fairladyz/",
   "prefs": [
-   "東京都",
-   "大阪府",
+   "東京都"
+  ],
+  "price": "当日返却 約3.1万円／24時間 約3.7万円",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Ffairladyz%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
+ },
+ {
+  "areas": [
+   "中国・四国"
+  ],
+  "areaText": "徳島空港店",
+  "trans": "AT",
+  "age": 21,
+  "years": 3,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "公式の備考に「MT免許取得後3年以上かつ21歳以上」とある（車両は9速AT）。",
+  "conf": "official",
+  "checked": "2026-11-24",
+  "active": true,
+  "id": "sky-z-tokushima",
+  "shop": "スカイレンタカー",
+  "plan": "フェアレディZ（徳島空港店）",
+  "cars": "日産 フェアレディZ Version ST（9速AT）",
+  "src": "https://www.skyrent.jp/campaigns/fairladyz/",
+  "prefs": [
    "徳島県"
   ],
-  "price": "24時間 約2.1万円（AT・期間限定料金）",
-  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2F",
+  "price": "当日返却 約3.1万円／24時間 約3.7万円",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Ffairladyz%2F",
+  "affLabel": "スカイレンタカーで予約・料金を見る"
+ },
+ {
+  "areas": [
+   "関西"
+  ],
+  "areaText": "新大阪駅東口店（MT）・大阪駅前店（AT）",
+  "trans": "MT/AT",
+  "age": null,
+  "years": null,
+  "mtFromMt": false,
+  "extra": "",
+  "note": "公式の利用条件は羽田空港店・西武立川店・徳島空港店の分だけが書かれていて、大阪の2店の条件は書かれていない。予約の前に店舗に確認を。",
+  "conf": "official",
+  "checked": "2026-11-24",
+  "active": true,
+  "id": "sky-z-osaka",
+  "shop": "スカイレンタカー",
+  "plan": "フェアレディZ（新大阪駅東口店・大阪駅前店）",
+  "cars": "日産 フェアレディZ Version S（6MT・新大阪駅東口店）・フェアレディZ Version ST（9速AT・大阪駅前店）",
+  "src": "https://www.skyrent.jp/campaigns/fairladyz/",
+  "prefs": [
+   "大阪府"
+  ],
+  "price": "当日返却 約3.1万円／24時間 約3.7万円",
+  "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Ffairladyz%2F",
   "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
@@ -875,25 +949,25 @@
   "areas": [
    "関西"
   ],
-  "areaText": "三宮・貿易センター駅前店のみ",
-  "trans": "MT",
+  "areaText": "伊丹北店のみ",
+  "trans": "MT/AT",
   "age": null,
-  "years": 5,
+  "years": 3,
   "mtFromMt": false,
   "extra": "",
-  "note": "MT車は「普通免許取得後5年以上」。年齢の条件は書かれていない。トヨタレンタカー公式FAQでは「原則として初心者や未成年でも利用できるが、店舗によっては年齢制限がある」とされている。",
-  "conf": "old",
+  "note": "MT車の予約は「免許取得後36ヶ月（3年以上）」に限る。年齢の条件は書かれていない。以前は三宮・貿易センター駅前店で免許5年以上だった。",
+  "conf": "official",
   "checked": "2026-11-24",
   "active": true,
   "id": "toyota-kobe",
   "shop": "トヨタレンタリース神戸",
-  "plan": "GRヤリス（MT）",
-  "cars": "トヨタ GRヤリス（MT）",
-  "src": "https://www.r-kobe.jp/topics/3990/",
+  "plan": "GRヤリス・GRカローラ（伊丹北店）",
+  "cars": "トヨタ GRヤリス（AT／MT）・GRカローラ",
+  "src": "https://www.r-kobe.jp/topics/7199/",
   "prefs": [
    "兵庫県"
   ],
-  "price": "6時間 約1万円",
+  "price": "6時間 約1万円／24時間 約1.7万円",
   "ageRule": "unstated"
  },
  {
@@ -1580,6 +1654,32 @@
   "affLabel": "スカイレンタカーで予約・料金を見る"
  },
  {
+  "id": "ones-nara",
+  "shop": "ワンズレンタカー",
+  "plan": "スイフトスポーツ（奈良）",
+  "cars": "スズキ スイフトスポーツ（MT・5人乗り）",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "奈良薬師寺店・奈良南紀寺店",
+  "prefs": [
+   "奈良県"
+  ],
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "ageRule": "none",
+  "yearsRule": "none",
+  "extra": "21歳未満・免許取得後1年未満は免責補償に入れない",
+  "price": "当日 約0.6万円／24時間 約0.8万円",
+  "src": "https://www.ones-rent.com/carlineup/car_detail.php?car_no=11&location_no=0079-001",
+  "note": "公式Q&Aに「運転免許証をお持ちの方であれば年齢制限はない」「初心者・未成年でも利用できる」とある。",
+  "mtFromMt": false,
+  "active": true,
+  "checked": "2026-11-24",
+  "conf": "official"
+ },
+ {
   "areas": [
    "関東"
   ],
@@ -1677,5 +1777,31 @@
    "福岡県"
   ],
   "price": "24時間 約1.8万〜4.2万円"
+ },
+ {
+  "id": "ones-suita",
+  "shop": "ワンズレンタカー",
+  "plan": "スイフトスポーツ（新大阪吹田店）",
+  "cars": "スズキ スイフトスポーツ（MT・5人乗り）",
+  "areas": [
+   "関西"
+  ],
+  "areaText": "新大阪吹田店（旧：JR吹田駅前店）",
+  "prefs": [
+   "大阪府"
+  ],
+  "trans": "MT",
+  "age": null,
+  "years": null,
+  "ageRule": "none",
+  "yearsRule": "none",
+  "extra": "21歳未満・免許取得後1年未満は免責補償に入れない",
+  "price": "当日 約2.5万円／24時間 約3万円",
+  "src": "https://www.ones-rent.com/carlineup/car_detail.php?car_no=256&location_no=0177-001",
+  "note": "公式Q&Aに「運転免許証をお持ちの方であれば年齢制限はない」とある。奈良の車両より料金が高い。",
+  "mtFromMt": false,
+  "active": true,
+  "checked": "2026-11-24",
+  "conf": "official"
  }
 ]
