@@ -291,7 +291,7 @@ const MODELS = [
 
 function judge(d, me){
   if(!d.active) return {s:"unk", why:"今も提供されているか未確認"};
-  if(d.age == null && d.years == null) return {s:"unk", why:"年齢・年数の条件が確認できていない"};
+  if(d.age == null && !d.ageRule && d.years == null && !d.yearsRule) return {s:"unk", why:"年齢・年数の条件が確認できていない"};
   const ng = [];
   if(d.age != null && me.age < d.age) ng.push(`年齢があと${d.age - me.age}歳足りない`);
   const okLic = d.years == null || me.lic >= d.years;
@@ -315,8 +315,9 @@ function judge(d, me){
   if(mtShort) return {s:"mt", why:mtShort + (d.extra ? "／追加条件：" + d.extra : "")};
   const c = [];
   if(atOnlyOk) c.push(me.atOnly ? "AT車のみ可" : "AT車のみ可（MT車はMT免許の年数が足りない）");
-  if(d.age == null) c.push("年齢の条件は未記載");
-  if(d.years == null) c.push("年数の条件は未記載");
+  if(d.age == null) c.push(d.ageRule === "none" ? "" : d.ageRule === "unstated" ? "年齢の条件は公式に書かれていない" : "年齢の条件は未確認");
+  if(d.years == null) c.push(d.yearsRule === "none" ? "" : d.yearsRule === "unstated" ? "免許の年数の条件は公式に書かれていない" : "免許の年数の条件は未確認");
+  for(let i = c.length - 1; i >= 0; i--) if(!c[i]) c.splice(i, 1);
   if(d.extra) c.push("追加条件：" + d.extra);
   if(c.length) return {s:"cond", why:c.join("／")};
   return {s:"ok", why:""};
@@ -390,8 +391,8 @@ function shopCard({d,j}){
       <div class="top"><div class="shop">${esc(d.shop)}<div class="plan">${esc(d.plan)}</div></div><span class="badge ${j.s}">${LABEL[j.s]}</span></div>
       <div class="cars">${esc(d.cars)}</div>
       <div class="req">
-        <span><em>${d.age ?? "?"}</em>歳以上</span>
-        <span>免許 <em>${d.years ?? "?"}</em>年以上${d.mtFromMt && d.trans.includes("MT") && d.years != null ? "（MTはMT免許から）" : ""}</span>
+        <span>${d.age != null ? `<em>${d.age}</em>歳以上` : esc(ageText(d))}</span>
+        <span>${d.years != null ? `免許 <em>${d.years}</em>年以上` : esc(yearsText(d))}${d.mtFromMt && d.trans.includes("MT") && d.years != null ? "（MTはMT免許から）" : ""}</span>
         <span>${esc(d.trans)}</span>
       </div>
       <div class="where">📍 ${esc(d.areaText)}${prefNote(d)}</div>
@@ -415,6 +416,8 @@ function priceFor(d, m){
   if(others.length) return null;
   return modelsOf(d).length > 1 ? {text:d.price, scope:"店全体の目安"} : {text:d.price};
 }
+const ageText = d => d.age != null ? `${d.age}歳〜` : d.ageRule === "none" ? "年齢制限なし" : d.ageRule === "unstated" ? "年齢の記載なし" : "年齢?";
+const yearsText = d => d.years != null ? `免許${d.years}年〜` : d.yearsRule === "none" ? "年数制限なし" : d.yearsRule === "unstated" ? "年数の記載なし" : "免許?年";
 const SHORT = {ok:"借りられる", cond:"条件つき", mt:"MT年数不足", ng:"借りられない", unk:"要確認"};
 const place = t => { const s = String(t).split(/[・、（(]/)[0]; return s.length > 16 ? s.slice(0,16) + "…" : s; };
 const opened = new Set();
@@ -430,7 +433,7 @@ function carCard(m, list){
       <ul class="shops">${rows.map(({d,j,g}) => `
         <li title="${esc(j.why || "")}"><span class="dot ${j.s}"></span>
           <div><div class="sname"><a href="${esc(d.src)}" target="_blank" rel="noopener nofollow">${esc(d.shop)}</a></div>
-          <div class="sub">${d.age ?? "?"}歳〜・免許${d.years ?? "?"}年〜・${esc(place(d.areaText))}${prefNote(d)}</div>
+          <div class="sub">${ageText(d)}・${yearsText(d)}・${esc(place(d.areaText))}${prefNote(d)}</div>
           <div class="sub">${(p => p ? `💴 ${esc(p.text)}${p.scope ? `<span class="scope">（${p.scope}）</span>` : ""}` : `<span class="price none">料金は店のページで確認</span>`)(priceFor(d, m))}</div></div>
           <span class="st ${j.s}">${SHORT[j.s]}${d.aff ? `<br><a class="mini" href="${esc(d.aff)}" target="_blank" rel="sponsored noopener">予約<span class="pr">PR</span></a>` : ""}</span>
           ${j.s === "mt" ? `<div class="tip">MT免許の年数は足りないが借りれる場合があるので試す価値あり</div>` : ""}

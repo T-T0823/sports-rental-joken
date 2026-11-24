@@ -14,8 +14,8 @@
   "years": 1,
   "mtFromMt": false,
   "extra": "免許1年未満・ペーパードライバーは高級スポーツカー・オープンカーの貸出不可（原則）",
-  "note": "年齢の下限は書かれておらず、上限は75歳未満。通常の車は免許半年以上で借りられ、1年未満は車両補償が修理実費（上限10万円）になる。",
-  "src": "https://www.glion-rent.com/1695/",
+  "note": "公式サイト（FAQ・利用ガイド）に年齢の条件は書かれていない。免許取得1年未満とペーパードライバーは不可。",
+  "src": "https://www.glion-rent.com/user-guide/faq/",
   "conf": "official",
   "checked": "2026-11-24",
   "active": true,
@@ -23,7 +23,8 @@
    "大阪府",
    "神奈川県"
   ],
-  "price": "日帰り 約1.1万〜7万円（ロードスターMTは日帰り約1.8万円）"
+  "price": "日帰り 約1.1万〜7万円（ロードスターMTは日帰り約1.8万円）",
+  "ageRule": "unstated"
  },
  {
   "id": "mrhiro-mt",
@@ -35,14 +36,14 @@
   ],
   "areaText": "大阪市大正区泉尾（大正駅から送迎あり）",
   "trans": "MT",
-  "age": null,
+  "age": 21,
   "years": 3,
   "mtFromMt": true,
-  "extra": "",
-  "note": "MT車は免許取得3年以上（店のブログ）。年齢の条件は確認できていない（同店のドライビングツアーは21歳以上）。",
-  "src": "https://mrhiro-jdm.com/archives/1350",
+  "extra": "補償プラン加入必須（1日9,000円）",
+  "note": "料金ページに「21歳以上・免許取得から3年以上」。MT車はMT免許になってから3年以上（AT限定解除から3年未満の人はAT車のみ）。",
+  "src": "https://mrhiro-jdm.com/fee/",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府"
@@ -58,14 +59,14 @@
   ],
   "areaText": "大阪市大正区泉尾（大正駅から送迎あり）",
   "trans": "AT",
-  "age": null,
-  "years": null,
+  "age": 21,
+  "years": 3,
   "mtFromMt": false,
-  "extra": "",
-  "note": "店のブログで、免許3年未満の人でもAT車（AE86 AT・NSX AT）なら利用できると案内している。",
-  "src": "https://mrhiro-jdm.com/archives/1350",
+  "extra": "補償プラン加入必須（1日9,000円）",
+  "note": "料金ページに「21歳以上・免許取得から3年以上」。AT限定解除から3年未満でも、免許3年以上ならAT車は借りられる（店のブログ）。",
+  "src": "https://mrhiro-jdm.com/fee/",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府"
@@ -221,15 +222,17 @@
   "years": null,
   "mtFromMt": true,
   "extra": "",
-  "note": "公式ページにはこれらの車の年齢・年数の条件が書かれていない。",
+  "note": "公式のスポーツカーページには、シビック タイプR以外の車の年齢・年数の条件が書かれていない。",
   "src": "https://www.heisei-car.jp/sports-car/",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "岡山県"
   ],
-  "price": "24時間 約2.5万円前後"
+  "price": "24時間 約2.5万円前後",
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "id": "porsche-drive",
@@ -325,14 +328,15 @@
   "years": 0.5,
   "mtFromMt": false,
   "extra": "21歳未満・免許1年未満は免責補償に入れない",
-  "note": "免許取得後6ヶ月未満は断られる場合がある。年齢の下限は書かれていない。",
+  "note": "ご利用方法のページに年齢の条件は書かれていない。免許取得後6ヶ月未満は断られる場合がある。",
   "src": "http://xn--lckwbc1iudubc8e1762buowe.com/guide.html",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "神奈川県"
-  ]
+  ],
+  "ageRule": "unstated"
  },
  {
   "id": "hondacars-tokyochuo",
@@ -348,14 +352,15 @@
   "years": 2,
   "mtFromMt": true,
   "extra": "",
-  "note": "シビック TYPE RはMT免許取得から2年以上（AT限定解除は解除日から）。N-ONE RSは年数の条件なし。年齢の条件は書かれていない。",
+  "note": "公式ページに年齢の条件は書かれていない。MT免許取得後2年以上（AT限定解除の人は解除日から2年）。",
   "src": "https://www.hondamobility-minamikanto.co.jp/corporate/rentacar_mt.html",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "東京都"
-  ]
+  ],
+  "ageRule": "unstated"
  },
  {
   "id": "carrental-tokyo",
@@ -384,25 +389,26 @@
  {
   "id": "porschegate",
   "shop": "ポルシェゲート",
-  "plan": "ポルシェ専門レンタカー",
+  "plan": "月額制のポルシェレンタル（会員制）",
   "cars": "930ターボ・964・993など空冷ポルシェ 911（MT中心）、911ターボS（AT）など",
   "areas": [
    "関西"
   ],
   "areaText": "大阪府箕面市",
   "trans": "MT/AT",
-  "age": null,
-  "years": null,
-  "mtFromMt": true,
-  "extra": "",
-  "note": "条件はまだ確認できていない。",
-  "src": "https://www.kobe-np.co.jp/rentoku/omoshiro/202201/0015020886.shtml",
-  "conf": "article",
-  "checked": "2026-11-23",
+  "age": 26,
+  "years": 5,
+  "mtFromMt": false,
+  "extra": "入会審査あり・最低契約12か月・70歳未満・過去3年に重大な違反がないこと",
+  "note": "今は月額制の会員サービス。入会基準は26歳以上、FAQでは運転歴5年以上・70歳未満・日本国籍か永住権。",
+  "src": "https://www.porschegate.com/guide/",
+  "conf": "official",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府"
-  ]
+  ],
+  "price": "月額 約11万円（2023年の発表）"
  },
  {
   "id": "orush",
@@ -417,13 +423,13 @@
   "areaText": "大阪・神戸・宝塚・京都・奈良、東京・千葉・名古屋",
   "trans": "不明",
   "age": null,
-  "years": null,
+  "years": 3,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件は公式の利用ガイドにある可能性があるが、まだ確認できていない。",
-  "src": "https://www.o-rush-rent-a-car.com/",
+  "note": "「免許取得日から3年間はご利用いただけません」とある。年齢の条件は書かれていない。",
+  "src": "https://www.o-rush-rent-a-car.com/guide-personal",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府",
@@ -433,7 +439,8 @@
    "東京都",
    "千葉県",
    "愛知県"
-  ]
+  ],
+  "ageRule": "unstated"
  },
  {
   "id": "carbon-bonnet",
@@ -446,18 +453,19 @@
   "areaText": "京都",
   "trans": "不明",
   "age": null,
-  "years": null,
+  "years": 1,
   "mtFromMt": false,
   "extra": "免責額20万円（免責補償は対象外）",
-  "note": "年齢・年数の条件はまだ確認できていない。",
-  "src": "https://www.carbon-bonnet.jp/%E3%81%8A%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84%E8%BB%8A%E7%A8%AE/%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%82%AB%E3%83%BC/",
+  "note": "FAQで「初心者・未成年でも、免許取得後1年以上なら利用できる」としている（貸渡時に審査あり）。",
+  "src": "https://www.carbon-bonnet.jp/よくあるご質問/ご利用資格-条件に関するご質問/",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "京都府"
   ],
-  "price": "1日 約4.4万円"
+  "price": "1日 約4.4万円",
+  "ageRule": "none"
  },
  {
   "id": "trl-osaka-gr86",
@@ -473,15 +481,17 @@
   "years": null,
   "mtFromMt": false,
   "extra": "クレジットカード決済のみ",
-  "note": "スポーツカー向けの特別な年齢・年数の条件は確認できていない。",
+  "note": "スポーツカー向けの特別な年齢・年数の条件は確認できていない。／GR86のページに年齢・年数の条件は書かれていない。トヨタレンタカー公式FAQでは「原則として初心者や未成年でも利用できるが、店舗によっては年齢制限がある」とされている。",
   "src": "https://rent-a-car.trlosaka.co.jp/bf_sp1_gr86",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "prefs": [
    "大阪府"
   ],
-  "price": "6時間 約1万円／24時間 約1.7万円"
+  "price": "6時間 約1万円／24時間 約1.7万円",
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "id": "times-servicex",
@@ -754,9 +764,9 @@
   "years": 1,
   "mtFromMt": false,
   "extra": "",
-  "note": "MT車は免許取得1年未満は不可。AT車は制約なし。年齢の条件は書かれていない。",
+  "note": "MT車プランは免許取得1年未満は不可（AT車プランは制約なし）。スカイレンタカーのFAQでは初心者も利用可で、年齢の条件は書かれていない。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "sky-s660",
   "shop": "スカイレンタカー",
@@ -767,7 +777,8 @@
    "東京都"
   ],
   "aff": "https://px.a8.net/svt/ejp?a8mat=4BGSTD+D7PEO2+2AIA+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.skyrent.jp%2Fcampaigns%2Fsportscar%2F",
-  "affLabel": "スカイレンタカーで予約・料金を見る"
+  "affLabel": "スカイレンタカーで予約・料金を見る",
+  "ageRule": "none"
  },
  {
   "areas": [
@@ -776,12 +787,12 @@
   "areaText": "埼玉県内の店舗（武蔵浦和駅前店・春日部店を除く）",
   "trans": "MT",
   "age": null,
-  "years": 3,
+  "years": null,
   "mtFromMt": true,
   "extra": "契約者本人の運転に限る・サーキット不可",
-  "note": "MT免許取得3年以上。年齢の条件は書かれていない（未成年は保護者の同意が必要）。",
+  "note": "FAQでは「貸出条件は特にございません（未成年は保護者の同意が必要。GRヤリスなど一部車種は未成年不可）」。GR86・GRヤリスはMT免許の人に限る。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "toyota-saitama",
   "shop": "トヨタレンタリース埼玉",
@@ -790,7 +801,9 @@
   "src": "https://toyota-rlss.co.jp/faq-cat/rental-car",
   "prefs": [
    "埼玉県"
-  ]
+  ],
+  "ageRule": "none",
+  "yearsRule": "none"
  },
  {
   "areas": [
@@ -807,9 +820,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "クレジットカード払いのみ",
-  "note": "条件は地域の運営会社ごとに違う（例：埼玉はMT免許3年以上）。予約前に出発店舗へ確認が必要。",
+  "note": "条件は地域の運営会社ごとに違う（例：埼玉はMT免許3年以上）。予約前に出発店舗へ確認が必要。／GR86のページに年齢・年数の条件は書かれていない。トヨタレンタカー公式FAQでは「原則として初心者や未成年でも利用できるが、店舗によっては年齢制限がある」とされている。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "toyota-national",
   "shop": "トヨタレンタカー",
@@ -829,7 +842,9 @@
    "大阪府",
    "兵庫県"
   ],
-  "price": "6時間 約1万円〜（店舗により異なる）"
+  "price": "6時間 約1万円〜（店舗により異なる）",
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -841,9 +856,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "クレジットカード払いのみ",
-  "note": "年齢・年数の条件は書かれていない。GRカローラ（MT）はMT免許3年以上。",
+  "note": "年齢・年数の条件は書かれていない。GRカローラ（MT）はMT免許3年以上。／GR86のページに年齢・年数の条件は書かれていない。トヨタレンタカー公式FAQでは「原則として初心者や未成年でも利用できるが、店舗によっては年齢制限がある」とされている。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "toyota-kyoto",
   "shop": "トヨタレンタリース京都",
@@ -852,7 +867,9 @@
   "src": "https://www.r-kyoto.co.jp/kyotoservice/kyotoservice-3074/",
   "prefs": [
    "京都府"
-  ]
+  ],
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -864,9 +881,9 @@
   "years": 5,
   "mtFromMt": false,
   "extra": "",
-  "note": "MT車は普通免許取得後5年以上（2021年の案内）。",
+  "note": "MT車は「普通免許取得後5年以上」。年齢の条件は書かれていない。トヨタレンタカー公式FAQでは「原則として初心者や未成年でも利用できるが、店舗によっては年齢制限がある」とされている。",
   "conf": "old",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "toyota-kobe",
   "shop": "トヨタレンタリース神戸",
@@ -876,7 +893,8 @@
   "prefs": [
    "兵庫県"
   ],
-  "price": "6時間 約1万円"
+  "price": "6時間 約1万円",
+  "ageRule": "unstated"
  },
  {
   "areas": [
@@ -1198,9 +1216,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "年齢制限なしとする記事あり（2021年）。公式ページには条件の記載が見当たらない。",
+  "note": "希少車レンタルのページに年齢・年数の条件は書かれていない。",
   "conf": "article",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "netz-fukuoka",
   "shop": "ネッツトヨタ福岡",
@@ -1210,7 +1228,9 @@
   "prefs": [
    "福岡県"
   ],
-  "price": "1日 約2万〜3万円（スポーツカー）"
+  "price": "1日 約2万〜3万円（スポーツカー）",
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -1222,9 +1242,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件はまだ確認できていない。",
+  "note": "公式に「年齢制限や免許取得からの年数制限などはありません。どなたでもレンタル可能」とある。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "spoca",
   "shop": "スポカレンタカー",
@@ -1234,7 +1254,9 @@
   "prefs": [
    "福岡県"
   ],
-  "price": "約1.1万円〜"
+  "price": "約1.1万円〜",
+  "ageRule": "none",
+  "yearsRule": "none"
  },
  {
   "areas": [
@@ -1294,19 +1316,21 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "GLIONグループ。条件はまだ確認できていない。",
+  "note": "公式FAQに「運転経験や年齢制限は設けておりません」とある。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "ryukyu-premium",
   "shop": "RYUKYU PREMIUM DRIVE（琉球プレミアムドライブ）",
   "plan": "プレミアムカー",
   "cars": "GT-R Black Edition・ポルシェ・ベンツ CLE カブリオレ・MINI コンバーチブルなど",
-  "src": "https://gpryukyu.co.jp/",
+  "src": "https://gpryukyu.co.jp/guide/",
   "prefs": [
    "沖縄県"
   ],
-  "price": "1泊2日 約2.3万〜11.9万円"
+  "price": "1泊2日 約2.3万〜11.9万円",
+  "ageRule": "none",
+  "yearsRule": "none"
  },
  {
   "areas": [
@@ -1318,9 +1342,9 @@
   "years": 1,
   "mtFromMt": false,
   "extra": "",
-  "note": "カーシェア。サービス全体で免許取得1年未満は利用不可（記事）。",
+  "note": "カーシェアの入会条件は免許取得後1年以上（記事）。年齢の条件は見つからない。",
   "conf": "article",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "mitsui-carshares",
   "shop": "三井のカーシェアーズ",
@@ -1328,7 +1352,8 @@
   "cars": "トヨタ GR86 SZ",
   "src": "https://www.carshares.jp/car/sports/",
   "prefs": [],
-  "price": "15分 290円〜／夜間パック 約0.9万円〜"
+  "price": "15分 290円〜／夜間パック 約0.9万円〜",
+  "ageRule": "unstated"
  },
  {
   "areas": [
@@ -1340,9 +1365,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件はまだ確認できていない。",
+  "note": "公式FAQで「20歳未満でも貸出可能（家族の同意を取る場合あり）」とある。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "100yen-izumi",
   "shop": "100円レンタカー",
@@ -1352,7 +1377,9 @@
   "prefs": [
    "宮城県"
   ],
-  "price": "24時間 約1.8万円"
+  "price": "24時間 約1.8万円",
+  "ageRule": "none",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -1408,22 +1435,23 @@
   "areaText": "札幌",
   "trans": "車種による",
   "age": null,
-  "years": null,
+  "years": 5,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件はまだ確認できていない。",
+  "note": "「免許取得後、実際の運転経験5年以上の方限定」とある。年齢の条件は書かれていない。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "fox-premium",
   "shop": "FOXプレミアムレンタカー",
   "plan": "高級車・オープンカー",
   "cars": "BMW・メルセデス・国産スポーツカーなど",
-  "src": "https://fox-r.jp/",
+  "src": "https://fox-r.jp/guide/",
   "prefs": [
    "北海道"
   ],
-  "price": "1日 約1.5万〜6.9万円"
+  "price": "1日 約1.5万〜6.9万円",
+  "ageRule": "unstated"
  },
  {
   "areas": [
@@ -1431,11 +1459,11 @@
   ],
   "areaText": "大阪市中央区南船場（心斎橋）",
   "trans": "AT",
-  "age": null,
+  "age": 18,
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "主に訪日客向け。予約サイトでは18歳未満は不可とされているが、日本の免許での条件は確認できていない。",
+  "note": "予約サイトに「18歳未満の運転手は参加不可」とある。主に訪日客向け。",
   "conf": "article",
   "checked": "2026-11-24",
   "active": true,
@@ -1447,7 +1475,8 @@
   "prefs": [
    "大阪府"
   ],
-  "price": "約2.2万円〜（予約サイト掲載）"
+  "price": "約2.2万円〜（予約サイト掲載）",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -1609,9 +1638,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件はまだ確認できていない。",
+  "note": "公式サイト（利用の流れ・規約）に年齢・年数の条件は書かれていない。",
   "conf": "official",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "ss-rentacar",
   "shop": "SSレンタカー",
@@ -1621,7 +1650,9 @@
   "prefs": [
    "大阪府"
   ],
-  "price": "3時間 約6万円〜／24時間 約15.8万円（ウラカン）"
+  "price": "3時間 約6万円〜／24時間 約15.8万円（ウラカン）",
+  "ageRule": "unstated",
+  "yearsRule": "unstated"
  },
  {
   "areas": [
@@ -1633,9 +1664,9 @@
   "years": null,
   "mtFromMt": false,
   "extra": "",
-  "note": "条件はまだ確認できていない。",
+  "note": "公式の条件は確認できていない（口コミサイトの店舗情報による）。",
   "conf": "article",
-  "checked": "2026-11-23",
+  "checked": "2026-11-24",
   "active": true,
   "id": "executive-fukuoka",
   "shop": "エグゼクティブレンタカー",
@@ -1644,6 +1675,7 @@
   "src": "https://www.ekiten.jp/shop_6757633",
   "prefs": [
    "福岡県"
-  ]
+  ],
+  "price": "24時間 約1.8万〜4.2万円"
  }
 ]

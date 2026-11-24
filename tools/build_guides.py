@@ -15,18 +15,21 @@ def table(rows, note_col=False):
         return "<p>今のところ該当する店は見つかっていません。</p>"
     out = ['<div class="tw"><table><thead><tr><th>店</th><th>主な車種</th><th>年齢</th><th>免許の年数</th><th>MT/AT</th><th>場所</th><th>料金の目安</th></tr></thead><tbody>']
     for d in rows:
-        yrs = num(d["years"]) + "年〜" + ("<br><small>MTはMT免許から</small>" if d.get("mtFromMt") and "MT" in d["trans"] and d["years"] is not None else "")
+        yrs = (num(d["years"]) + "年〜" if d["years"] is not None else {"none":"制限なし","unstated":"記載なし"}.get(d.get("yearsRule"),"?")) + ("<br><small>MTはMT免許から</small>" if d.get("mtFromMt") and "MT" in d["trans"] and d["years"] is not None else "")
         link = d.get("aff") or d["src"]
         rel = "sponsored noopener" if d.get("aff") else "noopener nofollow"
         pr = '<span class="pr">PR</span>' if d.get("aff") else ""
         out.append(f'<tr><td class="sh"><a href="{e(link)}" target="_blank" rel="{rel}">{e(d["shop"])}</a>{pr}<br><small>{e(d["plan"])}</small></td>'
-                   f'<td data-l="主な車種"><span>{e(d["cars"])}</span></td><td data-l="年齢"><span>{num(d["age"])}歳〜</span></td><td data-l="免許の年数"><span>{yrs}</span></td><td data-l="MT/AT"><span>{e(d["trans"])}</span></td>'
+                   f'<td data-l="主な車種"><span>{e(d["cars"])}</span></td><td data-l="年齢"><span>{agetxt(d)}</span></td><td data-l="免許の年数"><span>{yrs}</span></td><td data-l="MT/AT"><span>{e(d["trans"])}</span></td>'
                    f'<td data-l="場所"><span>{e(d["areaText"])}</span></td><td data-l="料金の目安"><span>{e(d.get("price") or "店のページで確認")}</span></td></tr>')
     out.append("</tbody></table></div>")
     return "".join(out)
 
+def agetxt(d):
+    if d["age"] is not None: return f'{d["age"]}歳〜'
+    return {"none":"制限なし","unstated":"記載なし"}.get(d.get("ageRule"),"?")
+def known(d): return d["age"] is not None or d["years"] is not None or d.get("ageRule") or d.get("yearsRule")
 def has(d, pat): return re.search(pat, d["cars"] + d["plan"]) is not None
-def known(d): return d["age"] is not None or d["years"] is not None
 def sort(rows): return sorted(rows, key=lambda d: (d["age"] if d["age"] is not None else 99, d["years"] if d["years"] is not None else 99))
 
 GUIDES = []
@@ -38,7 +41,7 @@ young = sort([d for d in D if known(d) and (d["age"] is None or d["age"] <= 21) 
 guide("young-21", "21歳・免許1年でも借りられるスポーツカー・高級車レンタカー",
  "21歳以下・免許取得1年程度でも借りられるスポーツカーと高級車のレンタカーを、年齢と免許の年数の条件でまとめました。",
  f"""<p>スポーツカーや高級車のレンタカーは「25歳以上・免許3年以上」のような厳しい条件が多く、20代前半だと断られることがよくあります。それでも、条件のゆるい店は全国にいくつかあります。</p>
-<p>このページでは、<b>21歳以下でも、免許を取って1年ほどでも借りられる可能性がある店</b>だけを集めました。年齢の条件が書かれていない店は「?」としています。</p>
+<p>このページでは、<b>21歳以下でも、免許を取って1年ほどでも借りられる可能性がある店</b>だけを集めました。「制限なし」は公式に制限がないと書かれている店、「記載なし」は公式に条件が書かれていない店です。記載なしの店は、予約の前に店へ確認してください。</p>
 <h2>条件のゆるい店の一覧</h2>
 {table(young)}
 <h2>若い人が借りるときの注意</h2>
