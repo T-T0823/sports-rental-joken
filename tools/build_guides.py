@@ -129,11 +129,11 @@ th,td{padding:8px 10px;border-bottom:1px solid #2a3036;text-align:left;vertical-
 .pr{font-size:10px;border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:5px;color:#f0b429}
 .cta{display:inline-block;margin-top:18px;padding:10px 16px;background:#f0b429;color:#111;border-radius:9px;font-weight:700;text-decoration:none}
 .list a{display:block;padding:10px 0;border-bottom:1px solid #2a3036;text-decoration:none}nav{font-size:13px}
+.prbox{margin:22px 0;padding:14px 16px;border:1px solid #3a3320;background:#1a1710;border-radius:12px;font-size:14px}.prbox a{font-weight:700;margin-left:4px}
 footer{color:#9aa4ad;font-size:12px;border-top:1px solid #2a3036;padding:18px;text-align:center}footer a{color:inherit}"""
 
 def page(path, title, desc, body, canonical):
-    ad = any(d.get("aff") for d in D)
-    note = '<p class="meta">当サイトはアフィリエイト広告（「PR」と表示したリンク）を利用しています。</p>' if ad else ""
+    note = '<p class="meta">当サイトはアフィリエイト広告（「PR」と表示したリンク）を利用しています。</p>'
     return f"""<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}｜スポーツカー・高級車レンタカー 貸出条件くらべ</title>
@@ -144,6 +144,8 @@ def page(path, title, desc, body, canonical):
 <h1>{e(title)}</h1><p class="meta">更新日 {TODAY}　／　掲載の条件は各店の公式ページなどで確認したものです。予約の前に必ず公式ページで確認してください。</p>{note}
 {body}
 <a class="cta" href="../">自分の年齢と免許の年数で判定する →</a>
+<aside class="prbox"><span class="pr">PR</span> スポーツカー以外の普通のレンタカーも、まとめて安く探すなら
+  <a href="https://af.moshimo.com/af/c/click?a_id=5919875&amp;p_id=5701&amp;pc_id=15749&amp;pl_id=74036" target="_blank" rel="sponsored noopener">たびらいレンタカーで料金を比較する →</a><img src="https://i.moshimo.com/af/i/impression?a_id=5919875&amp;p_id=5701&amp;pc_id=15749&amp;pl_id=74036" width="1" height="1" style="border:none" alt="" loading="lazy"></aside>
 </div><footer><a href="../privacy.html">運営者情報・プライバシーポリシー・広告について</a></footer></body></html>"""
 
 os.makedirs(os.path.join(ROOT, "guide"), exist_ok=True)
